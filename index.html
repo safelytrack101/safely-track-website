@@ -1253,6 +1253,13 @@
     document.getElementById('modal-title').textContent = m.title;
     document.getElementById('modal-sub').textContent = m.sub;
     document.getElementById('form-type').value = m.type;
+    // Reset Formspree SDK state so success/error don't persist between opens
+    const successEl = document.querySelector('[data-fs-success]');
+    const errorEl = document.querySelector('[data-fs-error]');
+    const form = document.getElementById('modal-form');
+    if (successEl) successEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'none';
+    if (form) { form.style.display = 'block'; form.reset(); }
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
