@@ -771,6 +771,160 @@ footer {
   border: none;
 }
 
+/* ── AI REPORTS ── */
+.ai-reports-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 48px;
+}
+.ai-inputs-col { display: flex; flex-direction: column; gap: 12px; }
+.ai-input-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius);
+}
+.ai-input-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--orange-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.ai-input-card h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.ai-input-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.ai-transform-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  margin-top: 4px;
+}
+.ai-output-card {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+.ai-output-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.ai-output-sub {
+  color: #8890B8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.ai-output-features { list-style: none; margin-bottom: 24px; }
+.ai-output-features li {
+  font-size: 13px;
+  color: #8890B8;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.ai-output-features li:last-child { border-bottom: none; }
+.ai-output-features li::before { content: '→'; color: var(--orange); font-weight: 600; flex-shrink: 0; }
+.ai-templates { display: flex; flex-wrap: wrap; gap: 8px; }
+.ai-template-chip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: #8890B8;
+}
+
+/* ── PILOT FORM ── */
+.pilot-form-wrap {
+  max-width: 540px;
+  margin: 0 auto;
+  background: var(--off-white);
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  padding: 40px 36px;
+}
+.pilot-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.form-field-light label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.form-field-light input {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 4px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--text);
+  font-family: var(--font-body);
+  transition: border-color .15s;
+  outline: none;
+}
+.form-field-light input:focus { border-color: var(--orange); }
+.pilot-intent { margin-bottom: 18px; }
+.intent-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.intent-options { display: flex; gap: 16px; flex-wrap: wrap; }
+.intent-opt { display: flex; align-items: center; gap: 7px; font-size: 14px; color: var(--text); cursor: pointer; }
+.intent-opt input[type="radio"] { accent-color: var(--orange); }
+.btn-form-light {
+  width: 100%;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 13px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-form-light:hover { background: #d05a08; }
+.form-privacy-light { font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center; }
+.pilot-form-success { display: none; text-align: center; padding: 24px 0; }
+.pilot-form-success .success-icon { font-size: 36px; margin-bottom: 12px; }
+.pilot-form-success h4 { font-family: var(--font-display); font-size: 22px; color: var(--dark); margin-bottom: 8px; }
+.pilot-form-success p { font-size: 14px; color: var(--text-muted); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .steps { grid-template-columns: 1fr 1fr; }
@@ -781,9 +935,12 @@ footer {
   .cs-teaser { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .hero-stats { gap: 28px; }
+  .ai-reports-grid { grid-template-columns: 1fr; }
+  .pilot-form-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 540px) {
   .steps { grid-template-columns: 1fr; }
+  .pilot-form-wrap { padding: 28px 20px; }
 }
 </style>
 </head>
@@ -927,6 +1084,60 @@ footer {
   </div>
 </section>
 
+<!-- AI REPORTS -->
+<section class="section" id="ai-reports">
+  <div class="inner">
+    <div class="section-eyebrow">AI-Powered Field Reports</div>
+    <h2>Unstructured inputs. Formatted reports. Done in seconds.</h2>
+    <p class="section-intro">Field supervisors speak, snap, or type what they observed. Safely Track's AI turns that raw input into a structured report — based on the exact template your company requires.</p>
+
+    <div class="ai-reports-grid">
+      <div class="ai-inputs-col">
+        <div class="ai-input-card">
+          <div class="ai-input-icon">🎤</div>
+          <div>
+            <h4>Voice Memo</h4>
+            <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions — no typing required.</p>
+          </div>
+        </div>
+        <div class="ai-input-card">
+          <div class="ai-input-icon">📷</div>
+          <div>
+            <h4>Site Photos</h4>
+            <p>Weather, conditions, signage, crew — AI analyzes everything visible and incorporates it automatically into the report.</p>
+          </div>
+        </div>
+        <div class="ai-input-card">
+          <div class="ai-input-icon">📝</div>
+          <div>
+            <h4>Text Notes</h4>
+            <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
+          </div>
+        </div>
+        <div class="ai-transform-chip">✦ &nbsp;AI structures everything into your template</div>
+      </div>
+
+      <div class="ai-output-card">
+        <div class="section-eyebrow section-eyebrow-white">Output</div>
+        <h3>The report your company actually requires</h3>
+        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your company's specific daily report, inspection checklist, or incident log — formatted consistently, every time, across every supervisor and site.</p>
+        <ul class="ai-output-features">
+          <li>Company-specific templates, not generic outputs</li>
+          <li>AI auto-fills fields from voice and photo analysis</li>
+          <li>Supervisor reviews, edits, and confirms before finalizing</li>
+          <li>Exportable — audit-ready in one click</li>
+        </ul>
+        <div class="ai-templates">
+          <span class="ai-template-chip">Daily Report</span>
+          <span class="ai-template-chip">Inspection Report</span>
+          <span class="ai-template-chip">Incident Log</span>
+          <span class="ai-template-chip">Safety Observation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMPARISON -->
 <section class="section">
   <div class="inner">
@@ -1029,7 +1240,7 @@ footer {
       <div>
         <div class="cs-tag">Customer Story</div>
         <h3>How a multi-site EHS consulting firm closed the proof-of-fix gap</h3>
-        <p>A 10-person consulting firm managing 10–15 active GC sites per account executive replaced manual closeout follow-up with a documented, audit-ready loop — for every site, every observation.</p>
+        <p>A mid-size EHS consulting firm managing multiple active GC client sites replaced manual closeout follow-up with a documented, audit-ready loop — for every site, every observation.</p>
         <div class="cs-stats">
           <div class="cs-stat">
             <div class="n">&lt;60s</div>
@@ -1105,9 +1316,50 @@ footer {
     <div class="section-eyebrow" style="text-align:center">Get Started</div>
     <h2>See Safely Track on your sites.</h2>
     <p>Start with one site. Onboarding takes under an hour. See results in the first week.</p>
-    <div class="pilot-actions">
-      <a href="https://app.usesafelytrack.com" class="btn-primary">Start Your Pilot →</a>
-      <a href="mailto:thomas@usesafelytrack.com" class="btn-secondary">Book a 20-minute walkthrough</a>
+
+    <div class="pilot-form-wrap">
+      <div id="pilot-form-container">
+        <form id="pilot-form" onsubmit="handlePilotSubmit(event)">
+          <div class="pilot-form-grid">
+            <div class="form-field-light">
+              <label for="pf-name">Name</label>
+              <input type="text" id="pf-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field-light">
+              <label for="pf-company">Company</label>
+              <input type="text" id="pf-company" name="company" placeholder="Company name" required>
+            </div>
+            <div class="form-field-light">
+              <label for="pf-email">Work Email</label>
+              <input type="email" id="pf-email" name="email" placeholder="you@company.com" required>
+            </div>
+            <div class="form-field-light">
+              <label for="pf-phone">Phone</label>
+              <input type="tel" id="pf-phone" name="phone" placeholder="(555) 000-0000">
+            </div>
+          </div>
+          <div class="pilot-intent">
+            <span class="intent-label">I'm interested in</span>
+            <div class="intent-options">
+              <label class="intent-opt">
+                <input type="radio" name="interest" value="Starting a pilot" checked>
+                <span>Starting a pilot</span>
+              </label>
+              <label class="intent-opt">
+                <input type="radio" name="interest" value="Booking a 20-minute walkthrough">
+                <span>Booking a 20-minute walkthrough</span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn-form-light">Request Access →</button>
+          <p class="form-privacy-light">Thomas will follow up within one business day.</p>
+        </form>
+      </div>
+      <div class="pilot-form-success" id="pilot-form-success">
+        <div class="success-icon">✓</div>
+        <h4>Request received.</h4>
+        <p>Thomas will be in touch within one business day.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1129,6 +1381,33 @@ footer {
 </footer>
 
 <script>
+async function handlePilotSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  const data = new FormData(form);
+  data.append('_subject', 'New Lead — Safely Track Website');
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/thomas@usesafelytrack.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    if (res.ok) {
+      document.getElementById('pilot-form-container').style.display = 'none';
+      document.getElementById('pilot-form-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Request Access →';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Request Access →';
+    btn.disabled = false;
+  }
+}
+
 function handleWpSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('wp-name').value;
