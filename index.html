@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Safely Track — Jobsite Hazard Closeout for EHS Consultants & Contractors</title>
-<meta name="description" content="Safely Track closes the observation-to-proof-of-fix loop. Log a hazard in under 60 seconds, assign via SMS, collect proof automatically. Built for EHS consulting firms managing multi-site portfolios.">
-<meta property="og:title" content="Safely Track — Jobsite Hazard Closeout">
-<meta property="og:description" content="The fastest path from hazard spotted to defensible proof-of-fix. No logins. No training. Works via SMS.">
+<title>Safely Track — Field Reports &amp; Hazard Closeout for EHS Consulting Firms</title>
+<meta name="description" content="Turn field observations into client-ready reports in minutes. Safely Track drafts reports from photos, notes, and voice memos — built for EHS consulting firms managing multi-site portfolios.">
+<meta property="og:title" content="Safely Track — Built for EHS Consulting Firms">
+<meta property="og:description" content="From field observation to client-ready report — without the office rebuild. AI drafting, automated client comms, portfolio-wide dashboard.">
 <meta property="og:url" content="https://usesafelytrack.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -60,14 +60,15 @@ nav {
   justify-content: space-between;
 }
 .nav-logo {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 17px;
-  color: var(--dark);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--orange); }
+.nav-logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 .nav-links {
   display: flex;
   gap: 32px;
@@ -730,12 +731,18 @@ footer {
   gap: 16px;
 }
 .footer-logo {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--white);
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
-.footer-logo span { color: var(--orange); }
+.footer-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+  background: var(--white);
+  border-radius: 4px;
+  padding: 3px 8px;
+}
 .footer-links {
   display: flex;
   gap: 24px;
@@ -855,6 +862,80 @@ footer {
   color: #8890B8;
 }
 
+/* ── PORTFOLIO DASHBOARD ── */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+.filter-chip {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.filter-chip::before { content: '↓'; color: var(--orange); font-size: 11px; font-weight: 700; }
+
+/* ── CLIENT COMMUNICATIONS ── */
+.comms-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.comms-feature {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.comms-feature h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.comms-feature p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ── ROI BAND ── */
+.roi-band {
+  background: var(--dark);
+  padding: 72px 24px;
+}
+.roi-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.roi-inner h2 { color: var(--white); margin-bottom: 40px; }
+.roi-stats {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+.roi-stat {
+  max-width: 280px;
+  text-align: center;
+}
+.roi-stat p {
+  font-size: 17px;
+  color: #8890B8;
+  line-height: 1.6;
+}
+.roi-stat strong { color: var(--white); }
+
 /* ── PILOT FORM ── */
 .pilot-form-wrap {
   max-width: 540px;
@@ -937,6 +1018,8 @@ footer {
   .hero-stats { gap: 28px; }
   .ai-reports-grid { grid-template-columns: 1fr; }
   .pilot-form-grid { grid-template-columns: 1fr; }
+  .comms-features { grid-template-columns: 1fr; }
+  .roi-stats { gap: 28px; }
 }
 @media (max-width: 540px) {
   .steps { grid-template-columns: 1fr; }
@@ -949,10 +1032,11 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#home" class="nav-logo">Safely<span>Track</span></a>
+    <a href="#home" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
       <li><a href="#problem">The Problem</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#ai-reports">AI Reports</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#pilot" class="nav-cta">Start a Pilot</a></li>
@@ -963,29 +1047,25 @@ footer {
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-label">Built for EHS Consulting Firms &amp; Safety Directors</div>
-    <h1>Close the loop on jobsite hazards — <em>in under a minute.</em></h1>
-    <p class="hero-sub">Log a hazard, assign the fix via SMS, collect proof automatically. Every observation becomes a defensible audit record. No logins, no training required for field workers.</p>
+    <div class="hero-label">Built for EHS Consulting Firms Managing Multi-Site Client Portfolios</div>
+    <h1>Your field evidence is already there.<br><em>Stop spending hours rebuilding it into a report.</em></h1>
+    <p class="hero-sub">Safely Track turns your photos, notes, and field observations into structured, client-facing reports — drafted by AI, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
     <div class="hero-actions">
       <a href="#pilot" class="btn-primary">Start Your Pilot</a>
-      <a href="#how-it-works" class="btn-ghost">See how it works →</a>
+      <a href="https://youtu.be/H1SZ1qoUJp8" target="_blank" rel="noopener" class="btn-ghost">Watch the 3-min demo →</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="num">&lt;60s</div>
-        <div class="label">to log and assign a hazard observation</div>
+        <div class="num">15x+</div>
+        <div class="label">return on Safely Track spend</div>
       </div>
       <div class="hero-stat">
-        <div class="num">0</div>
-        <div class="label">logins required for foremen receiving fix requests</div>
+        <div class="num">2–4 hrs</div>
+        <div class="label">recovered per report for billable field work</div>
       </div>
       <div class="hero-stat">
-        <div class="num">150+</div>
-        <div class="label">field interviews behind the product design</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">10+</div>
-        <div class="label">active jobsites running the closeout workflow today</div>
+        <div class="num">2+</div>
+        <div class="label">new clients each consultant can take on — without adding headcount</div>
       </div>
     </div>
   </div>
@@ -995,33 +1075,192 @@ footer {
 <section class="section section-alt" id="problem">
   <div class="inner">
     <div class="section-eyebrow">The Problem</div>
-    <h2>Hazards get noticed. Then they disappear.</h2>
-    <p class="section-intro">Right now, "proof that a hazard was fixed" lives on someone's phone — buried in a text thread, a camera roll, or someone's memory. When OSHA audits or an injury occurs, your record doesn't exist.</p>
+    <h2>The work happens in the field. The bottleneck is what comes after.</h2>
+    <p class="section-intro">Your inspectors already collect everything: photos, observations, follow-ups, site context. The problem is that evidence lives in camera rolls, voice memos, and texts — and turning it into a clean, client-facing report means hours of manual reconstruction back at the office. That's not a field problem. It's an operations problem.</p>
 
     <div class="problem-quotes">
       <div class="quote-card">
-        <p>"The photos in the conversation are on somebody's phone. That's not in my file when I close out my job."</p>
-        <div class="attr">— President, Construction Installation Subcontractor</div>
+        <p>"There are 30–50 platforms out there, but none of them fit the mold of a consultant."</p>
+        <div class="attr">— COO, EHS Consulting Firm (Safely Track customer)</div>
       </div>
       <div class="quote-card">
-        <p>"We don't know what's happening unless someone gets hurt. Then it's too late."</p>
-        <div class="attr">— COO, Safety Consultant Firm</div>
+        <p>"The photos in the conversation are on somebody's phone. That's not in my file when I close out my job."</p>
+        <div class="attr">— President, Construction Installation Subcontractor</div>
       </div>
     </div>
 
     <div class="stat-callout">
       <div class="num">&gt;80%</div>
-      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong> — with no owner assigned, no deadline set, and no proof of fix recorded. That's the gap Safely Track closes.</p>
+      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong> — with no structured record, no owner assigned, and no proof of fix. That's the documentation gap that ends up in your report queue.</p>
     </div>
   </div>
 </section>
 
-<!-- COST -->
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="inner">
+    <div class="section-eyebrow">The Solution</div>
+    <h2>One workflow. Field observation to client-ready report.</h2>
+    <p class="section-intro">Built around the consultant's workflow — not a single GC's safety checklist. Four steps, from site to send, without hours at the desk.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Start with what the client expects</h3>
+        <p>Select the report type your client requires — daily report, inspection checklist, incident log, safety observation. Safely Track knows your template.</p>
+        <span class="step-note">Client-specific templates</span>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Add your field inputs</h3>
+        <p>Upload photos, voice memos, or typed notes. AI analyzes them, extracts location, hazard type, crew, and corrective actions — and structures everything into a report draft. No blank page.</p>
+        <span class="step-note">AI-assisted</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Review and refine</h3>
+        <p>The AI drafts. You're the expert. Review the language, edit where needed, and confirm before it goes to the client. Every report meets your firm's standards.</p>
+        <span class="step-note">You stay in control</span>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Send and track</h3>
+        <p>Reports deliver automatically. Clients get routine digests and weekly summaries without a single manual follow-up. Data stays searchable across your entire portfolio.</p>
+        <span class="step-note">Automated delivery</span>
+      </div>
+    </div>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/H1SZ1qoUJp8" allowfullscreen loading="lazy" title="Safely Track consultant workflow demo"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- AI REPORTS -->
+<section class="section section-alt" id="ai-reports">
+  <div class="inner">
+    <div class="section-eyebrow">AI-Powered Field Reports</div>
+    <h2>Unstructured inputs. Client-ready reports. Done in seconds.</h2>
+    <p class="section-intro">Your inspectors speak, snap, or type what they observed. Safely Track's AI turns that raw input into a structured report — based on the exact template your client requires.</p>
+
+    <div class="ai-reports-grid">
+      <div class="ai-inputs-col">
+        <div class="ai-input-card">
+          <div class="ai-input-icon">🎤</div>
+          <div>
+            <h4>Voice Memo</h4>
+            <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions — no typing required.</p>
+          </div>
+        </div>
+        <div class="ai-input-card">
+          <div class="ai-input-icon">📷</div>
+          <div>
+            <h4>Site Photos</h4>
+            <p>Weather, conditions, signage, crew — AI analyzes everything visible and incorporates it automatically into the report.</p>
+          </div>
+        </div>
+        <div class="ai-input-card">
+          <div class="ai-input-icon">📝</div>
+          <div>
+            <h4>Text Notes</h4>
+            <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
+          </div>
+        </div>
+        <div class="ai-transform-chip">✦ &nbsp;Our AI structures everything into your client's template</div>
+      </div>
+
+      <div class="ai-output-card">
+        <div class="section-eyebrow section-eyebrow-white">Output</div>
+        <h3>The report your client actually requires</h3>
+        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your client's specific daily report, inspection checklist, or incident log — formatted consistently, every time, across every inspector and site.</p>
+        <ul class="ai-output-features">
+          <li>Client-specific templates, not generic outputs</li>
+          <li>AI auto-fills fields from voice and photo analysis</li>
+          <li>You review, edit, and confirm before it goes to the client</li>
+          <li>Exportable — client-ready in one click</li>
+        </ul>
+        <div class="ai-templates">
+          <span class="ai-template-chip">Daily Report</span>
+          <span class="ai-template-chip">Inspection Report</span>
+          <span class="ai-template-chip">Incident Log</span>
+          <span class="ai-template-chip">Safety Observation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO DASHBOARD -->
+<section class="section" id="portfolio">
+  <div class="inner">
+    <div class="section-eyebrow">Portfolio Dashboard</div>
+    <h2>Your field data, working across your entire client portfolio.</h2>
+    <p class="section-intro">Every report feeds a searchable data asset. Filter by client, project, contractor, issue type, or OSHA category. Spot repeat hazard patterns before they become incidents — across all your sites, not just one.</p>
+
+    <div class="portfolio-filters">
+      <span class="filter-chip">By Client</span>
+      <span class="filter-chip">By Project</span>
+      <span class="filter-chip">By Contractor</span>
+      <span class="filter-chip">By Issue Type</span>
+      <span class="filter-chip">By OSHA Category</span>
+      <span class="filter-chip">By Date Range</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT COMMUNICATIONS -->
+<section class="section section-alt" id="client-comms">
+  <div class="inner">
+    <div class="section-eyebrow">Client Communications</div>
+    <h2>Client updates — without the manual follow-up.</h2>
+    <p class="section-intro">Set up routine emails, daily digests, and weekly summaries that keep your clients and project teams informed automatically. No more chasing down updates or composing status emails by hand.</p>
+
+    <div class="comms-features">
+      <div class="comms-feature">
+        <h4>Configurable per-client schedules</h4>
+        <p>Each client gets the cadence that works for them — daily, weekly, or on-demand summaries.</p>
+      </div>
+      <div class="comms-feature">
+        <h4>Daily digest &amp; weekly summary templates</h4>
+        <p>Pre-built formats that look professional and include everything your client expects to see.</p>
+      </div>
+      <div class="comms-feature">
+        <h4>Project team distribution lists</h4>
+        <p>Route reports and summaries to the right people on each client's team, automatically.</p>
+      </div>
+      <div class="comms-feature">
+        <h4>Fully automated delivery</h4>
+        <p>Reports fire on schedule without a manual trigger. Your clients stay informed while you focus on the field.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI BAND -->
+<div class="roi-band">
+  <div class="roi-inner">
+    <div class="section-eyebrow section-eyebrow-white" style="margin-bottom:16px;">The Math</div>
+    <h2>The math is simple.</h2>
+    <div class="roi-stats">
+      <div class="roi-stat">
+        <p><strong>Less report assembly time in the office.</strong><br>More time available for billable field work.</p>
+      </div>
+      <div class="roi-stat">
+        <p><strong>Stop rebuilding reports at the end of every day.</strong><br>Your field evidence goes straight to the draft.</p>
+      </div>
+      <div class="roi-stat">
+        <p><strong>Every hour spent assembling reports</strong><br>is an hour you're not billing for field work.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COST / STAKES -->
 <section class="section">
   <div class="inner">
     <div class="section-eyebrow">The Stakes</div>
     <h2>The cost of a missing closeout record</h2>
-    <p class="section-intro">Three numbers every safety leader should know.</p>
+    <p class="section-intro">Three numbers every safety professional should know — and a liability that's especially acute when your firm's name is on the report.</p>
 
     <div class="cost-grid">
       <div class="cost-cell">
@@ -1040,7 +1279,7 @@ footer {
         <div class="source">BLS CFOI (2023)</div>
       </div>
     </div>
-    <p class="cost-footer"><strong>A documented, closed-out hazard is your first line of defense against all three.</strong></p>
+    <p class="cost-footer"><strong>EHS consulting firms carry personal liability for the accuracy and completeness of client safety records. A documented, closed-out hazard is your first line of defense.</strong></p>
   </div>
 </section>
 
@@ -1072,152 +1311,65 @@ footer {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section section-alt" id="how-it-works">
-  <div class="inner">
-    <div class="section-eyebrow">The Solution</div>
-    <h2>One workflow. Hazard spotted to proof-of-fix.</h2>
-    <p class="section-intro">Built for the "fix-it-now" moment — not scheduled audits. Four steps. No training. Works across your entire crew via SMS.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Capture fast</h3>
-        <p>Log a hazard with a photo — or without one if you need to move fast. Takes less than 60 seconds.</p>
-        <span class="step-note">Photo optional</span>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Standardize the record</h3>
-        <p>AI generates a consistent write-up and risk tier. Review, edit, confirm. Every observation documented the same way.</p>
-        <span class="step-note">AI-assisted</span>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Assign via SMS</h3>
-        <p>The fix request goes to an owner by text. They click a link — no app, no login — and submit proof-of-fix when done.</p>
-        <span class="step-note">No login for recipients</span>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Track and export</h3>
-        <p>Dashboard shows open items and repeat hazard patterns across all sites. Closeout packet exports for audits.</p>
-        <span class="step-note">Audit-ready</span>
-      </div>
-    </div>
-
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/zYSoaLz2uHk" allowfullscreen loading="lazy" title="Safely Track 60-second demo"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- AI REPORTS -->
-<section class="section" id="ai-reports">
-  <div class="inner">
-    <div class="section-eyebrow">AI-Powered Field Reports</div>
-    <h2>Unstructured inputs. Formatted reports. Done in seconds.</h2>
-    <p class="section-intro">Field supervisors speak, snap, or type what they observed. Safely Track's AI turns that raw input into a structured report — based on the exact template your company requires.</p>
-
-    <div class="ai-reports-grid">
-      <div class="ai-inputs-col">
-        <div class="ai-input-card">
-          <div class="ai-input-icon">🎤</div>
-          <div>
-            <h4>Voice Memo</h4>
-            <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions — no typing required.</p>
-          </div>
-        </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📷</div>
-          <div>
-            <h4>Site Photos</h4>
-            <p>Weather, conditions, signage, crew — AI analyzes everything visible and incorporates it automatically into the report.</p>
-          </div>
-        </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📝</div>
-          <div>
-            <h4>Text Notes</h4>
-            <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
-          </div>
-        </div>
-        <div class="ai-transform-chip">✦ &nbsp;AI structures everything into your template</div>
-      </div>
-
-      <div class="ai-output-card">
-        <div class="section-eyebrow section-eyebrow-white">Output</div>
-        <h3>The report your company actually requires</h3>
-        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your company's specific daily report, inspection checklist, or incident log — formatted consistently, every time, across every supervisor and site.</p>
-        <ul class="ai-output-features">
-          <li>Company-specific templates, not generic outputs</li>
-          <li>AI auto-fills fields from voice and photo analysis</li>
-          <li>Supervisor reviews, edits, and confirms before finalizing</li>
-          <li>Exportable — audit-ready in one click</li>
-        </ul>
-        <div class="ai-templates">
-          <span class="ai-template-chip">Daily Report</span>
-          <span class="ai-template-chip">Inspection Report</span>
-          <span class="ai-template-chip">Incident Log</span>
-          <span class="ai-template-chip">Safety Observation</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- COMPARISON -->
 <section class="section">
   <div class="inner">
     <div class="section-eyebrow">Why It's Different</div>
-    <h2>Built for the field, not the office</h2>
-    <p class="section-intro">Safely Track doesn't replace Procore or your existing systems. It fills the one gap they all leave open: the closed-loop hazard record.</p>
+    <h2>Built for consultants, not a single company</h2>
+    <p class="section-intro">Safely Track fills the gap that every other tool leaves open for multi-client EHS firms — from field input to client-facing report, without manual assembly.</p>
 
     <table class="comparison-table">
       <thead>
         <tr>
           <th></th>
           <th class="st-col">Safely Track</th>
-          <th>Checklist Apps</th>
+          <th>iAuditor / SafetyCulture</th>
+          <th>Spreadsheets + Email</th>
           <th>Enterprise Suites</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Works in under 60 seconds</td>
+          <td>AI drafts from photos + voice</td>
           <td class="st-col"><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
           <td><span class="dash">—</span></td>
           <td><span class="dash">—</span></td>
         </tr>
         <tr>
-          <td>SMS-first (no login for field workers)</td>
+          <td>Multi-client portfolio dashboard</td>
           <td class="st-col"><span class="check">✓</span></td>
           <td><span class="dash">—</span></td>
-          <td><span class="dash">—</span></td>
-        </tr>
-        <tr>
-          <td>Proof-of-fix attached to every hazard</td>
-          <td class="st-col"><span class="check">✓</span></td>
-          <td><span class="dash">—</span></td>
-          <td><span class="dash">—</span></td>
-        </tr>
-        <tr>
-          <td>Works across GC + subcontractor companies</td>
-          <td class="st-col"><span class="check">✓</span></td>
-          <td><span class="dash">—</span></td>
-          <td><span class="dash">—</span></td>
-        </tr>
-        <tr>
-          <td>Low rollout complexity</td>
-          <td class="st-col"><span class="check">✓</span></td>
-          <td><span class="check" style="color:#999">✓</span></td>
-          <td><span class="dash">—</span></td>
-        </tr>
-        <tr>
-          <td>Multi-site trend dashboard</td>
-          <td class="st-col"><span class="check">✓</span></td>
           <td><span class="dash">—</span></td>
           <td><span class="check" style="color:#999">✓</span></td>
+        </tr>
+        <tr>
+          <td>Client-specific report templates</td>
+          <td class="st-col"><span class="check">✓</span></td>
+          <td><span class="check" style="color:#999">Partial</span></td>
+          <td><span class="check" style="color:#999">Manual</span></td>
+          <td><span class="check" style="color:#999">Partial</span></td>
+        </tr>
+        <tr>
+          <td>Automated client digests</td>
+          <td class="st-col"><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td>No login required for field workers</td>
+          <td class="st-col"><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Built for consultant (not single company)</td>
+          <td class="st-col"><span class="check">✓</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check" style="color:#999">✓</span></td>
+          <td><span class="dash">—</span></td>
         </tr>
       </tbody>
     </table>
@@ -1228,34 +1380,36 @@ footer {
 <section class="section section-alt" id="who">
   <div class="inner">
     <div class="section-eyebrow">Who It's For</div>
-    <h2>Two buyers. One workflow.</h2>
-    <p class="section-intro">Safely Track is built for the person who is personally accountable when a hazard goes undocumented — and for the organization they work for.</p>
+    <h2>Built for EHS consulting firms managing multiple client sites.</h2>
+    <p class="section-intro">Safely Track is designed around the way consultants actually work — managing multiple client relationships, not a single company's safety program.</p>
 
     <div class="personas">
       <div class="persona-card">
-        <div class="persona-tag">EHS Consulting Firms</div>
+        <div class="persona-tag">Primary — EHS Consulting Firms</div>
         <h3>The Consulting Principal</h3>
-        <div class="persona-role">Owner or principal, 2–50 person EHS consulting firm managing 10–50 GC client sites</div>
+        <div class="persona-role">Managers of EHS consulting firm managing multiple client sites</div>
         <ul class="pain-list">
           <li><span class="pain-icon">→</span> Personally liable for documentation defensibility across every client site</li>
           <li><span class="pain-icon">→</span> Can't require client workers to log into your software</li>
           <li><span class="pain-icon">→</span> Existing tools built for single companies, not multi-client consultant workflows</li>
-          <li><span class="pain-icon">→</span> Hours per week chasing closeout confirmation manually</li>
+          <li><span class="pain-icon">→</span> Hours per week rebuilding field evidence into client-facing reports</li>
         </ul>
         <div class="persona-quote">"There are 30–50 platforms out there, but none of them fit the mold of a consultant."<br><br><em style="font-size:12px;color:#aaa">— COO, EHS consulting firm (Safely Track customer)</em></div>
       </div>
 
       <div class="persona-card">
-        <div class="persona-tag">General Contractors</div>
+        <div class="persona-tag">Also Used By — General Contractors</div>
         <h3>The Safety Director</h3>
         <div class="persona-role">Safety director or ops lead at a 100–999 employee contractor managing multiple active sites</div>
         <ul class="pain-list">
           <li><span class="pain-icon">→</span> Accountable for defensible documentation when OSHA audits or incidents occur</li>
           <li><span class="pain-icon">→</span> Subcontractor foremen won't adopt enterprise software with logins and training</li>
           <li><span class="pain-icon">→</span> Proof-of-fix ends up in text threads and camera rolls, not the record</li>
-          <li><span class="pain-icon">→</span> Existing tools do inspections — nobody closes the observation loop</li>
         </ul>
         <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."<br><br><em style="font-size:12px;color:#aaa">— Safety Director, mid-market contractor</em></div>
+        <div style="margin-top:20px;">
+          <a href="/contractors" style="font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the contractor workflow →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1315,7 +1469,7 @@ footer {
   <div class="inner">
     <div class="section-eyebrow" style="text-align:center">Get Started</div>
     <h2>See Safely Track on your sites.</h2>
-    <p>Start with one site. Onboarding takes under an hour. See results in the first week.</p>
+    <p>Start with one client site. Onboarding takes under an hour. See results in the first week.</p>
 
     <div class="pilot-form-wrap">
       <div id="pilot-form-container">
@@ -1367,10 +1521,11 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="#home" class="footer-logo">Safely<span>Track</span></a>
+    <a href="#home" class="footer-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="footer-links">
       <li><a href="#problem">The Problem</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#ai-reports">AI Reports</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="case-study-gc.html">Case Study</a></li>
@@ -1408,24 +1563,36 @@ async function handlePilotSubmit(e) {
   }
 }
 
-function handleWpSubmit(e) {
+async function handleWpSubmit(e) {
   e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
   const name = document.getElementById('wp-name').value;
   const company = document.getElementById('wp-company').value;
   const email = document.getElementById('wp-email').value;
 
-  // Send to Formspree or your preferred endpoint — replace ACTION_URL
-  // fetch('https://formspree.io/f/YOUR_ID', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ name, company, email })
-  // });
-
-  document.getElementById('wp-form-container').style.display = 'none';
-  const success = document.getElementById('wp-success');
-  success.style.display = 'block';
-  // Link to wherever you host the PDF — update this path
-  document.getElementById('wp-download-link').href = '/assets/Safely_Track_Whitepaper_The_Closeout_Gap.pdf';
+  try {
+    const res = await fetch('https://formspree.io/f/mykakkww', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, company, email })
+    });
+    if (res.ok) {
+      document.getElementById('wp-form-container').style.display = 'none';
+      const success = document.getElementById('wp-success');
+      success.style.display = 'block';
+      document.getElementById('wp-download-link').href = '/assets/Safely_Track_Whitepaper_The_Closeout_Gap.pdf';
+    } else {
+      btn.textContent = 'Download the Report →';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Download the Report →';
+    btn.disabled = false;
+  }
 }
 </script>
 
