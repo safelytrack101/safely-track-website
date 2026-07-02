@@ -233,6 +233,62 @@ h2.white { color: var(--white); }
 }
 .section-intro.white { color: #8890B8; }
 
+/* ── AUDIENCE ROUTING ── */
+.routing-section {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-2);
+  padding: 40px 24px;
+}
+.routing-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.routing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.routing-card {
+  display: block;
+  text-decoration: none;
+  border: 1.5px solid var(--gray-2);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  transition: border-color .15s, box-shadow .15s;
+  position: relative;
+}
+.routing-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 2px 12px rgba(232,102,10,0.08);
+}
+.routing-card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.routing-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.routing-card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.routing-card:hover .routing-card-link { color: var(--orange); }
+
 /* ── PROBLEM ── */
 .problem-quotes {
   display: grid;
@@ -1210,6 +1266,7 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .personas { grid-template-columns: 1fr 1fr; }
+  .routing-cards { grid-template-columns: 1fr; gap: 10px; }
 }
 @media (max-width: 768px) {
   .steps { grid-template-columns: 1fr 1fr; }
@@ -1255,7 +1312,7 @@ footer {
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-label">Built for EHS Consulting Firms Managing Multi-Site Client Portfolios</div>
+    <div class="hero-label">Built for EHS &amp; Safety Teams Managing Multiple Sites</div>
     <h1>Your field evidence is already there.<br><em>Stop spending hours rebuilding it into a report.</em></h1>
     <p class="hero-sub">Safely Track turns your photos, notes, and field observations into structured, client-facing reports — drafted by AI, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
     <div class="hero-actions">
@@ -1278,6 +1335,28 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- AUDIENCE ROUTING -->
+<div class="routing-section">
+  <p class="routing-label">Which team are you?</p>
+  <div class="routing-cards">
+    <a href="#how-it-works" class="routing-card">
+      <div class="routing-card-tag">EHS Consulting Firms</div>
+      <p>Managing multiple client sites, producing client-facing reports, and growing your practice without adding headcount.</p>
+      <span class="routing-card-link">You're in the right place — read on ↓</span>
+    </a>
+    <a href="loss-control.html" class="routing-card">
+      <div class="routing-card-tag">Loss Control Teams</div>
+      <p>Producing carrier-ready reports from policyholder site visits and documenting corrective actions for underwriters.</p>
+      <span class="routing-card-link">See the loss control overview →</span>
+    </a>
+    <a href="ehs-inhouse.html" class="routing-card">
+      <div class="routing-card-tag">In-House EHS Teams</div>
+      <p>Documenting hazards across facilities, managing contractor corrective actions, and reporting to internal leadership.</p>
+      <span class="routing-card-link">See the in-house overview →</span>
+    </a>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section class="section section-alt" id="problem">
@@ -1829,6 +1908,8 @@ footer {
       <li><a href="#quiz">AI Quiz</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="case-study-gc.html">Case Study</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
       <li><a href="https://app.usesafelytrack.com">Log In</a></li>
     </ul>
     <span class="footer-copy">© 2026 Safely Track LLC</span>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safely Track — Built for In-House EHS Teams</title>
+<meta name="description" content="Safely Track gives in-house EHS teams at manufacturing and construction firms a faster way to document hazards, assign corrective actions to contractors, and produce management-ready reports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #E8660A;
+  --orange-light: #FEF3EC;
+  --orange-mid: #F5A05A;
+  --dark: #1A1A2E;
+  --dark-2: #252540;
+  --white: #FFFFFF;
+  --off-white: #F8F8F6;
+  --gray-1: #F2F2F0;
+  --gray-2: #E5E5E0;
+  --gray-3: #999990;
+  --text: #222228;
+  --text-muted: #666660;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max: 1100px;
+  --radius: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-2);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 36px; width: auto; display: block; }
+.nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--orange);
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s !important;
+}
+.nav-cta:hover { background: #d05a08 !important; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
+  padding: 96px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 80% 50%, #1a2a0e 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: var(--max); margin: 0 auto; position: relative; }
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(232,102,10,0.15);
+  border: 1px solid rgba(232,102,10,0.3);
+  color: var(--orange-mid);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 56px);
+  color: var(--white);
+  line-height: 1.12;
+  max-width: 840px;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.hero h1 em { color: var(--orange); font-style: italic; }
+.hero-sub {
+  font-size: 18px;
+  color: #9098B8;
+  max-width: 580px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.btn-hero {
+  background: var(--orange);
+  color: var(--white);
+  padding: 14px 30px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .15s, transform .1s;
+  display: inline-block;
+}
+.btn-hero:hover { background: #d05a08; transform: translateY(-1px); }
+
+/* ── SECTION WRAPPERS ── */
+.section { padding: 88px 24px; }
+.section-alt { background: var(--off-white); padding: 88px 24px; }
+.inner { max-width: var(--max); margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 40px);
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+h2.white { color: var(--white); }
+
+.section-intro {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: #10122A;
+  padding: 56px 24px;
+}
+.stats-bar-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+.stat-block .num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-block .stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6870A0;
+}
+.stats-problem {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding-left: 40px;
+}
+.stats-problem p { color: #8890B8; font-size: 15px; line-height: 1.7; }
+.stats-problem strong { color: var(--white); }
+
+/* ── FEATURE ROWS ── */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 72px 0;
+  border-bottom: 1px solid var(--gray-2);
+}
+.feature-row:last-child { border-bottom: none; }
+.feature-row.reverse .feature-content { order: 2; }
+.feature-row.reverse .feature-visual { order: 1; }
+
+.feature-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+.feature-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 30px);
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.feature-content p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.feature-content p:last-child { margin-bottom: 0; }
+
+/* ── BEFORE / AFTER ── */
+.before-after { display: flex; flex-direction: column; gap: 12px; }
+.ba-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--gray-2); }
+.ba-card.after { border-color: var(--orange); }
+.ba-header {
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--gray-1);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--gray-2);
+}
+.ba-card.after .ba-header { background: var(--orange); color: var(--white); border-bottom: none; }
+.ba-items { padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.ba-item { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+.ba-card.after .ba-item { color: var(--text); font-weight: 500; }
+.ba-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.ba-icon.x { color: #CC4444; }
+.ba-icon.check { color: var(--orange); }
+
+/* ── DASHBOARD FILTERS ── */
+.filter-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.filter-chip {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.filter-chip::before { content: '↓'; color: var(--orange); font-size: 11px; font-weight: 700; }
+
+/* ── MANAGEMENT REPORT MOCK ── */
+.report-mock {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.report-mock-header {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6870A0;
+  margin-bottom: 16px;
+}
+.report-mock-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.report-mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 20px;
+}
+.report-stat {
+  background: rgba(255,255,255,0.05);
+  padding: 14px 16px;
+  text-align: center;
+}
+.report-stat .n {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.report-stat .l { font-size: 11px; color: #6870A0; line-height: 1.3; }
+.report-mock-items { list-style: none; }
+.report-mock-items li {
+  font-size: 13px;
+  color: #8890B8;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.report-mock-items li:last-child { border-bottom: none; }
+.report-mock-items li::before { content: '→'; color: var(--orange); font-weight: 600; flex-shrink: 0; }
+
+/* ── PERSONAS ── */
+.audience-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.audience-card {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--orange);
+}
+.audience-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.audience-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.audience-card .role {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.audience-card ul { list-style: none; }
+.audience-card ul li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--gray-1);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.audience-card ul li:last-child { border-bottom: none; }
+.li-arrow { color: var(--orange); flex-shrink: 0; margin-top: 1px; }
+
+/* ── TESTIMONIAL ── */
+.testimonial-section {
+  background: var(--dark);
+  padding: 88px 24px;
+  text-align: center;
+}
+.testimonial-inner { max-width: 760px; margin: 0 auto; }
+.testimonial-mark {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--orange);
+  line-height: 0.6;
+  margin-bottom: 32px;
+  display: block;
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: var(--white);
+  line-height: 1.45;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+.testimonial-attr { font-size: 13px; color: #6870A0; font-weight: 500; }
+
+/* ── FOOTER CTA ── */
+.footer-cta { padding: 88px 24px; text-align: center; }
+.footer-cta h2 { margin-bottom: 16px; }
+.footer-cta p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.footer-cta .contact-line { margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+.footer-cta .contact-line a { color: var(--orange); text-decoration: none; }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-logo { text-decoration: none; display: flex; align-items: center; }
+.footer-logo img { height: 28px; width: auto; display: block; background: var(--white); border-radius: 4px; padding: 3px 8px; }
+.footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: #4A5070; text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: #8890B8; }
+.footer-copy { font-size: 12px; color: #3A4060; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+  .stats-problem { grid-column: 1 / -1; border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; }
+  .feature-row { grid-template-columns: 1fr; gap: 36px; padding: 56px 0; }
+  .feature-row.reverse .feature-content { order: 0; }
+  .feature-row.reverse .feature-visual { order: 0; }
+  .audience-cards { grid-template-columns: 1fr; }
+  .report-mock-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 540px) {
+  .stats-bar-inner { grid-template-columns: 1fr; }
+  .stats-problem { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">EHS Consulting</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="mailto:thomas@usesafelytrack.com" class="nav-cta">Request a Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Built for In-House EHS Teams</div>
+    <h1>Field observations. Contractor corrections. Management reports.<br><em>Without rebuilding them from texts and camera rolls.</em></h1>
+    <p class="hero-sub">Safely Track gives EHS teams at manufacturing and construction companies a faster way to document hazards in the field, assign corrective actions to contractors without a new app or login, and produce management-ready reports from the evidence your team already captures.</p>
+    <a href="mailto:thomas@usesafelytrack.com" class="btn-hero">See it in action →</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-block">
+      <div class="num">&gt;80%</div>
+      <div class="stat-label">of hazard corrections handled with no structured record</div>
+    </div>
+    <div class="stat-block">
+      <div class="num">2–4 hrs</div>
+      <div class="stat-label">per report rebuilt manually from field notes</div>
+    </div>
+    <div class="stats-problem">
+      <p>The gap isn't in the field. Your team captures photos, notes, and observations every day. The gap is between what they see and what ends up in a <strong>defensible, searchable record</strong>. When OSHA comes knocking or an incident occurs, someone is digging through text threads and camera rolls to reconstruct what happened.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="inner">
+
+    <!-- Observation Capture -->
+    <div class="feature-row">
+      <div class="feature-content">
+        <div class="feature-eyebrow">Observation Capture</div>
+        <h3>What your team sees → a documented record. In under 60 seconds.</h3>
+        <p>Your safety team is already capturing photos, voice notes, and written observations. Safely Track's AI structures that raw input into a logged, reviewable observation — with hazard type, location, risk level, and recommended action — before they leave the area.</p>
+        <p>No manual form-filling. No end-of-day reconstruction.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="before-after">
+          <div class="ba-card">
+            <div class="ba-header">Before</div>
+            <div class="ba-items">
+              <div class="ba-item"><span class="ba-icon x">✕</span> Voice note or photo sent to supervisor</div>
+              <div class="ba-item"><span class="ba-icon x">✕</span> Manually written up at end of shift</div>
+              <div class="ba-item"><span class="ba-icon x">✕</span> No searchable record — or never written up at all</div>
+            </div>
+          </div>
+          <div class="ba-card after">
+            <div class="ba-header">With Safely Track</div>
+            <div class="ba-items">
+              <div class="ba-item"><span class="ba-icon check">✓</span> AI structures photo or voice into a logged observation</div>
+              <div class="ba-item"><span class="ba-icon check">✓</span> Hazard type, location, and risk tier auto-assigned</div>
+              <div class="ba-item"><span class="ba-icon check">✓</span> Searchable, audit-ready record from minute one</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contractor Corrective Actions -->
+    <div class="feature-row reverse">
+      <div class="feature-content">
+        <div class="feature-eyebrow">Contractor Corrective Actions</div>
+        <h3>Assign it. Prove it got fixed. No login required for contractors.</h3>
+        <p>Spot a hazard, assign the corrective action to the responsible contractor or crew via SMS — they receive a text with the finding and a link to upload proof of fix. No app, no onboarding, no training required on their end.</p>
+        <p>The closeout record is automatically timestamped and stored. When OSHA asks for proof, you pull it in seconds — not from someone's inbox.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="before-after">
+          <div class="ba-card">
+            <div class="ba-header">Before</div>
+            <div class="ba-items">
+              <div class="ba-item"><span class="ba-icon x">✕</span> Hazard emailed or verbally assigned to foreman</div>
+              <div class="ba-item"><span class="ba-icon x">✕</span> Follow-up by phone — no documented trail</div>
+              <div class="ba-item"><span class="ba-icon x">✕</span> Proof of fix lives in a text thread, if anywhere</div>
+            </div>
+          </div>
+          <div class="ba-card after">
+            <div class="ba-header">With Safely Track</div>
+            <div class="ba-items">
+              <div class="ba-item"><span class="ba-icon check">✓</span> SMS assignment — no login needed for contractors</div>
+              <div class="ba-item"><span class="ba-icon check">✓</span> Contractor uploads photo proof via the text link</div>
+              <div class="ba-item"><span class="ba-icon check">✓</span> Auto-timestamped closeout record, audit-ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-Facility Visibility -->
+    <div class="feature-row">
+      <div class="feature-content">
+        <div class="feature-eyebrow">Multi-Facility Visibility</div>
+        <h3>Spot patterns across all your sites before they become incidents.</h3>
+        <p>Every observation feeds a searchable, filterable dashboard across your entire portfolio of facilities, contractors, and work areas. Filter by facility, contractor, hazard type, OSHA category, or date range — and surface repeat patterns before they become incidents or violations.</p>
+        <p>When leadership asks "where are our biggest risk concentrations?" you have an answer in seconds, not a weekend of spreadsheet work.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="filter-chips">
+          <span class="filter-chip">By Facility</span>
+          <span class="filter-chip">By Contractor</span>
+          <span class="filter-chip">By Hazard Type</span>
+          <span class="filter-chip">By OSHA Category</span>
+          <span class="filter-chip">By Risk Tier</span>
+          <span class="filter-chip">By Date Range</span>
+          <span class="filter-chip">Open vs. Closed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Management Reporting -->
+    <div class="feature-row reverse">
+      <div class="feature-content">
+        <div class="feature-eyebrow">Management Reporting</div>
+        <h3>Monthly safety summary in minutes, not a Monday morning.</h3>
+        <p>Safely Track generates management-ready summaries from your observation data — open items, closed corrections, leading indicators, and trend lines — formatted for your leadership team or board safety committee.</p>
+        <p>No more compiling counts from four different sources the night before the safety meeting.</p>
+      </div>
+      <div class="feature-visual">
+        <div class="report-mock">
+          <div class="report-mock-header">June Safety Summary — All Facilities</div>
+          <div class="report-mock-title">AI-generated from your observation data</div>
+          <div class="report-mock-stats">
+            <div class="report-stat">
+              <div class="n">47</div>
+              <div class="l">Observations<br>logged</div>
+            </div>
+            <div class="report-stat">
+              <div class="n">41</div>
+              <div class="l">Corrective actions<br>closed</div>
+            </div>
+            <div class="report-stat">
+              <div class="n">87%</div>
+              <div class="l">Close-out<br>rate</div>
+            </div>
+          </div>
+          <ul class="report-mock-items">
+            <li>3 repeat findings in fall protection — Plant B, contractor crew</li>
+            <li>Electrical hazard category trending up vs. prior quarter</li>
+            <li>6 open items older than 14 days — escalation recommended</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section-alt">
+  <div class="inner">
+    <div class="section-eyebrow">Who It's For</div>
+    <h2>Built for the people running safety across multiple sites.</h2>
+    <p class="section-intro">Whether you're managing EHS across manufacturing facilities or safety compliance across active job sites, the underlying problem is the same: evidence in the field, documentation gap at the desk.</p>
+    <div class="audience-cards">
+      <div class="audience-card">
+        <div class="audience-tag">Manufacturing</div>
+        <h3>The EHS Manager</h3>
+        <div class="role">EHS manager or director at a multi-facility manufacturing company</div>
+        <ul>
+          <li><span class="li-arrow">→</span> Contractors on site who won't use your safety software</li>
+          <li><span class="li-arrow">→</span> OSHA audit readiness requires pulling from multiple systems</li>
+          <li><span class="li-arrow">→</span> Hazard observations stay in text threads, not the record</li>
+          <li><span class="li-arrow">→</span> Leadership wants a monthly safety dashboard that takes hours to build</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">Construction</div>
+        <h3>The Safety Director</h3>
+        <div class="role">Safety director or safety manager at a mid-market general contractor managing multiple active sites</div>
+        <ul>
+          <li><span class="li-arrow">→</span> Subcontractor foremen won't adopt enterprise software</li>
+          <li><span class="li-arrow">→</span> Proof-of-fix ends up in camera rolls and text threads</li>
+          <li><span class="li-arrow">→</span> OSHA citations require documentation you're not sure you have</li>
+          <li><span class="li-arrow">→</span> Daily reports and site observations are rebuilt from scratch each time</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-section">
+  <div class="testimonial-inner">
+    <span class="testimonial-mark">"</span>
+    <p class="testimonial-quote">For every hour we spent on site, we were spending another hour at the desk writing it up. Safely Track got report-writing time from an hour to less than fifteen minutes — we took on more sites without adding headcount.</p>
+    <p class="testimonial-attr">COO, EHS firm on 50+ construction, manufacturing, and industrial sites</p>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="inner">
+    <div class="section-eyebrow" style="text-align:center">Get Started</div>
+    <h2>See it on your sites.</h2>
+    <p>Start with one facility or job site. Onboarding takes under an hour. See results in the first week.</p>
+    <a href="mailto:thomas@usesafelytrack.com" class="btn-hero">Request a demo →</a>
+    <p class="contact-line"><a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a> · usesafelytrack.com</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
+    <ul class="footer-links">
+      <li><a href="index.html">EHS Consulting</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="case-study-gc.html">Case Study</a></li>
+      <li><a href="https://app.usesafelytrack.com">Log In</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Safely Track LLC</span>
+  </div>
+</footer>
+
+</body>
+</html>
