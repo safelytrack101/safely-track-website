@@ -412,7 +412,7 @@ h2.white { color: var(--white); }
 /* ── WHO IT'S FOR ── */
 .personas {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 .persona-card {
@@ -1208,10 +1208,14 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .personas { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 768px) {
   .steps { grid-template-columns: 1fr 1fr; }
   .problem-quotes { grid-template-columns: 1fr; }
   .personas { grid-template-columns: 1fr; }
+  .personas-3 { grid-template-columns: 1fr; }
   .cost-grid { grid-template-columns: 1fr; }
   .wp-inner { grid-template-columns: 1fr; gap: 40px; }
   .cs-teaser { grid-template-columns: 1fr; }
@@ -1584,8 +1588,8 @@ footer {
 <section class="section section-alt" id="who">
   <div class="inner">
     <div class="section-eyebrow">Who It's For</div>
-    <h2>Built for EHS consulting firms managing multiple client sites.</h2>
-    <p class="section-intro">Safely Track is designed around the way consultants actually work — managing multiple client relationships, not a single company's safety program.</p>
+    <h2>Built for teams that document risk across multiple sites.</h2>
+    <p class="section-intro">Safely Track is designed around multi-site documentation workflows — whether you're an EHS consultant, a general contractor, or a loss control team producing carrier-ready reports.</p>
 
     <div class="personas">
       <div class="persona-card">
@@ -1611,6 +1615,19 @@ footer {
           <li><span class="pain-icon">→</span> Proof-of-fix ends up in text threads and camera rolls, not the record</li>
         </ul>
         <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."<br><br><em style="font-size:12px;color:#aaa">— Safety Director, mid-market contractor</em></div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-tag">Also Used By — Carriers &amp; Loss Control</div>
+        <h3>The Loss Control Consultant</h3>
+        <div class="persona-role">Loss control rep or consultant producing policyholder visit reports for carriers and underwriters</div>
+        <ul class="pain-list">
+          <li><span class="pain-icon">→</span> Site visit photos sit on a phone — report gets rebuilt at a desk hours later</li>
+          <li><span class="pain-icon">→</span> No consistent way to assign corrective actions to policyholders and get documented proof</li>
+          <li><span class="pain-icon">→</span> Underwriters ask for portfolio risk summaries that require a weekend of report-pulling</li>
+        </ul>
+        <div class="persona-quote">"For every hour we spent on site, we were spending another hour at the desk writing it up."<br><br><em style="font-size:12px;color:#aaa">— COO, EHS firm on 50+ sites</em></div>
+        <a href="loss-control.html" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the loss control overview →</a>
       </div>
     </div>
   </div>
