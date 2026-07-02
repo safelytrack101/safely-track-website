@@ -56,6 +56,19 @@ nav {
 }
 .nav-logo img { height: 36px; width: auto; display: block; text-decoration: none; }
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--orange);
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s !important;
+}
+.nav-cta:hover { background: #d05a08 !important; }
 .btn-primary {
   background: var(--orange);
   color: var(--white);
@@ -409,7 +422,12 @@ footer {
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
-    <a href="mailto:thomas@usesafelytrack.com" class="btn-primary">Request a demo</a>
+    <ul class="nav-links">
+      <li><a href="index.html">EHS Consulting</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="mailto:thomas@usesafelytrack.com" class="nav-cta">Request a Demo</a></li>
+    </ul>
   </div>
 </nav>
 
