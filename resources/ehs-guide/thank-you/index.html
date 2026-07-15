@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check your inbox | Safely Track</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resources/ehs-guide/guide.css">
+</head>
+<body>
+<div class="wrap narrow">
+
+  <div class="brand center"><img src="/assets/logo.jpg" alt="Safely Track"></div>
+
+  <div class="check">✓</div>
+  <h1>Check your inbox!</h1>
+  <p class="lede">We've sent the guide to <strong id="email-target">your inbox</strong>.</p>
+  <p class="spam">If you don't see it in a few minutes, check your spam folder.</p>
+
+  <div class="card">
+    <a class="btn-primary" id="download-btn" href="/resources/whitepaper-ehs-consultant.pdf" target="_blank" rel="noopener">Download Your Free Guide</a>
+    <p class="fallback">Prefer to grab it now?
+      <a id="download-link" href="/resources/whitepaper-ehs-consultant.pdf" target="_blank" rel="noopener">Click here to download directly</a>.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="demo-title">Want to see Safely Track in action?</p>
+    <p class="demo-sub">Watch field notes become a client-ready report in minutes.</p>
+    <a class="btn-ghost" href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book a 15-minute demo →</a>
+  </div>
+
+  <p class="foot"><a href="/">usesafelytrack.com</a> · <a href="../">See all guides</a></p>
+
+</div>
+
+<script>
+(function () {
+  var GUIDES = {
+    'consultant':   '/resources/whitepaper-ehs-consultant.pdf',
+    'loss-control': '/resources/whitepaper-loss-control.pdf',
+    'in-house':     '/resources/whitepaper-inhouse-ehs.pdf'
+  };
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var email = params.get('email');
+    if (email) document.getElementById('email-target').textContent = email;
+
+    var guide = params.get('guide');
+    var pdf = GUIDES[guide] || GUIDES['consultant'];
+    document.getElementById('download-btn').setAttribute('href', pdf);
+    document.getElementById('download-link').setAttribute('href', pdf);
+  } catch (e) { /* no-op */ }
+})();
+</script>
+
+</body>
+</html>
