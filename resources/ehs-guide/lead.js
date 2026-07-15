@@ -31,9 +31,11 @@
     var firstName = form.first_name.value.trim();
     var lastName = form.last_name.value.trim();
     var email = form.email.value.trim();
+    var jobTitle = form.job_title.value.trim();
+    var company = form.company.value.trim();
 
-    if (!firstName || !lastName || !email) {
-      errorBox.textContent = 'Please fill in your first name, last name, and work email.';
+    if (!firstName || !lastName || !email || !jobTitle || !company) {
+      errorBox.textContent = 'Please fill in all fields.';
       errorBox.style.display = 'block';
       return;
     }
@@ -46,8 +48,8 @@
       first_name: firstName,
       last_name: lastName,
       email: email,
-      job_title: form.job_title.value.trim(),
-      company: form.company.value.trim(),
+      job_title: jobTitle,
+      company: company,
       whitepaper: form.whitepaper.value,
       source: source,
       _subject: form._subject.value,
