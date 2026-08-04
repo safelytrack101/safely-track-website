@@ -152,72 +152,6 @@ nav {
   max-width: var(--max);
   margin: 0 auto;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: center;
-}
-@media (min-width: 1000px) {
-  .hero-inner { grid-template-columns: 1.15fr 0.85fr; }
-}
-
-/* ── HERO VISUAL (AI extraction mock) ── */
-.hero-visual { display: flex; justify-content: center; }
-@media (max-width: 999px) { .hero-visual { display: none; } }
-.hero-mock-card {
-  background: var(--dark);
-  border-radius: 12px;
-  padding: 28px 26px;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: var(--shadow-md);
-}
-.hero-mock-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #8890B8;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.hero-mock-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff5c5c;
-  flex-shrink: 0;
-  animation: hero-pulse 1.6s ease-in-out infinite;
-}
-@keyframes hero-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
-.hero-mock-field {
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: hero-field-in .5s ease forwards;
-}
-.hero-mock-field:last-child { margin-bottom: 0; }
-.hero-mock-field .f-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #6870A0;
-  margin-bottom: 4px;
-}
-.hero-mock-field .f-value {
-  font-size: 14px;
-  color: var(--white);
-  font-weight: 500;
-  line-height: 1.4;
-}
-.hero-mock-field .f-value.risk-high { color: var(--orange-mid); font-weight: 700; }
-@keyframes hero-field-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
 }
 .hero-label {
   display: inline-flex;
@@ -316,6 +250,173 @@ nav {
   font-weight: 600;
 }
 .hero-audience-line a:hover { text-decoration: underline; }
+
+/* ── SEE IT WORK DEMO ── */
+.demo-section { background: var(--white); padding: 8px 24px 96px; }
+.demo-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-2);
+  border-radius: 16px;
+  padding: 44px 40px;
+  box-shadow: var(--shadow-md);
+}
+.demo-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.demo-heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 34px);
+  color: var(--dark);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.demo-subhead {
+  font-size: 16px;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.demo-sample-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 32px;
+  align-items: start;
+}
+.demo-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.demo-photo {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--gray-1), var(--gray-2));
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--gray-3);
+}
+.demo-photo svg { width: 22px; height: 22px; }
+.demo-photo span { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.demo-transcript {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.demo-transcript-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.demo-transcript-label svg { width: 16px; height: 16px; }
+.demo-transcript-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.demo-generate-btn { display: block; margin: 0 auto; font-size: 16px; padding: 16px 34px; border: none; cursor: pointer; }
+
+/* Generating */
+.demo-generating-inner { text-align: center; padding: 56px 24px; }
+.demo-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--gray-2);
+  border-top-color: var(--orange);
+  margin: 0 auto 24px;
+  animation: demo-spin 0.9s linear infinite;
+}
+@keyframes demo-spin { to { transform: rotate(360deg); } }
+.demo-status-text { font-size: 16px; color: var(--text); font-weight: 600; margin-bottom: 20px; }
+.demo-progress-track { max-width: 280px; margin: 0 auto; height: 4px; background: var(--gray-2); border-radius: 2px; overflow: hidden; }
+.demo-progress-bar { height: 100%; width: 0%; background: var(--orange); border-radius: 2px; transition: width 3s linear; }
+
+/* Result */
+.demo-report { background: var(--dark); border-radius: 12px; padding: 32px 30px; margin-bottom: 28px; box-shadow: var(--shadow-md); }
+.demo-report-header { margin-bottom: 20px; }
+.demo-report-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-mid); margin-bottom: 8px; }
+.demo-report-header h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); line-height: 1.3; }
+.demo-report-findings { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+.demo-report-findings li { padding: 16px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
+.demo-report-findings li.flagged { border-color: rgba(232,102,10,0.4); background: rgba(232,102,10,0.08); }
+.finding-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+.finding-title { font-size: 14px; font-weight: 700; color: var(--white); }
+.finding-osha {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--orange-mid);
+  background: rgba(232,102,10,0.15);
+  border: 1px solid rgba(232,102,10,0.4);
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.demo-report-findings p { font-size: 13px; color: #8890B8; line-height: 1.5; margin-bottom: 8px; }
+.demo-report-findings li p:last-child { margin-bottom: 0; }
+.finding-action { font-size: 12px; color: var(--orange-mid); }
+.finding-action strong { color: var(--white); }
+.demo-report-caption { font-size: 13px; color: var(--text-muted); text-align: center; }
+.demo-result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 4px; }
+.demo-email-capture {
+  max-width: 440px;
+  margin: 28px auto 0;
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 10px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+}
+.demo-email-capture label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 12px; text-align: center; }
+.demo-email-row { display: flex; gap: 10px; }
+.demo-email-row input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius-pill);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--text);
+  outline: none;
+}
+.demo-email-row input:focus { border-color: var(--orange); }
+.demo-email-row button { padding: 10px 22px; font-size: 14px; white-space: nowrap; border: none; cursor: pointer; }
+.demo-email-privacy { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 10px; }
+.demo-email-success { text-align: center; font-size: 14px; color: var(--dark); font-weight: 600; padding: 6px 0; }
+@media (max-width: 700px) {
+  .demo-sample-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .demo-card { padding: 32px 22px; }
+  .demo-email-row { flex-direction: column; }
+  .demo-result-ctas { flex-direction: column; align-items: stretch; }
+  .demo-result-ctas .btn-primary, .demo-result-ctas .btn-secondary { text-align: center; }
+}
 
 /* ── SECTION WRAPPERS ── */
 .section { padding: 88px 24px; }
@@ -1538,26 +1639,110 @@ footer {
       </div>
       <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-mock-card">
-        <div class="hero-mock-top"><span class="hero-mock-dot"></span> Voice memo → structured live</div>
-        <div class="hero-mock-field" style="animation-delay:.15s">
-          <div class="f-label">Location</div>
-          <div class="f-value">Plant B – Loading Dock</div>
+  </div>
+</section>
+
+<!-- SEE IT WORK DEMO -->
+<section class="demo-section" id="see-it-work">
+  <div class="inner">
+    <div class="demo-card">
+
+      <!-- IDLE STATE -->
+      <div class="demo-state" id="demo-state-idle">
+        <div class="demo-eyebrow">See It Work</div>
+        <h2 class="demo-heading">Your site walk. A finished report. Sixty seconds.</h2>
+        <p class="demo-subhead">Drop in photos and a voice memo — Safely Track writes the report. See it happen on a sample walk, right now.</p>
+
+        <div class="demo-sample-grid">
+          <div class="demo-photos" role="group" aria-label="Sample jobsite photos from this site walk">
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>North stairwell</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>Panel room</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>Loading dock</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>North exit</span>
+            </div>
+          </div>
+
+          <div class="demo-transcript">
+            <div class="demo-transcript-label">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+              Voice memo, 0:42
+            </div>
+            <p class="demo-transcript-text">"...walking the north stairwell now, missing guardrail on the second landing, tagged it for the sub. Also got an extension cord running through standing water by the panel room, pulled the crew back from that one. Fire extinguisher at the loading dock is past its inspection tag. And the north exit's got debris blocking the door, need that cleared today..."</p>
+          </div>
         </div>
-        <div class="hero-mock-field" style="animation-delay:.5s">
-          <div class="f-label">Hazard Type</div>
-          <div class="f-value">Blocked emergency exit</div>
-        </div>
-        <div class="hero-mock-field" style="animation-delay:.85s">
-          <div class="f-label">Risk Level</div>
-          <div class="f-value risk-high">High</div>
-        </div>
-        <div class="hero-mock-field" style="animation-delay:1.2s">
-          <div class="f-label">Action Assigned</div>
-          <div class="f-value">Notify facilities · clear within 24h</div>
+
+        <button type="button" class="btn-primary demo-generate-btn" id="demo-generate-btn">Generate the report →</button>
+      </div>
+
+      <!-- GENERATING STATE -->
+      <div class="demo-state" id="demo-state-generating" hidden>
+        <div class="demo-generating-inner">
+          <div class="demo-spinner" aria-hidden="true"></div>
+          <p class="demo-status-text" id="demo-status-text" aria-live="polite">Reading photos…</p>
+          <div class="demo-progress-track"><div class="demo-progress-bar" id="demo-progress-bar"></div></div>
         </div>
       </div>
+
+      <!-- RESULT STATE -->
+      <div class="demo-state" id="demo-state-result" hidden>
+        <div class="demo-report">
+          <div class="demo-report-header">
+            <div class="demo-report-eyebrow">Sample Output</div>
+            <h3>Site Walk — North Stairwell, Bldg 2</h3>
+          </div>
+          <ul class="demo-report-findings">
+            <li class="flagged">
+              <div class="finding-head">
+                <span class="finding-title">Missing guardrail, second-floor landing</span>
+                <span class="finding-osha">OSHA 1926.502(b)</span>
+              </div>
+              <p>Guardrail absent on north stairwell, second landing. Fall hazard for crews accessing upper floor.</p>
+              <div class="finding-action"><strong>Corrective action:</strong> Assigned to ABC Framing &amp; Sub · Due within 24 hrs</div>
+            </li>
+            <li>
+              <div class="finding-head"><span class="finding-title">Extension cord through standing water</span></div>
+              <p>Cord run observed passing through standing water near the panel room. Crew pulled back on-site.</p>
+            </li>
+            <li>
+              <div class="finding-head"><span class="finding-title">Fire extinguisher past inspection date</span></div>
+              <p>Loading dock extinguisher tag expired. Flagged for replacement/recertification.</p>
+            </li>
+          </ul>
+          <p class="demo-report-caption">Generated from the photos and voice memo above. No typing.</p>
+        </div>
+
+        <div class="demo-result-ctas">
+          <button type="button" class="btn-primary" id="demo-try-own-btn">Try it with your own site walk</button>
+          <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-secondary" id="demo-book-btn">Book a 15-min walkthrough</a>
+        </div>
+
+        <!-- EMAIL CAPTURE (hidden until "Try it with your own" is clicked) -->
+        <div class="demo-email-capture" id="demo-email-capture" hidden>
+          <form id="demo-email-form" novalidate>
+            <label for="demo-email-input">Get early access to try this with your own site walk</label>
+            <div class="demo-email-row">
+              <input type="email" id="demo-email-input" name="email" placeholder="you@company.com" required>
+              <button type="submit" class="btn-primary" id="demo-email-submit">Get early access</button>
+            </div>
+            <p class="demo-email-privacy">No spam. We'll send early access.</p>
+          </form>
+          <div class="demo-email-success" id="demo-email-success" hidden>
+            <p>You're on the early-access list. We'll be in touch.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1880,6 +2065,117 @@ footer {
     <span class="footer-copy">© 2026 Safely Track LLC</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  /* Thin, swappable analytics helper. No analytics vendor is wired into
+     this site yet, so this safely no-ops to console.log; drop in GA/
+     Plausible/Segment/PostHog later and it auto-upgrades with no
+     call-site changes. */
+  function track(event, props) {
+    props = props || {};
+    if (window.gtag) { window.gtag('event', event, props); return; }
+    if (window.plausible) { window.plausible(event, { props: props }); return; }
+    if (window.analytics && typeof window.analytics.track === 'function') { window.analytics.track(event, props); return; }
+    console.log('[track]', event, props);
+  }
+
+  var demoSection = document.getElementById('see-it-work');
+  if (!demoSection) return;
+
+  if ('IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          track('hero_viewed');
+          heroObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    heroObserver.observe(demoSection);
+  } else {
+    track('hero_viewed');
+  }
+
+  var idleState = document.getElementById('demo-state-idle');
+  var generatingState = document.getElementById('demo-state-generating');
+  var resultState = document.getElementById('demo-state-result');
+  var generateBtn = document.getElementById('demo-generate-btn');
+  var statusText = document.getElementById('demo-status-text');
+  var progressBar = document.getElementById('demo-progress-bar');
+  var tryOwnBtn = document.getElementById('demo-try-own-btn');
+  var bookBtn = document.getElementById('demo-book-btn');
+  var emailCapture = document.getElementById('demo-email-capture');
+  var emailForm = document.getElementById('demo-email-form');
+  var emailInput = document.getElementById('demo-email-input');
+  var emailSuccess = document.getElementById('demo-email-success');
+  var emailSubmitBtn = document.getElementById('demo-email-submit');
+
+  var STATUS_STEPS = ['Reading photos…', 'Classifying findings…', 'Drafting report…'];
+
+  generateBtn.addEventListener('click', function () {
+    track('generate_clicked');
+    idleState.hidden = true;
+    generatingState.hidden = false;
+
+    var stepIndex = 0;
+    statusText.textContent = STATUS_STEPS[0];
+    requestAnimationFrame(function () { progressBar.style.width = '100%'; });
+
+    var stepTimer = setInterval(function () {
+      stepIndex++;
+      if (stepIndex < STATUS_STEPS.length) statusText.textContent = STATUS_STEPS[stepIndex];
+    }, 1000);
+
+    setTimeout(function () {
+      clearInterval(stepTimer);
+      generatingState.hidden = true;
+      resultState.hidden = false;
+      track('result_viewed');
+    }, 3000);
+  });
+
+  tryOwnBtn.addEventListener('click', function () {
+    track('try_your_own_clicked');
+    emailCapture.hidden = false;
+    emailInput.focus();
+  });
+
+  bookBtn.addEventListener('click', function () {
+    track('book_walkthrough_clicked');
+  });
+
+  emailForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email) return;
+    emailSubmitBtn.disabled = true;
+    emailSubmitBtn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/mykakkww', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        source: 'hero-demo-early-access',
+        _subject: 'Early Access Request — Hero Demo'
+      })
+    }).then(function (res) {
+      if (res.ok) {
+        track('email_submitted');
+        emailForm.hidden = true;
+        emailSuccess.hidden = false;
+      } else {
+        emailSubmitBtn.disabled = false;
+        emailSubmitBtn.textContent = 'Get early access';
+      }
+    }).catch(function () {
+      emailSubmitBtn.disabled = false;
+      emailSubmitBtn.textContent = 'Get early access';
+    });
+  });
+})();
+</script>
 
 <script>
 (function () {
