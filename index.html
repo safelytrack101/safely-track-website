@@ -65,6 +65,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,7 +126,7 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
@@ -149,6 +152,72 @@ nav {
   max-width: var(--max);
   margin: 0 auto;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 1000px) {
+  .hero-inner { grid-template-columns: 1.15fr 0.85fr; }
+}
+
+/* ── HERO VISUAL (AI extraction mock) ── */
+.hero-visual { display: flex; justify-content: center; }
+@media (max-width: 999px) { .hero-visual { display: none; } }
+.hero-mock-card {
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 28px 26px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: var(--shadow-md);
+}
+.hero-mock-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8890B8;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.hero-mock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5c5c;
+  flex-shrink: 0;
+  animation: hero-pulse 1.6s ease-in-out infinite;
+}
+@keyframes hero-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+.hero-mock-field {
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: hero-field-in .5s ease forwards;
+}
+.hero-mock-field:last-child { margin-bottom: 0; }
+.hero-mock-field .f-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6870A0;
+  margin-bottom: 4px;
+}
+.hero-mock-field .f-value {
+  font-size: 14px;
+  color: var(--white);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.hero-mock-field .f-value.risk-high { color: var(--orange-mid); font-weight: 700; }
+@keyframes hero-field-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
 }
 .hero-label {
   display: inline-flex;
@@ -196,7 +265,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 14px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -228,6 +297,7 @@ nav {
   color: var(--orange);
   line-height: 1;
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 .hero-stat .label {
   font-size: 13px;
@@ -351,6 +421,7 @@ h2.white { color: var(--white); }
   border-left: 3px solid var(--orange);
   padding: 28px 28px 24px;
   border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow-sm);
 }
 .quote-card p {
   font-family: var(--font-display);
@@ -379,6 +450,7 @@ h2.white { color: var(--white); }
   color: var(--orange);
   line-height: 1;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .stat-callout p {
   color: #8890B8;
@@ -408,6 +480,7 @@ h2.white { color: var(--white); }
   color: var(--dark);
   margin-bottom: 8px;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .cost-cell .cost-label {
   font-size: 13px;
@@ -527,6 +600,7 @@ h2.white { color: var(--white); }
   padding: 36px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 .persona-card::before {
   content: '';
@@ -676,7 +750,7 @@ h2.white { color: var(--white); }
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -717,7 +791,7 @@ h2.white { color: var(--white); }
   background: var(--orange);
   color: var(--white);
   padding: 12px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -728,6 +802,7 @@ h2.white { color: var(--white); }
   background: var(--orange-light);
   border: 1px solid rgba(232,102,10,0.2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   padding: 40px 44px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -765,6 +840,7 @@ h2.white { color: var(--white); }
   font-size: 28px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .cs-stat .l {
   font-size: 12px;
@@ -777,7 +853,7 @@ h2.white { color: var(--white); }
   border: 2px solid var(--orange);
   color: var(--orange);
   padding: 12px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -851,7 +927,7 @@ h2.white { color: var(--white); }
   border: 1.5px solid var(--gray-2);
   color: var(--text-muted);
   padding: 13px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -939,7 +1015,10 @@ footer {
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, transform .2s;
 }
+.ai-input-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .ai-input-icon {
   width: 38px;
   height: 38px;
@@ -948,9 +1027,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  color: var(--orange);
   flex-shrink: 0;
 }
+.ai-input-icon svg { width: 19px; height: 19px; }
 .ai-input-card h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
 .ai-input-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 .ai-transform-chip {
@@ -1039,6 +1119,7 @@ footer {
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
   padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
 }
 .comms-feature h4 {
   font-size: 15px;
@@ -1136,7 +1217,7 @@ footer {
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -1298,6 +1379,7 @@ footer {
   font-size: 40px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .quiz-score-denom {
   font-size: 11px;
@@ -1377,6 +1459,40 @@ footer {
   .steps { grid-template-columns: 1fr; }
   .pilot-form-wrap { padding: 28px 20px; }
 }
+
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── TESTIMONIAL AVATAR ── */
+.quote-attr-row, .persona-quote-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar-mono {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: var(--orange-mid);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.persona-quote-row .avatar-mono { background: var(--orange-light); color: var(--orange); }
 </style>
 </head>
 <body>
@@ -1398,28 +1514,51 @@ footer {
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-label">Built for EHS, Safety &amp; Loss Control Teams</div>
-    <h1>Your field evidence is already there.<br><em>Stop spending hours rebuilding it into a report.</em></h1>
-    <p class="hero-sub">Safely Track turns your photos, notes, and field observations into structured, client-facing reports, drafted by AI, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
-    <div class="hero-actions">
-      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a Demo</a>
-      <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+    <div class="hero-content">
+      <div class="hero-label">Built for EHS, Safety &amp; Loss Control Teams</div>
+      <h1>Your field evidence is already there.<br><em>Stop spending hours rebuilding it into a report.</em></h1>
+      <p class="hero-sub">Safely Track turns your photos, notes, and field observations into structured, client-facing reports, drafted by AI, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a Demo</a>
+        <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">15x+</div>
+          <div class="label">return on Safely Track spend</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2–4 hrs</div>
+          <div class="label">recovered per report for billable field work</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2+</div>
+          <div class="label">new clients each consultant can take on, without adding headcount</div>
+        </div>
+      </div>
+      <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="num">15x+</div>
-        <div class="label">return on Safely Track spend</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">2–4 hrs</div>
-        <div class="label">recovered per report for billable field work</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">2+</div>
-        <div class="label">new clients each consultant can take on, without adding headcount</div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-mock-card">
+        <div class="hero-mock-top"><span class="hero-mock-dot"></span> Voice memo → structured live</div>
+        <div class="hero-mock-field" style="animation-delay:.15s">
+          <div class="f-label">Location</div>
+          <div class="f-value">Plant B – Loading Dock</div>
+        </div>
+        <div class="hero-mock-field" style="animation-delay:.5s">
+          <div class="f-label">Hazard Type</div>
+          <div class="f-value">Blocked emergency exit</div>
+        </div>
+        <div class="hero-mock-field" style="animation-delay:.85s">
+          <div class="f-label">Risk Level</div>
+          <div class="f-value risk-high">High</div>
+        </div>
+        <div class="hero-mock-field" style="animation-delay:1.2s">
+          <div class="f-label">Action Assigned</div>
+          <div class="f-value">Notify facilities · clear within 24h</div>
+        </div>
       </div>
     </div>
-    <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
   </div>
 </section>
 
@@ -1431,17 +1570,23 @@ footer {
     <p class="section-intro">Your inspectors already collect everything: photos, observations, follow-ups, site context. The problem is that evidence lives in camera rolls, voice memos, and texts, and turning it into a clean, client-facing report means hours of manual reconstruction back at the office. That's not a field problem. It's an operations problem.</p>
 
     <div class="problem-quotes">
-      <div class="quote-card">
+      <div class="quote-card" data-reveal>
         <p>"There are 30–50 platforms out there, but none of them fit the mold of a consultant."</p>
-        <div class="attr">COO, EHS Consulting Firm (Safely Track customer)</div>
+        <div class="quote-attr-row">
+          <div class="avatar-mono">CO</div>
+          <div class="attr">COO, EHS Consulting Firm (Safely Track customer)</div>
+        </div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card" data-reveal>
         <p>"The photos in the conversation are on somebody's phone. That's not in my file when I close out my job."</p>
-        <div class="attr">President, Construction Installation Subcontractor</div>
+        <div class="quote-attr-row">
+          <div class="avatar-mono">PR</div>
+          <div class="attr">President, Construction Installation Subcontractor</div>
+        </div>
       </div>
     </div>
 
-    <div class="stat-callout">
+    <div class="stat-callout" data-reveal>
       <div class="num">&gt;80%</div>
       <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong>, with no structured record, no owner assigned, and no proof of fix. That's the documentation gap that ends up in your report queue.</p>
     </div>
@@ -1455,7 +1600,7 @@ footer {
     <h2>One workflow. Field observation to client-ready report.</h2>
     <p class="section-intro">Built around the consultant's workflow, not a single GC's safety checklist. Four steps, from site to send, without hours at the desk.</p>
 
-    <div class="steps">
+    <div class="steps" data-reveal>
       <div class="step">
         <div class="step-num">1</div>
         <h3>Start with what the client expects</h3>
@@ -1497,22 +1642,22 @@ footer {
 
     <div class="ai-reports-grid">
       <div class="ai-inputs-col">
-        <div class="ai-input-card">
-          <div class="ai-input-icon">🎤</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg></div>
           <div>
             <h4>Voice Memo</h4>
             <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions, no typing required.</p>
           </div>
         </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📷</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></div>
           <div>
             <h4>Site Photos</h4>
             <p>Weather, conditions, signage, crew, AI analyzes everything visible and incorporates it automatically into the report.</p>
           </div>
         </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📝</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v3h3"></path><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="15" y2="16"></line></svg></div>
           <div>
             <h4>Text Notes</h4>
             <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
@@ -1521,7 +1666,7 @@ footer {
         <div class="ai-transform-chip">✦ &nbsp;Our AI structures everything into your client's template</div>
       </div>
 
-      <div class="ai-output-card">
+      <div class="ai-output-card" data-reveal>
         <div class="section-eyebrow section-eyebrow-white">Output</div>
         <h3>The report your client actually requires</h3>
         <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your client's specific daily report, inspection checklist, or incident log, formatted consistently, every time, across every inspector and site.</p>
@@ -1568,19 +1713,19 @@ footer {
     <p class="section-intro">Set up routine emails, daily digests, and weekly summaries that keep your clients and project teams informed automatically. No more chasing down updates or composing status emails by hand.</p>
 
     <div class="comms-features">
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Configurable per-client schedules</h4>
         <p>Each client gets the cadence that works for them, daily, weekly, or on-demand summaries.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Daily digest &amp; weekly summary templates</h4>
         <p>Pre-built formats that look professional and include everything your client expects to see.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Project team distribution lists</h4>
         <p>Route reports and summaries to the right people on each client's team, automatically.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Fully automated delivery</h4>
         <p>Reports fire on schedule without a manual trigger. Your clients stay informed while you focus on the field.</p>
       </div>
@@ -1595,7 +1740,7 @@ footer {
     <h2>The cost of a missing closeout record</h2>
     <p class="section-intro">Three numbers every safety professional should know, and a liability that's especially acute when your firm's name is on the report.</p>
 
-    <div class="cost-grid">
+    <div class="cost-grid" data-reveal>
       <div class="cost-cell">
         <div class="amount">$47,316</div>
         <div class="cost-label">Average cost of a single lost-time workers' comp claim</div>
@@ -1619,7 +1764,7 @@ footer {
 <!-- CASE STUDY TEASER -->
 <section class="section section-alt">
   <div class="inner">
-    <div class="cs-teaser">
+    <div class="cs-teaser" data-reveal>
       <div>
         <div class="cs-tag">Customer Story</div>
         <h3>How a regional general contractor closed the proof-of-fix gap</h3>
@@ -1652,7 +1797,7 @@ footer {
     <p class="section-intro">Safely Track is designed around multi-site documentation workflows, whether you're an EHS consultant, a general contractor, or a loss control team producing carrier-ready reports.</p>
 
     <div class="personas">
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Primary, EHS Consulting Firms</div>
         <h3>The Consulting Principal</h3>
         <div class="persona-role">Managers of EHS consulting firm managing multiple client sites</div>
@@ -1662,10 +1807,14 @@ footer {
           <li><span class="pain-icon">→</span> Existing tools built for single companies, not multi-client consultant workflows</li>
           <li><span class="pain-icon">→</span> Hours per week rebuilding field evidence into client-facing reports</li>
         </ul>
-        <div class="persona-quote">"There are 30–50 platforms out there, but none of them fit the mold of a consultant."<br><br><em style="font-size:12px;color:#aaa">COO, EHS consulting firm (Safely Track customer)</em></div>
+        <div class="persona-quote">"There are 30–50 platforms out there, but none of them fit the mold of a consultant."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">CO</div>
+          <div style="font-size:12px;color:var(--text-muted)">COO, EHS consulting firm (Safely Track customer)</div>
+        </div>
       </div>
 
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Also Used By, General Contractors</div>
         <h3>The Safety Director</h3>
         <div class="persona-role">Safety director or ops lead at a 100–999 employee contractor managing multiple active sites</div>
@@ -1674,10 +1823,14 @@ footer {
           <li><span class="pain-icon">→</span> Subcontractor foremen won't adopt enterprise software with logins and training</li>
           <li><span class="pain-icon">→</span> Proof-of-fix ends up in text threads and camera rolls, not the record</li>
         </ul>
-        <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."<br><br><em style="font-size:12px;color:#aaa">Safety Director, mid-market contractor</em></div>
+        <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">SD</div>
+          <div style="font-size:12px;color:var(--text-muted)">Safety Director, mid-market contractor</div>
+        </div>
       </div>
 
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Also Used By, Carriers &amp; Loss Control</div>
         <h3>The Loss Control Consultant</h3>
         <div class="persona-role">Loss control rep or consultant producing policyholder visit reports for carriers and underwriters</div>
@@ -1686,7 +1839,11 @@ footer {
           <li><span class="pain-icon">→</span> No consistent way to assign corrective actions to policyholders and get documented proof</li>
           <li><span class="pain-icon">→</span> Underwriters ask for portfolio risk summaries that require a weekend of report-pulling</li>
         </ul>
-        <div class="persona-quote">"For every hour we spent on site, we were spending another hour at the desk writing it up."<br><br><em style="font-size:12px;color:#aaa">COO, EHS firm on 50+ sites</em></div>
+        <div class="persona-quote">"For every hour we spent on site, we were spending another hour at the desk writing it up."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">CO</div>
+          <div style="font-size:12px;color:var(--text-muted)">COO, EHS firm on 50+ sites</div>
+        </div>
         <a href="loss-control.html" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the loss control overview →</a>
       </div>
     </div>
@@ -1724,6 +1881,24 @@ footer {
   </div>
 </footer>
 
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>

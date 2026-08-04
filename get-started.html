@@ -65,6 +65,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,7 +126,7 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
@@ -195,7 +198,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 14px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -226,6 +229,7 @@ nav {
   font-size: 38px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 6px;
 }
 .hero-stat .label {
@@ -348,6 +352,7 @@ h2.white { color: var(--white); }
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-left: 3px solid var(--orange);
+  box-shadow: var(--shadow-sm);
   padding: 28px 28px 24px;
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -377,6 +382,7 @@ h2.white { color: var(--white); }
   font-size: 52px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 .stat-callout p {
@@ -406,6 +412,7 @@ h2.white { color: var(--white); }
   font-size: 36px;
   color: var(--dark);
   margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
 }
 .cost-cell .cost-label {
@@ -526,6 +533,7 @@ h2.white { color: var(--white); }
   padding: 36px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 .persona-card::before {
   content: '';
@@ -675,7 +683,7 @@ h2.white { color: var(--white); }
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -716,7 +724,7 @@ h2.white { color: var(--white); }
   background: var(--orange);
   color: var(--white);
   padding: 12px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -727,6 +735,7 @@ h2.white { color: var(--white); }
   background: var(--orange-light);
   border: 1px solid rgba(232,102,10,0.2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   padding: 40px 44px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -764,6 +773,7 @@ h2.white { color: var(--white); }
   font-size: 28px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .cs-stat .l {
   font-size: 12px;
@@ -776,7 +786,7 @@ h2.white { color: var(--white); }
   border: 2px solid var(--orange);
   color: var(--orange);
   padding: 12px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -850,7 +860,7 @@ h2.white { color: var(--white); }
   border: 1.5px solid var(--gray-2);
   color: var(--text-muted);
   padding: 13px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -904,6 +914,17 @@ footer {
   color: #3A4060;
 }
 
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
 /* ── VIDEO EMBED ── */
 .video-wrap {
   position: relative;
@@ -938,6 +959,7 @@ footer {
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 .ai-input-icon {
   width: 38px;
@@ -1038,6 +1060,7 @@ footer {
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
   padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
 }
 .comms-feature h4 {
   font-size: 15px;
@@ -1087,6 +1110,7 @@ footer {
   border: 1px solid var(--gray-2);
   border-radius: 8px;
   padding: 40px 36px;
+  box-shadow: var(--shadow-md);
 }
 .pilot-form-grid {
   display: grid;
@@ -1135,7 +1159,7 @@ footer {
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);

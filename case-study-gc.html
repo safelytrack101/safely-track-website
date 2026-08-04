@@ -23,6 +23,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 800px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
@@ -63,7 +66,7 @@ p strong { color: var(--text); }
 .pill strong { color: var(--text); }
 
 /* PULL QUOTE */
-.pull-quote { border-left: 3px solid var(--orange); padding: 18px 24px; margin: 32px 0; background: var(--orange-light); border-radius: 0 var(--radius) var(--radius) 0; }
+.pull-quote { border-left: 3px solid var(--orange); padding: 18px 24px; margin: 32px 0; background: var(--orange-light); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm); }
 .pull-quote p { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--dark); line-height: 1.5; margin-bottom: 10px; }
 .pull-quote .attr { font-size: 12px; color: var(--text-muted); font-style: normal; margin: 0; }
 
@@ -92,16 +95,19 @@ p strong { color: var(--text); }
 hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; }
 
 /* DIFFERENTIATOR BOX */
-.diff-box { background: var(--dark); border-radius: var(--radius); padding: 36px; margin: 32px 0; }
+.diff-box { background: var(--dark); border-radius: var(--radius); padding: 36px; margin: 32px 0; box-shadow: var(--shadow-md); }
 .diff-box .eyebrow { color: #F5A05A; }
 .diff-box h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); margin-bottom: 12px; }
 .diff-box p { color: #8890B8; margin-bottom: 0; }
 
 /* CTA */
-.cta-block { background: var(--off-white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 44px 40px; text-align: center; margin-top: 56px; }
+.cta-block { background: var(--off-white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 44px 40px; text-align: center; margin-top: 56px; box-shadow: var(--shadow-sm); }
 .cta-block h3 { font-family: var(--font-display); font-size: 26px; color: var(--dark); margin-bottom: 10px; }
 .cta-block p { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; max-width: 400px; margin-left: auto; margin-right: auto; }
-.btn-primary { display: inline-block; background: var(--orange); color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: var(--radius); }
+.btn-primary { display: inline-block; background: var(--orange); color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: var(--radius-pill); }
+[data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
 .btn-primary:hover { background: #d05a08; }
 .cta-sub { font-size: 12px; color: #bbb; margin-top: 12px !important; margin-bottom: 0 !important; }
 
@@ -180,7 +186,7 @@ footer { background: var(--dark); padding: 32px 24px; margin-top: 0; }
 
   <p>The safety manager had a system for logging hazard observations. What she didn't have was a system for <strong>closing them out without doing it herself.</strong> Every corrective action ended with a manual phone call or text to confirm the fix happened, and another manual step to log the documentation.</p>
 
-  <div class="pull-quote">
+  <div class="pull-quote" data-reveal>
     <p>"At the end of the week I would have to go in and call people and make sure they closed things out. It was still all manual on my part."</p>
     <div class="attr">Safety manager, multi-site construction</div>
   </div>
@@ -255,13 +261,13 @@ footer { background: var(--dark); padding: 32px 24px; margin-top: 0; }
 
   <p>The fundamental challenge on any multi-company construction site is that the GC's safety software only works for people inside that system. Subcontractor foremen and crews aren't in the system. They can't be required to download apps or create accounts on behalf of a contractor they may only work with for a few weeks.</p>
 
-  <div class="diff-box">
+  <div class="diff-box" data-reveal>
     <div class="eyebrow">The Key Insight</div>
     <h3>Every worker has a phone. Not every worker has an account.</h3>
     <p>SMS-based corrective action assignment works across company lines because it requires nothing from the recipient except a phone and a browser. The proof-of-fix link opens instantly, uploads a photo, and creates a structured closeout record, without the safety manager doing anything manually.</p>
   </div>
 
-  <div class="pull-quote">
+  <div class="pull-quote" data-reveal>
     <p>"A lot of guys in the field don't really have a laptop setup, but they all have phones. If there's a way to have things that are easy for them, that's the big advantage."</p>
     <div class="attr">Safety manager, multi-site construction</div>
   </div>
@@ -271,7 +277,7 @@ footer { background: var(--dark); padding: 32px 24px; margin-top: 0; }
   <hr class="divider">
 
   <!-- CTA -->
-  <div class="cta-block">
+  <div class="cta-block" data-reveal>
     <h3>See how Safely Track works on your sites.</h3>
     <p>Start with one site. Onboarding takes under an hour. No long-term contract required.</p>
     <a href="https://usesafelytrack.com#pilot" class="btn-primary">Request a pilot →</a>
@@ -286,6 +292,25 @@ footer { background: var(--dark); padding: 32px 24px; margin-top: 0; }
     <span class="footer-copy">© 2026 Safely Track LLC · usesafelytrack.com</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>

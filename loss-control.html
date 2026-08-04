@@ -38,6 +38,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,7 +79,7 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
@@ -86,7 +89,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 10px 22px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -148,7 +151,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 14px 30px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -210,6 +213,7 @@ h2.white { color: var(--white); }
   font-size: 52px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 8px;
 }
 .stat-block .stat-label {
@@ -271,6 +275,7 @@ h2.white { color: var(--white); }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--gray-2);
+  box-shadow: var(--shadow-sm);
 }
 .ba-card.after { border-color: var(--orange); }
 .ba-header {
@@ -427,6 +432,35 @@ footer {
   .stats-bar-inner { grid-template-columns: 1fr; }
   .stats-problem { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
 }
+
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── TESTIMONIAL AVATAR ── */
+.testimonial-attr-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.avatar-mono {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(232,102,10,0.15);
+  border: 1px solid rgba(232,102,10,0.35);
+  color: var(--orange-mid);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -524,7 +558,7 @@ footer {
   <div class="inner">
 
     <!-- AI Report Automation -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">AI Report Automation</div>
         <h3>A twenty-five minute walk shouldn't cost you an hour at a desk.</h3>
@@ -553,7 +587,7 @@ footer {
     </div>
 
     <!-- Customization -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Customization</div>
         <h3>Your templates. Your logo. Your format.</h3>
@@ -573,7 +607,7 @@ footer {
     </div>
 
     <!-- Standardized Recommendation Language -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Recommendation Language</div>
         <h3>Consistent language, every time, without typing it from scratch.</h3>
@@ -602,7 +636,7 @@ footer {
     </div>
 
     <!-- Risk Findings -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Risk Findings</div>
         <h3>Spot something. Document it. Assign it.</h3>
@@ -631,7 +665,7 @@ footer {
     </div>
 
     <!-- Ask AI -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Ask AI</div>
         <h3>Query your portfolio risk data in plain English.</h3>
@@ -656,7 +690,10 @@ footer {
   <div class="testimonial-inner">
     <span class="testimonial-mark">"</span>
     <p class="testimonial-quote">For every hour we spent on site, we were spending another hour at the desk writing it up. Safely Track got report-writing time from an hour to less than fifteen minutes, we took on more sites without adding headcount.</p>
-    <p class="testimonial-attr">COO, EHS consulting firm using Safely Track on 50+ construction, manufacturing, and other sites</p>
+    <div class="testimonial-attr-row">
+      <div class="avatar-mono">CO</div>
+      <p class="testimonial-attr">COO, EHS consulting firm using Safely Track on 50+ construction, manufacturing, and other sites</p>
+    </div>
   </div>
 </div>
 
@@ -686,6 +723,25 @@ footer {
     <span class="footer-copy">© 2026 Safely Track LLC</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
