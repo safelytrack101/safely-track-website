@@ -145,6 +145,79 @@ nav {
   display: inline-block;
 }
 .btn-hero:hover { background: #d05a08; transform: translateY(-1px); }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn-ghost {
+  color: #9098B8;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s;
+}
+.btn-ghost:hover { color: var(--white); }
+.hero-cta-note { font-size: 13px; color: #6870A0; margin-top: 14px; }
+
+/* ── SEGMENT SUB-NAV ── */
+.segment-subnav {
+  position: sticky;
+  top: 60px;
+  z-index: 90;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-2);
+  padding: 0 24px;
+}
+.segment-subnav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px 0;
+}
+.segment-subnav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.segment-subnav a:hover { background: var(--off-white); color: var(--text); }
+.segment-subnav a.active { background: var(--orange-light); color: var(--orange); }
+
+/* ── SEGMENT SECTIONS ── */
+.segment-section { padding: 80px 24px; border-bottom: 1px solid var(--gray-2); }
+.segment-section:last-of-type { border-bottom: none; }
+.segment-section.section-alt { background: var(--off-white); }
+.segment-hook { font-size: 17px; color: var(--text-muted); max-width: 680px; margin-bottom: 40px; line-height: 1.7; }
+.segment-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+@media (max-width: 700px) { .segment-lists { grid-template-columns: 1fr; } }
+.segment-proof {
+  background: var(--white);
+  border-left: 3px solid var(--orange);
+  padding: 22px 26px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.segment-section.section-alt .segment-proof { background: var(--off-white); }
+.segment-proof p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--dark);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.segment-proof .attr { font-size: 13px; color: var(--text-muted); font-style: normal; }
 
 /* ── SECTION WRAPPERS ── */
 .section { padding: 88px 24px; }
@@ -518,10 +591,11 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
-      <li><a href="index.html">EHS Consulting</a></li>
-      <li><a href="loss-control.html">Loss Control</a></li>
-      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
-      <li><a href="mailto:thomas@usesafelytrack.com" class="nav-cta">Request a Demo</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="index.html">For Consultants</a></li>
+      <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
+      <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -529,218 +603,131 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Built for In-House EHS Teams</div>
-    <h1>Field observations. Contractor corrections. Management reports.<br><em>Without rebuilding them from texts and camera rolls.</em></h1>
-    <p class="hero-sub">Safely Track gives EHS teams at manufacturing, construction, and multi-location restaurant and food-service companies a faster way to document hazards in the field, assign corrective actions without a new app or login, and produce management-ready reports from the evidence your team already captures.</p>
-    <a href="mailto:thomas@usesafelytrack.com" class="btn-hero">See it in action →</a>
+    <div class="hero-label">For In-House EHS &amp; Safety Teams</div>
+    <h1>Your safety data is already there.<br><em>It's just trapped.</em></h1>
+    <p class="hero-sub">Your team sees everything on the floor and the jobsite — but the record lives in camera rolls, voice memos, and texts. Safely Track turns what your people observe into structured, defensible records and the trend data your leadership actually asks for.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
+      <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+    </div>
+    <p class="hero-cta-note">A 30-minute audit of where your data's stuck — bring a recent report, leave with a plan.</p>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat-block">
-      <div class="num">&gt;80%</div>
-      <div class="stat-label">of hazard corrections handled with no structured record</div>
-    </div>
-    <div class="stat-block">
-      <div class="num">2–4 hrs</div>
-      <div class="stat-label">per report rebuilt manually from field notes</div>
-    </div>
-    <div class="stats-problem">
-      <p>The gap isn't in the field. Your team captures photos, notes, and observations every day. The gap is between what they see and what ends up in a <strong>defensible, searchable record</strong>. When a regulator, insurer, or auditor comes knocking, or an incident occurs, someone is digging through text threads and camera rolls to reconstruct what happened.</p>
-    </div>
+<!-- SEGMENT SUB-NAV -->
+<div class="segment-subnav" id="segment-subnav">
+  <div class="segment-subnav-inner">
+    <a href="#manufacturing" data-segment="manufacturing">Manufacturing</a>
+    <a href="#construction" data-segment="construction">Construction</a>
+    <a href="#food-beverage" data-segment="food-beverage">Food &amp; Beverage</a>
   </div>
 </div>
 
-<!-- FEATURES -->
-<section class="section">
+<!-- SECTION A: MANUFACTURING -->
+<section class="segment-section" id="manufacturing" data-reveal>
   <div class="inner">
-
-    <!-- Observation Capture -->
-    <div class="feature-row" data-reveal>
-      <div class="feature-content">
-        <div class="feature-eyebrow">Observation Capture</div>
-        <h3>What your team sees → a documented record. In under 60 seconds.</h3>
-        <p>Your safety team is already capturing photos, voice notes, and written observations. Safely Track's AI structures that raw input into a logged, reviewable observation, with hazard type, location, risk level, and recommended action, before they leave the area.</p>
-        <p>No manual form-filling. No end-of-day reconstruction.</p>
+    <div class="feature-eyebrow">Manufacturing</div>
+    <h2>The findings are in your walk-throughs. The citations are in your blind spots.</h2>
+    <p class="segment-hook">Roughly half of OSHA manufacturing inspections end in a citation, and the data that would have flagged the hazard is usually sitting in observations nobody aggregated.</p>
+    <div class="segment-lists">
+      <div class="ba-card">
+        <div class="ba-header">What's Trapped</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon x">✕</span> Floor observations captured on paper or in someone's head, never turned into a searchable record</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Repeat findings across lines and shifts that never get counted as a pattern</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> The trend view leadership wants, buried in a binder</div>
+        </div>
       </div>
-      <div class="feature-visual">
-        <div class="before-after">
-          <div class="ba-card">
-            <div class="ba-header">Before</div>
-            <div class="ba-items">
-              <div class="ba-item"><span class="ba-icon x">✕</span> Voice note or photo sent to supervisor</div>
-              <div class="ba-item"><span class="ba-icon x">✕</span> Manually written up at end of shift</div>
-              <div class="ba-item"><span class="ba-icon x">✕</span> No searchable record, or never written up at all</div>
-            </div>
-          </div>
-          <div class="ba-card after">
-            <div class="ba-header">With Safely Track</div>
-            <div class="ba-items">
-              <div class="ba-item"><span class="ba-icon check">✓</span> AI structures photo or voice into a logged observation</div>
-              <div class="ba-item"><span class="ba-icon check">✓</span> Hazard type, location, and risk tier auto-assigned</div>
-              <div class="ba-item"><span class="ba-icon check">✓</span> Searchable, audit-ready record from minute one</div>
-            </div>
-          </div>
+      <div class="ba-card after">
+        <div class="ba-header">What Safely Track Does</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon check">✓</span> Capture a floor observation in under a minute, photo + voice, no typing</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Auto-classify findings to the categories that get you cited: lockout/tagout, machine guarding, HazCom</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Show leadership the trend, the repeat-risk, and the cost story, not a stack of PDFs</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Consistent write-ups across every inspector, veteran or new hire</div>
         </div>
       </div>
     </div>
-
-    <!-- Contractor Corrective Actions -->
-    <div class="feature-row reverse" data-reveal>
-      <div class="feature-content">
-        <div class="feature-eyebrow">Contractor Corrective Actions</div>
-        <h3>Assign it. Prove it got fixed. No login required for contractors.</h3>
-        <p>Spot a hazard, assign the corrective action to the responsible contractor or crew via SMS, they receive a text with the finding and a link to upload proof of fix. No app, no onboarding, no training required on their end.</p>
-        <p>The closeout record is automatically timestamped and stored. When OSHA asks for proof, you pull it in seconds, not from someone's inbox.</p>
-      </div>
-      <div class="feature-visual">
-        <div class="before-after">
-          <div class="ba-card">
-            <div class="ba-header">Before</div>
-            <div class="ba-items">
-              <div class="ba-item"><span class="ba-icon x">✕</span> Hazard emailed or verbally assigned to foreman</div>
-              <div class="ba-item"><span class="ba-icon x">✕</span> Follow-up by phone, no documented trail</div>
-              <div class="ba-item"><span class="ba-icon x">✕</span> Proof of fix lives in a text thread, if anywhere</div>
-            </div>
-          </div>
-          <div class="ba-card after">
-            <div class="ba-header">With Safely Track</div>
-            <div class="ba-items">
-              <div class="ba-item"><span class="ba-icon check">✓</span> SMS assignment, no login needed for contractors</div>
-              <div class="ba-item"><span class="ba-icon check">✓</span> Contractor uploads photo proof via the text link</div>
-              <div class="ba-item"><span class="ba-icon check">✓</span> Auto-timestamped closeout record, audit-ready</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="segment-proof">
+      <p>Worker-complaint-triggered inspections carry the heaviest fines. Get ahead of them with a documented, in-house record before OSHA ever shows up.</p>
     </div>
-
-    <!-- Multi-Facility Visibility -->
-    <div class="feature-row" data-reveal>
-      <div class="feature-content">
-        <div class="feature-eyebrow">Multi-Facility Visibility</div>
-        <h3>Spot patterns across all your sites before they become incidents.</h3>
-        <p>Every observation feeds a searchable, filterable dashboard across your entire portfolio of facilities, contractors, and work areas. Filter by facility, contractor, hazard type, compliance category, or date range, and surface repeat patterns before they become incidents or violations.</p>
-        <p>When leadership asks "where are our biggest risk concentrations?" you have an answer in seconds, not a weekend of spreadsheet work.</p>
-      </div>
-      <div class="feature-visual">
-        <div class="filter-chips">
-          <span class="filter-chip">By Facility</span>
-          <span class="filter-chip">By Contractor</span>
-          <span class="filter-chip">By Hazard Type</span>
-          <span class="filter-chip">By Compliance Category</span>
-          <span class="filter-chip">By Risk Tier</span>
-          <span class="filter-chip">By Date Range</span>
-          <span class="filter-chip">Open vs. Closed</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Management Reporting -->
-    <div class="feature-row reverse" data-reveal>
-      <div class="feature-content">
-        <div class="feature-eyebrow">Management Reporting</div>
-        <h3>Monthly safety summary in minutes, not a Monday morning.</h3>
-        <p>Safely Track generates management-ready summaries from your observation data, open items, closed corrections, leading indicators, and trend lines, formatted for your leadership team or board safety committee.</p>
-        <p>No more compiling counts from four different sources the night before the safety meeting.</p>
-      </div>
-      <div class="feature-visual">
-        <div class="report-mock">
-          <div class="report-mock-header">June Safety Summary, All Facilities</div>
-          <div class="report-mock-title">AI-generated from your observation data</div>
-          <div class="report-mock-stats">
-            <div class="report-stat">
-              <div class="n">47</div>
-              <div class="l">Observations<br>logged</div>
-            </div>
-            <div class="report-stat">
-              <div class="n">41</div>
-              <div class="l">Corrective actions<br>closed</div>
-            </div>
-            <div class="report-stat">
-              <div class="n">87%</div>
-              <div class="l">Close-out<br>rate</div>
-            </div>
-          </div>
-          <ul class="report-mock-items">
-            <li>3 repeat findings in fall protection, Plant B, contractor crew</li>
-            <li>Electrical hazard category trending up vs. prior quarter</li>
-            <li>Cold-holding temperature deviations flagged at 2 locations this week</li>
-            <li>6 open items older than 14 days, escalation recommended</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
   </div>
 </section>
 
-<!-- WHO IT'S FOR -->
-<section class="section-alt">
+<!-- SECTION B: CONSTRUCTION -->
+<section class="segment-section section-alt" id="construction" data-reveal>
   <div class="inner">
-    <div class="section-eyebrow">Who It's For</div>
-    <h2>Built for the people running safety across multiple sites.</h2>
-    <p class="section-intro">Whether you're managing EHS across manufacturing facilities, safety compliance across active job sites, or food-safety compliance across restaurant locations, the underlying problem is the same: evidence in the field, documentation gap at the desk.</p>
-    <div class="audience-cards">
-      <div class="audience-card" data-reveal>
-        <div class="audience-tag">Manufacturing</div>
-        <h3>The EHS Manager</h3>
-        <div class="role">EHS manager or director at a multi-facility manufacturing company</div>
-        <ul>
-          <li><span class="li-arrow">→</span> Contractors on site who won't use your safety software</li>
-          <li><span class="li-arrow">→</span> OSHA audit readiness requires pulling from multiple systems</li>
-          <li><span class="li-arrow">→</span> Hazard observations stay in text threads, not the record</li>
-          <li><span class="li-arrow">→</span> Leadership wants a monthly safety dashboard that takes hours to build</li>
-        </ul>
+    <div class="feature-eyebrow">Construction</div>
+    <h2>Prove every hazard got closed, without chasing texts.</h2>
+    <p class="segment-hook">More than 80% of jobsite hazards are handled by text, phone call, or verbal instruction, no record, no owner assigned, no proof of fix. That gap is what OSHA and your insurer come looking for.</p>
+    <div class="segment-lists">
+      <div class="ba-card">
+        <div class="ba-header">What's Trapped</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon x">✕</span> Proof-of-fix living in camera rolls and text threads</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Subcontractor foremen who won't adopt software with logins and training</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Fall-protection and jobsite findings that never make it into a defensible file</div>
+        </div>
       </div>
-      <div class="audience-card" data-reveal>
-        <div class="audience-tag">Construction</div>
-        <h3>The Safety Director</h3>
-        <div class="role">Safety director or safety manager at a mid-market general contractor managing multiple active sites</div>
-        <ul>
-          <li><span class="li-arrow">→</span> Subcontractor foremen won't adopt enterprise software</li>
-          <li><span class="li-arrow">→</span> Proof-of-fix ends up in camera rolls and text threads</li>
-          <li><span class="li-arrow">→</span> OSHA citations require documentation you're not sure you have</li>
-          <li><span class="li-arrow">→</span> Daily reports and site observations are rebuilt from scratch each time</li>
-        </ul>
-      </div>
-      <div class="audience-card" data-reveal>
-        <div class="audience-tag">Food &amp; Beverage / Restaurant</div>
-        <h3>The Multi-Unit Ops Director</h3>
-        <div class="role">Director of operations or food-safety manager overseeing multiple restaurant or foodservice locations</div>
-        <ul>
-          <li><span class="li-arrow">→</span> Health inspector visits get handled verbally by the GM, no record</li>
-          <li><span class="li-arrow">→</span> Temp logs and cleaning checklists live on paper or in a group text</li>
-          <li><span class="li-arrow">→</span> Shift leads and hourly staff won't adopt software with logins and training</li>
-          <li><span class="li-arrow">→</span> Corporate wants a monthly food-safety rollup that's built by hand today</li>
-        </ul>
+      <div class="ba-card after">
+        <div class="ba-header">What Safely Track Does</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon check">✓</span> Log a hazard in under 60 seconds, assign the corrective action to the sub by SMS, no login, no app for their crews</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Timestamped proof-of-fix record, captured automatically</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Reports structured to your format, ready to flow toward Procore</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> OSHA 1926 findings documented cleanly, every site, every inspector</div>
+        </div>
       </div>
     </div>
+    <div class="segment-proof">
+      <p>"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."</p>
+      <div class="attr">Safety Director, mid-market contractor</div>
+    </div>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<div class="testimonial-section">
-  <div class="testimonial-inner">
-    <span class="testimonial-mark">"</span>
-    <p class="testimonial-quote">For every hour we spent on site, we were spending another hour at the desk writing it up. Safely Track got report-writing time from an hour to less than fifteen minutes, we took on more sites without adding headcount.</p>
-    <div class="testimonial-attr-row">
-      <div class="avatar-mono">CO</div>
-      <p class="testimonial-attr">COO, EHS firm on 50+ construction, manufacturing, and industrial sites</p>
+<!-- SECTION C: FOOD & BEVERAGE -->
+<section class="segment-section" id="food-beverage" data-reveal>
+  <div class="inner">
+    <div class="feature-eyebrow">Food &amp; Beverage</div>
+    <h2>Sanitation, chemicals, and audits, documented, not remembered.</h2>
+    <p class="segment-hook">Ammonia refrigeration and sanitation chemicals put food &amp; bev in the most expensive OSHA program there is. Your audit trail can't live in someone's head.</p>
+    <div class="segment-lists">
+      <div class="ba-card">
+        <div class="ba-header">What's Trapped</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon x">✕</span> Sanitation and chemical-handling observations with no consistent record</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Ammonia refrigeration / PSM documentation scattered across systems</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Third-party and customer audit prep that means a scramble every time</div>
+        </div>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-header">What Safely Track Does</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon check">✓</span> Fast field capture of conditions, chemical handling, and sanitation findings</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Defensible, audit-ready records, organized the way auditors expect</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Ask your data in plain English across every site before an audit walks in</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> HazCom and chemical documentation that holds up under scrutiny</div>
+        </div>
+      </div>
     </div>
+    <div class="segment-proof">
+      <p>When a customer or third-party audit lands, you have the record ready, not a weekend of reconstruction.</p>
+    </div>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
   </div>
-</div>
+</section>
 
 <!-- FOOTER CTA -->
 <div class="footer-cta">
   <div class="inner">
     <div class="section-eyebrow" style="text-align:center">Get Started</div>
-    <h2>See it on your sites.</h2>
-    <p>Start with one facility or job site. Onboarding takes under an hour. See results in the first week.</p>
-    <a href="mailto:thomas@usesafelytrack.com" class="btn-hero">Request a demo →</a>
-    <p class="contact-line"><a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a> · usesafelytrack.com</p>
+    <h2>See where your team's data is trapped.</h2>
+    <p>Free data audit, no pitch. We'll map where your safety data is stuck, in the field and in your systems, and what it'd take to fix it.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
+    <p class="contact-line">Prefer email? <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
   </div>
 </div>
 
@@ -775,6 +762,40 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
     });
   }, { threshold: 0.15 });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<script>
+(function () {
+  /* Thin, swappable analytics helper (same as index.html). No vendor
+     wired in yet, so this no-ops to console.log; auto-upgrades to
+     gtag/plausible/segment if any get added later. */
+  function track(event, props) {
+    props = props || {};
+    if (window.gtag) { window.gtag('event', event, props); return; }
+    if (window.plausible) { window.plausible(event, { props: props }); return; }
+    if (window.analytics && typeof window.analytics.track === 'function') { window.analytics.track(event, props); return; }
+    console.log('[track]', event, props);
+  }
+
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
+    el.addEventListener('click', function () { track('book_audit_clicked'); });
+  });
+
+  /* Sub-nav scroll-spy: highlight the segment section currently in view. */
+  var subnavLinks = document.querySelectorAll('.segment-subnav a');
+  var segmentSections = document.querySelectorAll('.segment-section');
+  if (subnavLinks.length && segmentSections.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        subnavLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+    segmentSections.forEach(function (section) { spy.observe(section); });
+  }
 })();
 </script>
 
