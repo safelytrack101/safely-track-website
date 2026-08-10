@@ -195,6 +195,11 @@ nav {
   flex-wrap: wrap;
   align-items: center;
 }
+.hero-cta-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 14px;
+}
 .btn-primary {
   background: var(--orange);
   color: var(--white);
@@ -1578,10 +1583,10 @@ footer {
     <a href="#home" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="loss-control.html">Loss Control</a></li>
-      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
-      <li><a href="quiz.html">Take the Quiz</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Data Audit</a></li>
+      <li><a href="#home">For Consultants</a></li>
+      <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
+      <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -1594,9 +1599,10 @@ footer {
       <h1>The safety data you need is already there.<br><em>It's just trapped. We set it free.</em></h1>
       <p class="hero-sub">Your field evidence is trapped in camera rolls, voice memos, and group texts. Your old reports are trapped in rigid PDFs and legacy tools. Safely Track turns both into structured, client-facing reports, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a Free Data Audit</a>
+        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
         <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
       </div>
+      <p class="hero-cta-note">A 30-minute audit of where your data's stuck — bring a recent report, leave with a plan.</p>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="num">15x+</div>
@@ -1972,6 +1978,7 @@ footer {
           <div class="avatar-mono">SD</div>
           <div style="font-size:12px;color:var(--text-muted)">Safety Director, mid-market contractor</div>
         </div>
+        <a href="ehs-inhouse.html#construction" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the in-house EHS overview →</a>
       </div>
 
       <div class="persona-card" data-reveal>
@@ -2000,7 +2007,7 @@ footer {
     <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Data Audit</div>
     <h2 class="white">Where is your safety data trapped?</h2>
     <p class="cta-band-sub">Bring a recent report or inspection template to the call. We'll map where your data is stuck, field-trapped in photos and voice memos, system-trapped in rigid PDFs and legacy tools, and what it'd take to fix it. No pitch. 30 minutes, no slides.</p>
-    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a Free Data Audit</a>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a free data audit</a>
     <p class="cta-band-note">Prefer email? <a href="get-started.html">Request access</a> and Thomas will follow up within one business day.</p>
   </div>
 </section>
@@ -2093,6 +2100,13 @@ footer {
      the earlier "try it yourself" email-capture flow. */
   bookBtn.addEventListener('click', function () {
     track('book_audit_clicked');
+  });
+
+  /* Track every other "Book a free data audit" entry point on the page
+     (nav, hero, bottom CTA band) the same way. */
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
+    if (el.id === 'demo-book-btn') return;
+    el.addEventListener('click', function () { track('book_audit_clicked'); });
   });
 })();
 </script>
