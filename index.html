@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Safely Track | Field Reports &amp; Hazard Closeout for EHS Consulting Firms</title>
-<meta name="description" content="Turn field observations into client-ready reports in minutes. Safely Track drafts reports from photos, notes, and voice memos, built for EHS consulting firms managing multi-site portfolios.">
+<title>Safely Track | The Operating System for EHS Consulting Firms</title>
+<meta name="description" content="One system for the ten things an EHS consulting firm actually does: win work, track credentials, staff the job, deliver the report, prove the fix, bill the client, and know your margin.">
 <link rel="canonical" href="https://usesafelytrack.com/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Safely Track">
-<meta property="og:title" content="Safely Track | Built for EHS Consulting Firms">
-<meta property="og:description" content="Your safety data is already there, it's just trapped. From field observation to client-ready report, automatically, with automated client comms and a portfolio-wide dashboard.">
+<meta property="og:title" content="Safely Track | The Operating System for EHS Consulting Firms">
+<meta property="og:description" content="Win work, onboard the client, staff it, deliver it, prove it, bill it, run the business. Ten steps your firm already runs, in one system built around how your team works.">
 <meta property="og:url" content="https://usesafelytrack.com/">
 <meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Safely Track | Built for EHS Consulting Firms">
-<meta name="twitter:description" content="Your safety data is already there, it's just trapped. From field observation to client-ready report, automatically, with automated client comms and a portfolio-wide dashboard.">
+<meta name="twitter:title" content="Safely Track | The Operating System for EHS Consulting Firms">
+<meta name="twitter:description" content="Win work, onboard the client, staff it, deliver it, prove it, bill it, run the business. Ten steps your firm already runs, in one system built around how your team works.">
 <meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
   "@type": "SoftwareApplication",
   "name": "Safely Track",
   "url": "https://usesafelytrack.com",
-  "description": "EHS documentation platform that turns trapped field data into client-ready reports automatically. Built for EHS consulting firms, loss control teams, and in-house safety teams.",
+  "description": "Operating system for EHS consulting firms, covering pipeline and proposals, client credentialing and COI tracking, staffing and certifications, field observations and client-ready reports, corrective-action closeout, timesheets and invoicing, a white-label client portal, and firm-level utilization and margin reporting.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -156,6 +156,65 @@ nav {
   .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
 }
 
+
+/* ── OPERATING SYSTEM MAP ── */
+/* Column counts must divide 10, or the last row leaves an empty cell that
+   shows through as a gray hole in the container background. */
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--gray-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.os-step {
+  background: var(--white);
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.os-step .os-num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: .04em;
+}
+.os-step h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.os-step p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+.os-order {
+  margin-top: 2px;
+  background: var(--orange-light);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 26px 28px;
+}
+.os-order p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 74ch;
+}
+.os-order p + p { margin-top: 10px; }
+.os-order strong { font-weight: 700; }
+@media (max-width: 1000px) {
+  .os-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .os-grid { grid-template-columns: 1fr; }
+  .os-order { padding: 22px 20px; }
+}
 /* ── HERO ── */
 .hero {
   background: var(--white);
@@ -1619,14 +1678,14 @@ footer {
 <section class="hero" id="home">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-label">Built for EHS, Safety &amp; Loss Control Teams</div>
-      <h1>The safety data you need is already there.<br><em>It's just trapped.</em></h1>
-      <p class="hero-sub">Your field evidence is trapped in camera rolls, voice memos, and group texts. Your old reports are trapped in rigid PDFs and legacy tools. Safely Track drafts structured, client-facing reports out of what your inspectors already captured. You review them; they go out on the schedule each client expects. The hours you get back go into the field.</p>
+      <div class="hero-label">Built for EHS Consulting Firms</div>
+      <h1>The operating system for<br><em>your EHS consulting firm.</em></h1>
+      <p class="hero-sub">Your firm wins the work, tracks what credentials each client demands, staffs the job with someone actually certified, writes the report, proves the hazard got fixed, bills it, and works out the margin afterward. Most firms run those ten steps across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs them in one place, in whatever order your firm needs them.</p>
       <div class="hero-actions">
         <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
         <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
       </div>
-      <p class="hero-cta-note">A 30-minute audit of where your data's stuck — bring a recent report, leave with a plan.</p>
+      <p class="hero-cta-note">A 30-minute audit of where your operation is leaking time — bring a recent report, leave with a plan.</p>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="num">15x+</div>
@@ -1729,7 +1788,7 @@ footer {
         <div class="demo-result-ctas">
           <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See it on your own data — book a free audit →</a>
         </div>
-        <p class="demo-result-note">Thirty minutes working from your own documents. You'll leave knowing where your data is getting stuck.</p>
+        <p class="demo-result-note">Step 04 of ten, running on sample data. Book thirty minutes and we'll walk all ten against how your firm actually works.</p>
       </div>
 
     </div>
@@ -1740,8 +1799,8 @@ footer {
 <section class="section section-alt" id="problem">
   <div class="inner">
     <div class="section-eyebrow">The Problem</div>
-    <h2>Your data isn't missing. It's trapped.</h2>
-    <p class="section-intro">Your inspectors already collect everything: photos, observations, follow-ups, site context. It's field-trapped, stuck in camera rolls, voice memos, and group texts. And once it does get written up, it's system-trapped, locked in rigid PDFs and legacy tools that can't talk to anything else. That's not a field problem. It's a data problem.</p>
+    <h2>None of it is missing. It's just scattered.</h2>
+    <p class="section-intro">The credential that decides who can staff a job lives in a spreadsheet. The photos that prove a hazard got fixed live on somebody's phone. The hours that decide your margin live in an inbox until someone reconstructs them on Friday. Every piece exists, and none of it is anywhere the next step can reach it. That's not a field problem. It's an operations problem.</p>
 
     <div class="problem-quotes">
       <div class="quote-card" data-reveal>
@@ -1762,7 +1821,7 @@ footer {
 
     <div class="stat-callout" data-reveal>
       <div class="num">&gt;80%</div>
-      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong>, with no structured record, no owner assigned, and no proof of fix. That's the documentation gap that ends up in your report queue.</p>
+      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong>, with no structured record, no owner assigned, and no proof of fix. That gap lands in your report queue, and it's the one your firm signs its name under.</p>
     </div>
   </div>
 </section>
@@ -1770,35 +1829,66 @@ footer {
 <!-- HOW IT WORKS -->
 <section class="section" id="how-it-works">
   <div class="inner">
-    <div class="section-eyebrow">The Solution</div>
-    <h2>One workflow, from field observation to client-ready report.</h2>
-    <p class="section-intro">Built around the consultant's workflow, not a single GC's safety checklist. Four steps, from site to send, without hours at the desk.</p>
+    <div class="section-eyebrow">The Operating System</div>
+    <h2>Ten steps your firm already runs. One system that runs them.</h2>
+    <p class="section-intro">This is the operation, not just the report. Every EHS consulting firm moves through roughly the same ten steps between winning a job and knowing what it earned. Safely Track covers them, tailored to how your firm already works.</p>
 
-    <div class="steps" data-reveal>
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Start with what the client expects</h3>
-        <p>Select the report type your client requires, daily report, inspection checklist, incident log, safety observation. Safely Track knows your template.</p>
-        <span class="step-note">Client-specific templates</span>
+    <div class="os-grid" data-reveal>
+      <div class="os-step">
+        <div class="os-num">01</div>
+        <h3>Win work</h3>
+        <p>Pipeline, proposals, and rate cards in one place, so a quote doesn't start from last year's document.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Add your field inputs</h3>
-        <p>Upload photos, voice memos, or typed notes. Location, hazard type, crew, and corrective actions get extracted and structured into a report draft automatically. No blank page.</p>
-        <span class="step-note">No manual entry</span>
+      <div class="os-step">
+        <div class="os-num">02</div>
+        <h3>Onboard the client</h3>
+        <p>Client credential requirements and COI tracking, captured at kickoff instead of chased at renewal.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Review and refine</h3>
-        <p>Safely Track drafts it; your name is the one going on it. Review the language, edit where it needs editing, and confirm before it reaches the client.</p>
-        <span class="step-note">You stay in control</span>
+      <div class="os-step">
+        <div class="os-num">03</div>
+        <h3>Staff it</h3>
+        <p>Credential tracking and availability in one view: who is qualified for this job, and who is actually free.</p>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Send and track</h3>
-        <p>Reports deliver automatically. Clients get routine digests and weekly summaries without a single manual follow-up. Data stays searchable across your entire portfolio.</p>
-        <span class="step-note">Automated delivery</span>
+      <div class="os-step">
+        <div class="os-num">04</div>
+        <h3>Deliver it</h3>
+        <p>Observations, inspections, and routine reports. Your forms, your logo, your PDF, not a generic template.</p>
       </div>
+      <div class="os-step">
+        <div class="os-num">05</div>
+        <h3>Support delivery</h3>
+        <p>Your training materials sit on top of our toolbox talks, so crews get your content instead of stock content.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">06</div>
+        <h3>Capture the work</h3>
+        <p>Timesheets, approvals, and hours by project, logged where the work happens rather than reconstructed on Friday.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">07</div>
+        <h3>Bill it</h3>
+        <p>Client invoicing and margin per placement, built from the hours your team already logged in step 06.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">08</div>
+        <h3>Prove it</h3>
+        <p>Corrective actions assigned by text, plus the closeout and proof-of-fix records your file can stand on.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">09</div>
+        <h3>Show the client</h3>
+        <p>A white-label portal where your client sees trends and logs their own hazards, so you know what to look for before you arrive.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">10</div>
+        <h3>Run the business</h3>
+        <p>Utilization, margin, and where the hours actually go, across every consultant and every client.</p>
+      </div>
+    </div>
+
+    <div class="os-order" data-reveal>
+      <p><strong>You tell us the order.</strong> We build the next step around how your team already works, not the other way around.</p>
+      <p>Tell us which of the ten actually costs your team time, or which one your admin is running by hand across three different systems, and that is the one that gets built first. Most firms start at step 04, because that's where the hours are most obviously going. Not every firm does.</p>
     </div>
 
     <div class="video-wrap">
@@ -1810,7 +1900,7 @@ footer {
 <!-- AI REPORTS -->
 <section class="section section-alt" id="ai-reports">
   <div class="inner">
-    <div class="section-eyebrow">Trapped Data, Set Free</div>
+    <div class="section-eyebrow">Step 04 &middot; Deliver It</div>
     <h2>Raw field input in, client-ready report out, in seconds.</h2>
     <p class="section-intro">Your inspectors speak, snap, or type what they observed. Safely Track turns that raw input into a structured report, based on the exact template your client requires. No manual entry.</p>
 
@@ -1864,7 +1954,7 @@ footer {
 <!-- PORTFOLIO DASHBOARD -->
 <section class="section" id="portfolio">
   <div class="inner">
-    <div class="section-eyebrow">Portfolio Dashboard</div>
+    <div class="section-eyebrow">Underneath Every Step</div>
     <h2>Your field data, working across your entire client portfolio.</h2>
     <p class="section-intro">Every report you file stays searchable. Filter by client, project, contractor, issue type, or OSHA category, and see a hazard repeating across sites while it's still a pattern and not an incident.</p>
 
@@ -1882,9 +1972,9 @@ footer {
 <!-- CLIENT COMMUNICATIONS -->
 <section class="section section-alt" id="client-comms">
   <div class="inner">
-    <div class="section-eyebrow">Client Communications</div>
-    <h2>Client updates, without the manual follow-up.</h2>
-    <p class="section-intro">Set up routine emails, daily digests, and weekly summaries that keep your clients and project teams informed automatically. No more chasing down updates or composing status emails by hand.</p>
+    <div class="section-eyebrow">Step 09 &middot; Show the Client</div>
+    <h2>Everything the client sees, without the manual follow-up.</h2>
+    <p class="section-intro">Two halves to this. Reports, digests, and weekly summaries go out to each client's project team on their own schedule. And a white-label portal gives them somewhere to look between those emails, under your branding, where they can also log what they find themselves.</p>
 
     <div class="comms-features">
       <div class="comms-feature" data-reveal>
@@ -1902,6 +1992,14 @@ footer {
       <div class="comms-feature" data-reveal>
         <h4>Fully automated delivery</h4>
         <p>Reports go out on schedule without anyone pressing send.</p>
+      </div>
+      <div class="comms-feature" data-reveal>
+        <h4>A portal with your name on it</h4>
+        <p>Your client logs into your branding, not ours, and sees the trend across their own sites without emailing you for it.</p>
+      </div>
+      <div class="comms-feature" data-reveal>
+        <h4>Clients log their own hazards</h4>
+        <p>Between your visits their team records inspections and hazards in the same place, so you know what to look for before you get to the site.</p>
       </div>
     </div>
   </div>
@@ -1940,7 +2038,7 @@ footer {
   <div class="inner">
     <div class="cs-teaser" data-reveal>
       <div>
-        <div class="cs-tag">Customer Story</div>
+        <div class="cs-tag">Step 08 &middot; Prove It</div>
         <h3>How a regional general contractor closed the proof-of-fix gap</h3>
         <p>A regional general contractor managing multiple active sites replaced end-of-week manual closeout chasing with a documented, audit-ready workflow, no apps or new logins for subcontractor crews.</p>
         <div class="cs-stats">
@@ -1968,7 +2066,7 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">Who It's For</div>
     <h2>Built for teams that document risk across multiple sites.</h2>
-    <p class="section-intro">Safely Track is designed around multi-site documentation workflows, whether you're an EHS consultant, a general contractor, or a loss control team producing carrier-ready reports.</p>
+    <p class="section-intro">The full ten-step system is built for EHS consulting firms, where the work spans many clients and the liability follows your firm's name. General contractors and loss control teams use the delivery and closeout steps on their own.</p>
 
     <div class="personas">
       <div class="persona-card" data-reveal>
@@ -2028,9 +2126,9 @@ footer {
 <!-- DEMO CTA -->
 <section class="cta-band">
   <div class="inner cta-band-inner">
-    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Data Audit</div>
-    <h2 class="white">Where is your safety data trapped?</h2>
-    <p class="cta-band-sub">Bring a recent report or inspection template to the call. In thirty minutes we'll map where your data is stuck, field-trapped in photos and voice memos, system-trapped in rigid PDFs and legacy tools, and what it would take to get it out. We work from your documents, not a deck.</p>
+    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Operations Audit</div>
+    <h2 class="white">Which of the ten is costing you most?</h2>
+    <p class="cta-band-sub">Bring a recent report, an inspection template, or whatever spreadsheet your admin is holding the firm together with. In thirty minutes we'll walk the ten steps against how your firm actually runs them, find the one leaking the most time, and tell you what it would take to fix that one first. We work from your documents, not a deck.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a free data audit</a>
     <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Thomas replies within one business day.</p>
   </div>
@@ -2042,7 +2140,7 @@ footer {
     <a href="#home" class="footer-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="footer-links">
       <li><a href="#problem">The Problem</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#how-it-works">The 10 Steps</a></li>
       <li><a href="#ai-reports">Structured Reports</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="quiz.html">AI Quiz</a></li>
@@ -2051,6 +2149,7 @@ footer {
       <li><a href="loss-control.html">Loss Control</a></li>
       <li><a href="ehs-inhouse.html">In-House EHS</a></li>
       <li><a href="get-started.html">Request Access</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot">Start a Pilot</a></li>
     </ul>
     <span class="footer-copy">© 2026 Safely Track LLC</span>
   </div>
