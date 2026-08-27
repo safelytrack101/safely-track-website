@@ -111,7 +111,8 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
@@ -132,6 +133,28 @@ nav {
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; color: var(--white) !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -1414,6 +1437,7 @@ footer {
       <li><a href="index.html">For Consultants</a></li>
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
       <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
@@ -1422,9 +1446,9 @@ footer {
 <!-- REQUEST ACCESS -->
 <section class="pilot-cta section" id="pilot">
   <div class="inner">
-    <div class="section-eyebrow" style="text-align:center">Free Data Audit</div>
-    <h2>Request your free data audit.</h2>
-    <p>No pitch, no obligation. We'll map where your safety data is trapped, in the field and in your systems, and show you what fixing it looks like. Prefer email over a call? Tell us a bit about your firm and Thomas will follow up within one business day. Or <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" style="color:var(--orange); font-weight:600;">book a free data audit</a> instead.</p>
+    <div class="section-eyebrow" style="text-align:center" id="pilot-eyebrow">Free Data Audit</div>
+    <h2 id="pilot-heading">Request your free data audit.</h2>
+    <p id="pilot-lede">Send over a recent report or inspection template and we'll walk through where your safety data is getting stuck, in the field and in the systems you already pay for, and what it would take to get it out. Tell us a bit about your firm below and Thomas replies within one business day, or <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" style="color:var(--orange); font-weight:600;">grab thirty minutes on the calendar</a> directly.</p>
 
     <div class="pilot-form-wrap">
       <div id="pilot-form-container">
@@ -1455,19 +1479,19 @@ footer {
                 <span>A free data audit</span>
               </label>
               <label class="intent-opt">
-                <input type="radio" name="interest" value="Starting a pilot">
+                <input type="radio" name="interest" value="Starting a pilot" id="pf-interest-pilot">
                 <span>Starting a pilot</span>
               </label>
             </div>
           </div>
-          <button type="submit" class="btn-form-light">Request Your Free Data Audit →</button>
-          <p class="form-privacy-light">Thomas will follow up within one business day.</p>
+          <button type="submit" class="btn-form-light" id="pilot-submit-btn">Request Your Free Data Audit →</button>
+          <p class="form-privacy-light">Thomas replies within one business day.</p>
         </form>
       </div>
       <div class="pilot-form-success" id="pilot-form-success">
         <div class="success-icon">✓</div>
         <h4>Request received.</h4>
-        <p>Thomas will be in touch within one business day to schedule your free data audit.</p>
+        <p id="pilot-success-note">Thomas will be in touch within one business day to get your free data audit scheduled.</p>
       </div>
     </div>
   </div>
@@ -1494,10 +1518,26 @@ footer {
 </footer>
 
 <script>
+/* The nav "Book a Pilot" button links here with ?interest=pilot, so the
+   page opens already framed as a pilot request rather than an audit. */
+(function () {
+  if (!/[?&]interest=pilot(&|$)/.test(window.location.search)) return;
+  const radio = document.getElementById('pf-interest-pilot');
+  if (radio) radio.checked = true;
+  const set = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+  document.title = 'Start a Pilot | Safely Track';
+  set('pilot-eyebrow', 'Start a Pilot');
+  set('pilot-heading', 'Start a pilot with your own reports.');
+  set('pilot-lede', "A pilot runs on your templates and your sites, so you can judge Safely Track against the reports you already produce rather than a demo account. Tell us a bit about your firm and Thomas will get back to you within one business day to scope it.");
+  set('pilot-submit-btn', 'Start a Pilot →');
+  set('pilot-success-note', 'Thomas will be in touch within one business day to scope your pilot.');
+})();
+
 async function handlePilotSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
+  const originalLabel = btn.textContent;
   btn.textContent = 'Sending…';
   btn.disabled = true;
   const data = new FormData(form);
@@ -1512,11 +1552,11 @@ async function handlePilotSubmit(e) {
       document.getElementById('pilot-form-container').style.display = 'none';
       document.getElementById('pilot-form-success').style.display = 'block';
     } else {
-      btn.textContent = 'Request Access →';
+      btn.textContent = originalLabel;
       btn.disabled = false;
     }
   } catch {
-    btn.textContent = 'Request Access →';
+    btn.textContent = originalLabel;
     btn.disabled = false;
   }
 }

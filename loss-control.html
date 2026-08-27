@@ -85,6 +85,28 @@ nav {
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 .btn-primary {
   background: var(--orange);
   color: var(--white);
@@ -511,6 +533,7 @@ footer {
       <li><a href="index.html">For Consultants</a></li>
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
       <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
@@ -654,7 +677,7 @@ footer {
         <div class="feature-eyebrow">Customization</div>
         <h3>Your templates. Your logo. Your format.</h3>
         <p>Safely Track formats reports to match exactly how your loss control documents look today, your header, your carrier's logo, your section structure, your risk-scoring scale. Upload your existing visit templates and we configure the system around them.</p>
-        <p>If a legacy platform has burned you before, unreliable functionality, support tickets that go nowhere, forms your own team ended up reprogramming just to keep things working, we get it. That's why you test Safely Track against your own report format before you commit to anything.</p>
+        <p>If a legacy platform has burned you before — unreliable functionality, support tickets that go nowhere, forms your own team ended up reprogramming just to keep things working — we get it. That's why you test Safely Track against your own report format before you commit to anything.</p>
       </div>
       <div class="feature-visual">
         <div class="tag-grid">
@@ -673,7 +696,7 @@ footer {
       <div class="feature-content">
         <div class="feature-eyebrow">Recommendation Language</div>
         <h3>Consistent language, every time, without typing it from scratch.</h3>
-        <p>Most hazards map to a handful of standard phrases your underwriters already expect, a deteriorated water heater, an outdated electrical panel, a cracked walkway. Flag the hazard type and Safely Track drafts the standard recommendation language and attaches the relevant photo. Edit it if you need to, send it if you don't.</p>
+        <p>Most hazards map to a handful of standard phrases your underwriters already expect: a deteriorated water heater, an outdated electrical panel, a cracked walkway. Flag the hazard type and Safely Track drafts the standard recommendation language and attaches the relevant photo. Edit it if you need to, send it if you don't.</p>
       </div>
       <div class="feature-visual">
         <div class="before-after">
@@ -702,7 +725,7 @@ footer {
       <div class="feature-content">
         <div class="feature-eyebrow">Risk Findings</div>
         <h3>Spot something. Document it. Assign it.</h3>
-        <p>Spot a risk finding during the visit, missing guarding, improper chemical storage, fire suppression gap, capture it in under 60 seconds. AI writes the description, flags the relevant OSHA standard, and texts the corrective action to the policyholder contact. No app required.</p>
+        <p>Spot a risk finding during the visit — missing guarding, improper chemical storage, a fire suppression gap — and capture it in under 60 seconds. AI writes the description, flags the relevant OSHA standard, and texts the corrective action to the policyholder contact. No app required.</p>
       </div>
       <div class="feature-visual">
         <div class="before-after">
@@ -751,9 +774,9 @@ footer {
 <div class="footer-cta">
   <div class="inner">
     <h2>See where your portfolio's data is trapped.</h2>
-    <p>Free, no-pitch data audit. Bring a recent site visit report and we'll show you exactly where the manual work is.</p>
+    <p>Bring a recent site visit report and we'll show you, on that document, where the manual work actually sits. Thirty minutes, no charge.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit →</a>
-    <p class="contact-line">Prefer email? <a href="get-started.html">Request access</a>, or reach us directly at <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
+    <p class="contact-line">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Reach us at <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
   </div>
 </div>
 
