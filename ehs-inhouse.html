@@ -85,6 +85,28 @@ nav {
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -595,6 +617,7 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
       <li><a href="index.html">For Consultants</a></li>
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
       <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
@@ -643,7 +666,7 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
         <div class="ba-items">
           <div class="ba-item"><span class="ba-icon check">✓</span> Capture a floor observation in under a minute, photo + voice, no typing</div>
           <div class="ba-item"><span class="ba-icon check">✓</span> Auto-classify findings to the categories that get you cited: lockout/tagout, machine guarding, HazCom</div>
-          <div class="ba-item"><span class="ba-icon check">✓</span> Show leadership the trend, the repeat-risk, and the cost story, not a stack of PDFs</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Show leadership the trend, the repeat findings, and what they cost, instead of a stack of PDFs</div>
           <div class="ba-item"><span class="ba-icon check">✓</span> Consistent write-ups across every inspector, veteran or new hire</div>
         </div>
       </div>
@@ -692,7 +715,7 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
 <section class="segment-section" id="food-beverage" data-reveal>
   <div class="inner">
     <div class="feature-eyebrow">Food &amp; Beverage</div>
-    <h2>Sanitation, chemicals, and audits, documented, not remembered.</h2>
+    <h2>Sanitation, chemicals, and audits: documented, not remembered.</h2>
     <p class="segment-hook">Ammonia refrigeration and sanitation chemicals put food &amp; bev in the most expensive OSHA program there is. Your audit trail can't live in someone's head.</p>
     <div class="segment-lists">
       <div class="ba-card">
@@ -725,9 +748,9 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
   <div class="inner">
     <div class="section-eyebrow" style="text-align:center">Get Started</div>
     <h2>See where your team's data is trapped.</h2>
-    <p>Free data audit, no pitch. We'll map where your safety data is stuck, in the field and in your systems, and what it'd take to fix it.</p>
+    <p>Thirty free minutes on your own documents. We'll map where your safety data is stuck, in the field and in the systems you already pay for, and what it would take to get it out.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
-    <p class="contact-line">Prefer email? <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
+    <p class="contact-line">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
   </div>
 </div>
 

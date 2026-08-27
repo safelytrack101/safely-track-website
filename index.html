@@ -111,7 +111,8 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
@@ -132,6 +133,28 @@ nav {
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; color: var(--white) !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -1586,6 +1609,7 @@ footer {
       <li><a href="#home">For Consultants</a></li>
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
       <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
@@ -1596,8 +1620,8 @@ footer {
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-label">Built for EHS, Safety &amp; Loss Control Teams</div>
-      <h1>The safety data you need is already there.<br><em>It's just trapped. We set it free.</em></h1>
-      <p class="hero-sub">Your field evidence is trapped in camera rolls, voice memos, and group texts. Your old reports are trapped in rigid PDFs and legacy tools. Safely Track turns both into structured, client-facing reports, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
+      <h1>The safety data you need is already there.<br><em>It's just trapped.</em></h1>
+      <p class="hero-sub">Your field evidence is trapped in camera rolls, voice memos, and group texts. Your old reports are trapped in rigid PDFs and legacy tools. Safely Track drafts structured, client-facing reports out of what your inspectors already captured. You review them; they go out on the schedule each client expects. The hours you get back go into the field.</p>
       <div class="hero-actions">
         <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
         <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
@@ -1630,8 +1654,8 @@ footer {
       <!-- IDLE STATE -->
       <div class="demo-state" id="demo-state-idle">
         <div class="demo-eyebrow">See It Work</div>
-        <h2 class="demo-heading">Your site walk. A finished report. Sixty seconds.</h2>
-        <p class="demo-subhead">Drop in photos and a voice memo — Safely Track writes the report. See it happen on a sample walk, right now.</p>
+        <h2 class="demo-heading">Sixty seconds from site walk to finished report.</h2>
+        <p class="demo-subhead">Drop in photos and a voice memo and Safely Track drafts the report. Here's a sample walk you can run yourself.</p>
 
         <div class="demo-sample-grid">
           <div class="demo-photos" role="group" aria-label="Sample jobsite photos from this site walk">
@@ -1705,7 +1729,7 @@ footer {
         <div class="demo-result-ctas">
           <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See it on your own data — book a free audit →</a>
         </div>
-        <p class="demo-result-note">Free, no-pitch. We'll show you where your own data is trapped, on a real call, not a sales script.</p>
+        <p class="demo-result-note">Thirty minutes working from your own documents. You'll leave knowing where your data is getting stuck.</p>
       </div>
 
     </div>
@@ -1747,7 +1771,7 @@ footer {
 <section class="section" id="how-it-works">
   <div class="inner">
     <div class="section-eyebrow">The Solution</div>
-    <h2>One workflow. Field observation to client-ready report.</h2>
+    <h2>One workflow, from field observation to client-ready report.</h2>
     <p class="section-intro">Built around the consultant's workflow, not a single GC's safety checklist. Four steps, from site to send, without hours at the desk.</p>
 
     <div class="steps" data-reveal>
@@ -1766,7 +1790,7 @@ footer {
       <div class="step">
         <div class="step-num">3</div>
         <h3>Review and refine</h3>
-        <p>The AI drafts. You're the expert. Review the language, edit where needed, and confirm before it goes to the client. Every report meets your firm's standards.</p>
+        <p>Safely Track drafts it; your name is the one going on it. Review the language, edit where it needs editing, and confirm before it reaches the client.</p>
         <span class="step-note">You stay in control</span>
       </div>
       <div class="step">
@@ -1787,7 +1811,7 @@ footer {
 <section class="section section-alt" id="ai-reports">
   <div class="inner">
     <div class="section-eyebrow">Trapped Data, Set Free</div>
-    <h2>Unstructured inputs. Client-ready reports. Done in seconds.</h2>
+    <h2>Raw field input in, client-ready report out, in seconds.</h2>
     <p class="section-intro">Your inspectors speak, snap, or type what they observed. Safely Track turns that raw input into a structured report, based on the exact template your client requires. No manual entry.</p>
 
     <div class="ai-reports-grid">
@@ -1796,30 +1820,30 @@ footer {
           <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg></div>
           <div>
             <h4>Voice Memo</h4>
-            <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions, no typing required.</p>
+            <p>Narrate what you observed. Safely Track transcribes it and pulls out location, hazard type, crew, and corrective actions. No typing.</p>
           </div>
         </div>
         <div class="ai-input-card" data-reveal>
           <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></div>
           <div>
             <h4>Site Photos</h4>
-            <p>Weather, conditions, signage, crew, AI analyzes everything visible and incorporates it automatically into the report.</p>
+            <p>Weather, conditions, signage, crew. Safely Track reads what's in the frame and carries it into the report.</p>
           </div>
         </div>
         <div class="ai-input-card" data-reveal>
           <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v3h3"></path><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="15" y2="16"></line></svg></div>
           <div>
             <h4>Text Notes</h4>
-            <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
+            <p>Names, issues, context. A typed note becomes structured fields in the finished report.</p>
           </div>
         </div>
-        <div class="ai-transform-chip">✦ &nbsp;Our AI structures everything into your client's template</div>
+        <div class="ai-transform-chip">Structured into your client's template</div>
       </div>
 
       <div class="ai-output-card" data-reveal>
         <div class="section-eyebrow section-eyebrow-white">Output</div>
         <h3>The report your client actually requires</h3>
-        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your client's specific daily report, inspection checklist, or incident log, formatted consistently, every time, across every inspector and site.</p>
+        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to the document that client actually asks for, whether that's their daily report, inspection checklist, or incident log, and formats it the same way across every inspector and every site.</p>
         <ul class="ai-output-features">
           <li>Client-specific templates, not generic outputs</li>
           <li>AI auto-fills fields from voice and photo analysis</li>
@@ -1842,7 +1866,7 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">Portfolio Dashboard</div>
     <h2>Your field data, working across your entire client portfolio.</h2>
-    <p class="section-intro">Every report feeds a searchable data asset. Filter by client, project, contractor, issue type, or OSHA category. Spot repeat hazard patterns before they become incidents, across all your sites, not just one.</p>
+    <p class="section-intro">Every report you file stays searchable. Filter by client, project, contractor, issue type, or OSHA category, and see a hazard repeating across sites while it's still a pattern and not an incident.</p>
 
     <div class="portfolio-filters">
       <span class="filter-chip">By Client</span>
@@ -1869,7 +1893,7 @@ footer {
       </div>
       <div class="comms-feature" data-reveal>
         <h4>Daily digest &amp; weekly summary templates</h4>
-        <p>Pre-built formats that look professional and include everything your client expects to see.</p>
+        <p>Pre-built formats that cover what your client expects to see, without you formatting anything.</p>
       </div>
       <div class="comms-feature" data-reveal>
         <h4>Project team distribution lists</h4>
@@ -1877,7 +1901,7 @@ footer {
       </div>
       <div class="comms-feature" data-reveal>
         <h4>Fully automated delivery</h4>
-        <p>Reports fire on schedule without a manual trigger. Your clients stay informed while you focus on the field.</p>
+        <p>Reports go out on schedule without anyone pressing send.</p>
       </div>
     </div>
   </div>
@@ -1888,7 +1912,7 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">The Stakes</div>
     <h2>The cost of a missing closeout record</h2>
-    <p class="section-intro">Three numbers every safety professional should know, and a liability that's especially acute when your firm's name is on the report.</p>
+    <p class="section-intro">Three numbers worth keeping in mind, and a liability that lands harder when your firm's name is the one on the report.</p>
 
     <div class="cost-grid" data-reveal>
       <div class="cost-cell">
@@ -1907,7 +1931,7 @@ footer {
         <div class="source">BLS CFOI (2023)</div>
       </div>
     </div>
-    <p class="cost-footer"><strong>EHS consulting firms carry personal liability for the accuracy and completeness of client safety records. A documented, closed-out hazard is your first line of defense.</strong></p>
+    <p class="cost-footer"><strong>EHS consulting firms carry personal liability for the accuracy and completeness of client safety records. A documented, closed-out hazard is the difference between a defensible file and your best recollection.</strong></p>
   </div>
 </section>
 
@@ -2006,9 +2030,9 @@ footer {
   <div class="inner cta-band-inner">
     <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Data Audit</div>
     <h2 class="white">Where is your safety data trapped?</h2>
-    <p class="cta-band-sub">Bring a recent report or inspection template to the call. We'll map where your data is stuck, field-trapped in photos and voice memos, system-trapped in rigid PDFs and legacy tools, and what it'd take to fix it. No pitch. 30 minutes, no slides.</p>
+    <p class="cta-band-sub">Bring a recent report or inspection template to the call. In thirty minutes we'll map where your data is stuck, field-trapped in photos and voice memos, system-trapped in rigid PDFs and legacy tools, and what it would take to get it out. We work from your documents, not a deck.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a free data audit</a>
-    <p class="cta-band-note">Prefer email? <a href="get-started.html">Request access</a> and Thomas will follow up within one business day.</p>
+    <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Thomas replies within one business day.</p>
   </div>
 </section>
 
@@ -2107,6 +2131,11 @@ footer {
   document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
     if (el.id === 'demo-book-btn') return;
     el.addEventListener('click', function () { track('book_audit_clicked'); });
+  });
+  /* The pilot entry points (nav button, CTA-band link) go to get-started
+     rather than Calendly, so they need their own event. */
+  document.querySelectorAll('a[href*="interest=pilot"]').forEach(function (el) {
+    el.addEventListener('click', function () { track('book_pilot_clicked'); });
   });
 })();
 </script>

@@ -111,7 +111,8 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
@@ -132,6 +133,28 @@ nav {
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; color: var(--white) !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -1393,6 +1416,7 @@ footer {
       <li><a href="index.html">For Consultants</a></li>
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
       <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
@@ -1433,7 +1457,7 @@ footer {
               <input type="email" id="wp-email" name="email" placeholder="you@company.com" required>
             </div>
             <button type="submit" class="btn-form">Download the Report →</button>
-            <p class="form-privacy">No spam. You'll receive the PDF and a single follow-up from the Safely Track team.</p>
+            <p class="form-privacy">You'll get the PDF and one follow-up from us. That's the whole list.</p>
           </form>
         </div>
         <div class="form-success" id="wp-success">
