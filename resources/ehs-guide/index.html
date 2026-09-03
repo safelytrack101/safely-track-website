@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Guides for EHS Professionals | Safely Track</title>
+<meta name="description" content="Free, role-specific guides on cutting documentation time with AI — for EHS consultants, loss control professionals, and in-house safety teams. Pick your role to download.">
+<link rel="canonical" href="https://usesafelytrack.com/resources/ehs-guide/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safely Track">
+<meta property="og:title" content="Free AI Guides for EHS Professionals | Safely Track">
+<meta property="og:description" content="Pick your role and download the free guide on cutting documentation time with AI.">
+<meta property="og:url" content="https://usesafelytrack.com/resources/ehs-guide/">
+<meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free AI Guides for EHS Professionals | Safely Track">
+<meta name="twitter:description" content="Pick your role and download the free guide on cutting documentation time with AI.">
+<meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resources/ehs-guide/guide.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand"><img src="/assets/logo.jpg" alt="Safely Track"></div>
+
+  <span class="chip">Free Guides</span>
+
+  <h1>Which guide is right for you?</h1>
+
+  <p class="subhead">Pick your role and we'll take you to the right free guide on cutting documentation time with AI.</p>
+
+  <div class="choices">
+    <a class="choice" data-role href="consultant/">
+      <span class="choice-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"></path></svg>
+      </span>
+      <span class="choice-body">
+        <span class="choice-title">EHS Consultants</span>
+        <span class="choice-sub">Stop spending hours writing safety reports.</span>
+      </span>
+      <span class="choice-arrow">→</span>
+    </a>
+
+    <a class="choice" data-role href="loss-control/">
+      <span class="choice-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+      </span>
+      <span class="choice-body">
+        <span class="choice-title">Loss Control</span>
+        <span class="choice-sub">Cut site-visit reporting time with AI.</span>
+      </span>
+      <span class="choice-arrow">→</span>
+    </a>
+
+    <a class="choice" data-role href="in-house/">
+      <span class="choice-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13"></path><path d="M4 20h16"></path><path d="M9 20v-5h6v5"></path></svg>
+      </span>
+      <span class="choice-body">
+        <span class="choice-title">In-House EHS Teams</span>
+        <span class="choice-sub">Automate compliance documentation with AI.</span>
+      </span>
+      <span class="choice-arrow">→</span>
+    </a>
+  </div>
+
+  <p class="proof">Trusted by EHS professionals across the US</p>
+  <p class="foot"><a href="/">usesafelytrack.com</a></p>
+
+</div>
+
+<script>
+// Carry ?source= through to whichever role the visitor picks.
+(function () {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var source = params.get('source');
+    if (source) {
+      var q = '?source=' + encodeURIComponent(source.slice(0, 60));
+      document.querySelectorAll('a.choice[data-role]').forEach(function (a) {
+        a.setAttribute('href', a.getAttribute('href') + q);
+      });
+    }
+  } catch (e) { /* no-op */ }
+})();
+</script>
+
+</body>
+</html>

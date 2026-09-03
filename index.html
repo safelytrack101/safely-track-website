@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Safely Track | Field Reports &amp; Hazard Closeout for EHS Consulting Firms</title>
-<meta name="description" content="Turn field observations into client-ready reports in minutes. Safely Track drafts reports from photos, notes, and voice memos, built for EHS consulting firms managing multi-site portfolios.">
+<title>Safely Track | The Operating System for EHS Consulting Firms</title>
+<meta name="description" content="One system for the ten things an EHS consulting firm actually does: win work, track credentials, staff the job, deliver the report, prove the fix, bill the client, and know your margin.">
 <link rel="canonical" href="https://usesafelytrack.com/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Safely Track">
-<meta property="og:title" content="Safely Track | Built for EHS Consulting Firms">
-<meta property="og:description" content="From field observation to client-ready report, without the office rebuild. AI drafting, automated client comms, portfolio-wide dashboard.">
+<meta property="og:title" content="Safely Track | The Operating System for EHS Consulting Firms">
+<meta property="og:description" content="Win work, onboard the client, staff it, deliver it, prove it, bill it, run the business. Ten steps your firm already runs, in one system built around how your team works.">
 <meta property="og:url" content="https://usesafelytrack.com/">
 <meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Safely Track | Built for EHS Consulting Firms">
-<meta name="twitter:description" content="From field observation to client-ready report, without the office rebuild. AI drafting, automated client comms, portfolio-wide dashboard.">
+<meta name="twitter:title" content="Safely Track | The Operating System for EHS Consulting Firms">
+<meta name="twitter:description" content="Win work, onboard the client, staff it, deliver it, prove it, bill it, run the business. Ten steps your firm already runs, in one system built around how your team works.">
 <meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
   "@type": "SoftwareApplication",
   "name": "Safely Track",
   "url": "https://usesafelytrack.com",
-  "description": "AI-powered EHS documentation platform that turns field observations into client-ready reports. Built for EHS consulting firms, loss control teams, and in-house safety teams.",
+  "description": "Operating system for EHS consulting firms, covering pipeline and proposals, client credentialing and COI tracking, staffing and certifications, field observations and client-ready reports, corrective-action closeout, timesheets and invoicing, a white-label client portal, and firm-level utilization and margin reporting.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -65,6 +65,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -108,7 +111,8 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
@@ -123,13 +127,94 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; color: var(--white) !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
 
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
+
+
+/* ── OPERATING SYSTEM MAP ── */
+/* Column counts must divide 10, or the last row leaves an empty cell that
+   shows through as a gray hole in the container background. */
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: var(--gray-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.os-step {
+  background: var(--white);
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.os-step .os-num {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: .04em;
+}
+.os-step h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.os-step p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+.os-order {
+  margin-top: 2px;
+  background: var(--orange-light);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 26px 28px;
+}
+.os-order p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 74ch;
+}
+.os-order p + p { margin-top: 10px; }
+.os-order strong { font-weight: 700; }
+@media (max-width: 1000px) {
+  .os-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .os-grid { grid-template-columns: 1fr; }
+  .os-order { padding: 22px 20px; }
+}
 /* ── HERO ── */
 .hero {
   background: var(--white);
@@ -192,11 +277,16 @@ nav {
   flex-wrap: wrap;
   align-items: center;
 }
+.hero-cta-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 14px;
+}
 .btn-primary {
   background: var(--orange);
   color: var(--white);
   padding: 14px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -228,6 +318,7 @@ nav {
   color: var(--orange);
   line-height: 1;
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 .hero-stat .label {
   font-size: 13px;
@@ -246,6 +337,147 @@ nav {
   font-weight: 600;
 }
 .hero-audience-line a:hover { text-decoration: underline; }
+
+/* ── SEE IT WORK DEMO ── */
+.demo-section { background: var(--white); padding: 8px 24px 96px; }
+.demo-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-2);
+  border-radius: 16px;
+  padding: 44px 40px;
+  box-shadow: var(--shadow-md);
+}
+.demo-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.demo-heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 34px);
+  color: var(--dark);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.demo-subhead {
+  font-size: 16px;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.demo-sample-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 32px;
+  align-items: start;
+}
+.demo-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.demo-photo {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--gray-1), var(--gray-2));
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--gray-3);
+}
+.demo-photo svg { width: 22px; height: 22px; }
+.demo-photo span { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.demo-transcript {
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.demo-transcript-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.demo-transcript-label svg { width: 16px; height: 16px; }
+.demo-transcript-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.demo-generate-btn { display: block; margin: 0 auto; font-size: 16px; padding: 16px 34px; border: none; cursor: pointer; }
+
+/* Generating */
+.demo-generating-inner { text-align: center; padding: 56px 24px; }
+.demo-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--gray-2);
+  border-top-color: var(--orange);
+  margin: 0 auto 24px;
+  animation: demo-spin 0.9s linear infinite;
+}
+@keyframes demo-spin { to { transform: rotate(360deg); } }
+.demo-status-text { font-size: 16px; color: var(--text); font-weight: 600; margin-bottom: 20px; }
+.demo-progress-track { max-width: 280px; margin: 0 auto; height: 4px; background: var(--gray-2); border-radius: 2px; overflow: hidden; }
+.demo-progress-bar { height: 100%; width: 0%; background: var(--orange); border-radius: 2px; transition: width 3s linear; }
+
+/* Result */
+.demo-report { background: var(--dark); border-radius: 12px; padding: 32px 30px; margin-bottom: 28px; box-shadow: var(--shadow-md); }
+.demo-report-header { margin-bottom: 20px; }
+.demo-report-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-mid); margin-bottom: 8px; }
+.demo-report-header h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); line-height: 1.3; }
+.demo-report-findings { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+.demo-report-findings li { padding: 16px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
+.demo-report-findings li.flagged { border-color: rgba(232,102,10,0.4); background: rgba(232,102,10,0.08); }
+.finding-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+.finding-title { font-size: 14px; font-weight: 700; color: var(--white); }
+.finding-osha {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--orange-mid);
+  background: rgba(232,102,10,0.15);
+  border: 1px solid rgba(232,102,10,0.4);
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.demo-report-findings p { font-size: 13px; color: #8890B8; line-height: 1.5; margin-bottom: 8px; }
+.demo-report-findings li p:last-child { margin-bottom: 0; }
+.finding-action { font-size: 12px; color: var(--orange-mid); }
+.finding-action strong { color: var(--white); }
+.demo-report-caption { font-size: 13px; color: var(--text-muted); text-align: center; }
+.demo-result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+.demo-result-note { font-size: 13px; color: var(--text-muted); text-align: center; }
+@media (max-width: 700px) {
+  .demo-sample-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .demo-card { padding: 32px 22px; }
+  .demo-result-ctas { flex-direction: column; align-items: stretch; }
+  .demo-result-ctas .btn-primary { text-align: center; }
+}
 
 /* ── SECTION WRAPPERS ── */
 .section { padding: 88px 24px; }
@@ -351,6 +583,7 @@ h2.white { color: var(--white); }
   border-left: 3px solid var(--orange);
   padding: 28px 28px 24px;
   border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow-sm);
 }
 .quote-card p {
   font-family: var(--font-display);
@@ -379,6 +612,7 @@ h2.white { color: var(--white); }
   color: var(--orange);
   line-height: 1;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .stat-callout p {
   color: #8890B8;
@@ -408,6 +642,7 @@ h2.white { color: var(--white); }
   color: var(--dark);
   margin-bottom: 8px;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .cost-cell .cost-label {
   font-size: 13px;
@@ -527,6 +762,7 @@ h2.white { color: var(--white); }
   padding: 36px;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 .persona-card::before {
   content: '';
@@ -676,7 +912,7 @@ h2.white { color: var(--white); }
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -717,7 +953,7 @@ h2.white { color: var(--white); }
   background: var(--orange);
   color: var(--white);
   padding: 12px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -728,6 +964,7 @@ h2.white { color: var(--white); }
   background: var(--orange-light);
   border: 1px solid rgba(232,102,10,0.2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   padding: 40px 44px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -765,6 +1002,7 @@ h2.white { color: var(--white); }
   font-size: 28px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .cs-stat .l {
   font-size: 12px;
@@ -777,7 +1015,7 @@ h2.white { color: var(--white); }
   border: 2px solid var(--orange);
   color: var(--orange);
   padding: 12px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -851,7 +1089,7 @@ h2.white { color: var(--white); }
   border: 1.5px solid var(--gray-2);
   color: var(--text-muted);
   padding: 13px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -939,7 +1177,10 @@ footer {
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, transform .2s;
 }
+.ai-input-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .ai-input-icon {
   width: 38px;
   height: 38px;
@@ -948,9 +1189,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  color: var(--orange);
   flex-shrink: 0;
 }
+.ai-input-icon svg { width: 19px; height: 19px; }
 .ai-input-card h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
 .ai-input-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 .ai-transform-chip {
@@ -1039,6 +1281,7 @@ footer {
   border: 1px solid var(--gray-2);
   border-radius: var(--radius);
   padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
 }
 .comms-feature h4 {
   font-size: 15px;
@@ -1136,7 +1379,7 @@ footer {
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -1298,6 +1541,7 @@ footer {
   font-size: 40px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .quiz-score-denom {
   font-size: 11px;
@@ -1377,6 +1621,40 @@ footer {
   .steps { grid-template-columns: 1fr; }
   .pilot-form-wrap { padding: 28px 20px; }
 }
+
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── TESTIMONIAL AVATAR ── */
+.quote-attr-row, .persona-quote-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar-mono {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: var(--orange-mid);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.persona-quote-row .avatar-mono { background: var(--orange-light); color: var(--orange); }
 </style>
 </head>
 <body>
@@ -1387,10 +1665,11 @@ footer {
     <a href="#home" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="loss-control.html">Loss Control</a></li>
-      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
-      <li><a href="quiz.html">Take the Quiz</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
+      <li><a href="#home">For Consultants</a></li>
+      <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
+      <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -1398,28 +1677,121 @@ footer {
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-label">Built for EHS, Safety &amp; Loss Control Teams</div>
-    <h1>Your field evidence is already there.<br><em>Stop spending hours rebuilding it into a report.</em></h1>
-    <p class="hero-sub">Safely Track turns your photos, notes, and field observations into structured, client-facing reports, drafted by AI, reviewed by you, sent automatically. More time in the field. Less time at your desk.</p>
-    <div class="hero-actions">
-      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a Demo</a>
-      <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+    <div class="hero-content">
+      <div class="hero-label">Built for EHS Consulting Firms</div>
+      <h1>The operating system for<br><em>your EHS consulting firm.</em></h1>
+      <p class="hero-sub">Your firm wins the work, tracks what credentials each client demands, staffs the job with someone actually certified, writes the report, proves the hazard got fixed, bills it, and works out the margin afterward. Most firms run those ten steps across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs them in one place, in whatever order your firm needs them.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
+        <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+      </div>
+      <p class="hero-cta-note">A 30-minute audit of where your operation is leaking time — bring a recent report, leave with a plan.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">15x+</div>
+          <div class="label">return on Safely Track spend</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2–4 hrs</div>
+          <div class="label">recovered per report for billable field work</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">2+</div>
+          <div class="label">new clients each consultant can take on, without adding headcount</div>
+        </div>
+      </div>
+      <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="num">15x+</div>
-        <div class="label">return on Safely Track spend</div>
+  </div>
+</section>
+
+<!-- SEE IT WORK DEMO -->
+<section class="demo-section" id="see-it-work">
+  <div class="inner">
+    <div class="demo-card">
+
+      <!-- IDLE STATE -->
+      <div class="demo-state" id="demo-state-idle">
+        <div class="demo-eyebrow">See It Work</div>
+        <h2 class="demo-heading">Sixty seconds from site walk to finished report.</h2>
+        <p class="demo-subhead">Drop in photos and a voice memo and Safely Track drafts the report. Here's a sample walk you can run yourself.</p>
+
+        <div class="demo-sample-grid">
+          <div class="demo-photos" role="group" aria-label="Sample jobsite photos from this site walk">
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>North stairwell</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>Panel room</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>Loading dock</span>
+            </div>
+            <div class="demo-photo">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+              <span>North exit</span>
+            </div>
+          </div>
+
+          <div class="demo-transcript">
+            <div class="demo-transcript-label">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+              Voice memo, 0:42
+            </div>
+            <p class="demo-transcript-text">"...walking the north stairwell now, missing guardrail on the second landing, tagged it for the sub. Also got an extension cord running through standing water by the panel room, pulled the crew back from that one. Fire extinguisher at the loading dock is past its inspection tag. And the north exit's got debris blocking the door, need that cleared today..."</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary demo-generate-btn" id="demo-generate-btn">Generate the report →</button>
       </div>
-      <div class="hero-stat">
-        <div class="num">2–4 hrs</div>
-        <div class="label">recovered per report for billable field work</div>
+
+      <!-- GENERATING STATE -->
+      <div class="demo-state" id="demo-state-generating" hidden>
+        <div class="demo-generating-inner">
+          <div class="demo-spinner" aria-hidden="true"></div>
+          <p class="demo-status-text" id="demo-status-text" aria-live="polite">Reading photos…</p>
+          <div class="demo-progress-track"><div class="demo-progress-bar" id="demo-progress-bar"></div></div>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="num">2+</div>
-        <div class="label">new clients each consultant can take on, without adding headcount</div>
+
+      <!-- RESULT STATE -->
+      <div class="demo-state" id="demo-state-result" hidden>
+        <div class="demo-report">
+          <div class="demo-report-header">
+            <div class="demo-report-eyebrow">Sample Output</div>
+            <h3>Site Walk — North Stairwell, Bldg 2</h3>
+          </div>
+          <ul class="demo-report-findings">
+            <li class="flagged">
+              <div class="finding-head">
+                <span class="finding-title">Missing guardrail, second-floor landing</span>
+                <span class="finding-osha">OSHA 1926.502(b)</span>
+              </div>
+              <p>Guardrail absent on north stairwell, second landing. Fall hazard for crews accessing upper floor.</p>
+              <div class="finding-action"><strong>Corrective action:</strong> Assigned to ABC Framing &amp; Sub · Due within 24 hrs</div>
+            </li>
+            <li>
+              <div class="finding-head"><span class="finding-title">Extension cord through standing water</span></div>
+              <p>Cord run observed passing through standing water near the panel room. Crew pulled back on-site.</p>
+            </li>
+            <li>
+              <div class="finding-head"><span class="finding-title">Fire extinguisher past inspection date</span></div>
+              <p>Loading dock extinguisher tag expired. Flagged for replacement/recertification.</p>
+            </li>
+          </ul>
+          <p class="demo-report-caption">Generated from the photos and voice memo above. No typing.</p>
+        </div>
+
+        <div class="demo-result-ctas">
+          <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See it on your own data — book a free audit →</a>
+        </div>
+        <p class="demo-result-note">Step 04 of ten, running on sample data. Book thirty minutes and we'll walk all ten against how your firm actually works.</p>
       </div>
+
     </div>
-    <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
   </div>
 </section>
 
@@ -1427,23 +1799,29 @@ footer {
 <section class="section section-alt" id="problem">
   <div class="inner">
     <div class="section-eyebrow">The Problem</div>
-    <h2>The work happens in the field. The bottleneck is what comes after.</h2>
-    <p class="section-intro">Your inspectors already collect everything: photos, observations, follow-ups, site context. The problem is that evidence lives in camera rolls, voice memos, and texts, and turning it into a clean, client-facing report means hours of manual reconstruction back at the office. That's not a field problem. It's an operations problem.</p>
+    <h2>None of it is missing. It's just scattered.</h2>
+    <p class="section-intro">The credential that decides who can staff a job lives in a spreadsheet. The photos that prove a hazard got fixed live on somebody's phone. The hours that decide your margin live in an inbox until someone reconstructs them on Friday. Every piece exists, and none of it is anywhere the next step can reach it. That's not a field problem. It's an operations problem.</p>
 
     <div class="problem-quotes">
-      <div class="quote-card">
+      <div class="quote-card" data-reveal>
         <p>"There are 30–50 platforms out there, but none of them fit the mold of a consultant."</p>
-        <div class="attr">COO, EHS Consulting Firm (Safely Track customer)</div>
+        <div class="quote-attr-row">
+          <div class="avatar-mono">CO</div>
+          <div class="attr">COO, EHS Consulting Firm (Safely Track customer)</div>
+        </div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card" data-reveal>
         <p>"The photos in the conversation are on somebody's phone. That's not in my file when I close out my job."</p>
-        <div class="attr">President, Construction Installation Subcontractor</div>
+        <div class="quote-attr-row">
+          <div class="avatar-mono">PR</div>
+          <div class="attr">President, Construction Installation Subcontractor</div>
+        </div>
       </div>
     </div>
 
-    <div class="stat-callout">
+    <div class="stat-callout" data-reveal>
       <div class="num">&gt;80%</div>
-      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong>, with no structured record, no owner assigned, and no proof of fix. That's the documentation gap that ends up in your report queue.</p>
+      <p>of jobsite hazards are handled via <strong>text, phone call, or verbal instruction</strong>, with no structured record, no owner assigned, and no proof of fix. That gap lands in your report queue, and it's the one your firm signs its name under.</p>
     </div>
   </div>
 </section>
@@ -1451,35 +1829,66 @@ footer {
 <!-- HOW IT WORKS -->
 <section class="section" id="how-it-works">
   <div class="inner">
-    <div class="section-eyebrow">The Solution</div>
-    <h2>One workflow. Field observation to client-ready report.</h2>
-    <p class="section-intro">Built around the consultant's workflow, not a single GC's safety checklist. Four steps, from site to send, without hours at the desk.</p>
+    <div class="section-eyebrow">The Operating System</div>
+    <h2>Ten steps your firm already runs. One system that runs them.</h2>
+    <p class="section-intro">This is the operation, not just the report. Every EHS consulting firm moves through roughly the same ten steps between winning a job and knowing what it earned. Safely Track covers them, tailored to how your firm already works.</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Start with what the client expects</h3>
-        <p>Select the report type your client requires, daily report, inspection checklist, incident log, safety observation. Safely Track knows your template.</p>
-        <span class="step-note">Client-specific templates</span>
+    <div class="os-grid" data-reveal>
+      <div class="os-step">
+        <div class="os-num">01</div>
+        <h3>Win work</h3>
+        <p>Pipeline, proposals, and rate cards in one place, so a quote doesn't start from last year's document.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Add your field inputs</h3>
-        <p>Upload photos, voice memos, or typed notes. AI analyzes them, extracts location, hazard type, crew, and corrective actions, and structures everything into a report draft. No blank page.</p>
-        <span class="step-note">AI-assisted</span>
+      <div class="os-step">
+        <div class="os-num">02</div>
+        <h3>Onboard the client</h3>
+        <p>Client credential requirements and COI tracking, captured at kickoff instead of chased at renewal.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Review and refine</h3>
-        <p>The AI drafts. You're the expert. Review the language, edit where needed, and confirm before it goes to the client. Every report meets your firm's standards.</p>
-        <span class="step-note">You stay in control</span>
+      <div class="os-step">
+        <div class="os-num">03</div>
+        <h3>Staff it</h3>
+        <p>Credential tracking and availability in one view: who is qualified for this job, and who is actually free.</p>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Send and track</h3>
-        <p>Reports deliver automatically. Clients get routine digests and weekly summaries without a single manual follow-up. Data stays searchable across your entire portfolio.</p>
-        <span class="step-note">Automated delivery</span>
+      <div class="os-step">
+        <div class="os-num">04</div>
+        <h3>Deliver it</h3>
+        <p>Observations, inspections, and routine reports. Your forms, your logo, your PDF, not a generic template.</p>
       </div>
+      <div class="os-step">
+        <div class="os-num">05</div>
+        <h3>Support delivery</h3>
+        <p>Your training materials sit on top of our toolbox talks, so crews get your content instead of stock content.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">06</div>
+        <h3>Capture the work</h3>
+        <p>Timesheets, approvals, and hours by project, logged where the work happens rather than reconstructed on Friday.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">07</div>
+        <h3>Bill it</h3>
+        <p>Client invoicing and margin per placement, built from the hours your team already logged in step 06.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">08</div>
+        <h3>Prove it</h3>
+        <p>Corrective actions assigned by text, plus the closeout and proof-of-fix records your file can stand on.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">09</div>
+        <h3>Show the client</h3>
+        <p>A white-label portal where your client sees trends and logs their own hazards, so you know what to look for before you arrive.</p>
+      </div>
+      <div class="os-step">
+        <div class="os-num">10</div>
+        <h3>Run the business</h3>
+        <p>Utilization, margin, and where the hours actually go, across every consultant and every client.</p>
+      </div>
+    </div>
+
+    <div class="os-order" data-reveal>
+      <p><strong>You tell us the order.</strong> We build the next step around how your team already works, not the other way around.</p>
+      <p>Tell us which of the ten actually costs your team time, or which one your admin is running by hand across three different systems, and that is the one that gets built first. Most firms start at step 04, because that's where the hours are most obviously going. Not every firm does.</p>
     </div>
 
     <div class="video-wrap">
@@ -1491,40 +1900,40 @@ footer {
 <!-- AI REPORTS -->
 <section class="section section-alt" id="ai-reports">
   <div class="inner">
-    <div class="section-eyebrow">AI-Powered Field Reports</div>
-    <h2>Unstructured inputs. Client-ready reports. Done in seconds.</h2>
-    <p class="section-intro">Your inspectors speak, snap, or type what they observed. Safely Track's AI turns that raw input into a structured report, based on the exact template your client requires.</p>
+    <div class="section-eyebrow">Step 04 &middot; Deliver It</div>
+    <h2>Raw field input in, client-ready report out, in seconds.</h2>
+    <p class="section-intro">Your inspectors speak, snap, or type what they observed. Safely Track turns that raw input into a structured report, based on the exact template your client requires. No manual entry.</p>
 
     <div class="ai-reports-grid">
       <div class="ai-inputs-col">
-        <div class="ai-input-card">
-          <div class="ai-input-icon">🎤</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg></div>
           <div>
             <h4>Voice Memo</h4>
-            <p>Narrate what you observed. AI transcribes and extracts location, hazard type, crew, and corrective actions, no typing required.</p>
+            <p>Narrate what you observed. Safely Track transcribes it and pulls out location, hazard type, crew, and corrective actions. No typing.</p>
           </div>
         </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📷</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></div>
           <div>
             <h4>Site Photos</h4>
-            <p>Weather, conditions, signage, crew, AI analyzes everything visible and incorporates it automatically into the report.</p>
+            <p>Weather, conditions, signage, crew. Safely Track reads what's in the frame and carries it into the report.</p>
           </div>
         </div>
-        <div class="ai-input-card">
-          <div class="ai-input-icon">📝</div>
+        <div class="ai-input-card" data-reveal>
+          <div class="ai-input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v3h3"></path><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="15" y2="16"></line></svg></div>
           <div>
             <h4>Text Notes</h4>
-            <p>Names, issues, context. Any unstructured note becomes a structured field in the final formatted output.</p>
+            <p>Names, issues, context. A typed note becomes structured fields in the finished report.</p>
           </div>
         </div>
-        <div class="ai-transform-chip">✦ &nbsp;Our AI structures everything into your client's template</div>
+        <div class="ai-transform-chip">Structured into your client's template</div>
       </div>
 
-      <div class="ai-output-card">
+      <div class="ai-output-card" data-reveal>
         <div class="section-eyebrow section-eyebrow-white">Output</div>
         <h3>The report your client actually requires</h3>
-        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to your client's specific daily report, inspection checklist, or incident log, formatted consistently, every time, across every inspector and site.</p>
+        <p class="ai-output-sub">Not a generic form. Safely Track maps your field inputs to the document that client actually asks for, whether that's their daily report, inspection checklist, or incident log, and formats it the same way across every inspector and every site.</p>
         <ul class="ai-output-features">
           <li>Client-specific templates, not generic outputs</li>
           <li>AI auto-fills fields from voice and photo analysis</li>
@@ -1545,9 +1954,9 @@ footer {
 <!-- PORTFOLIO DASHBOARD -->
 <section class="section" id="portfolio">
   <div class="inner">
-    <div class="section-eyebrow">Portfolio Dashboard</div>
+    <div class="section-eyebrow">Underneath Every Step</div>
     <h2>Your field data, working across your entire client portfolio.</h2>
-    <p class="section-intro">Every report feeds a searchable data asset. Filter by client, project, contractor, issue type, or OSHA category. Spot repeat hazard patterns before they become incidents, across all your sites, not just one.</p>
+    <p class="section-intro">Every report you file stays searchable. Filter by client, project, contractor, issue type, or OSHA category, and see a hazard repeating across sites while it's still a pattern and not an incident.</p>
 
     <div class="portfolio-filters">
       <span class="filter-chip">By Client</span>
@@ -1563,26 +1972,34 @@ footer {
 <!-- CLIENT COMMUNICATIONS -->
 <section class="section section-alt" id="client-comms">
   <div class="inner">
-    <div class="section-eyebrow">Client Communications</div>
-    <h2>Client updates, without the manual follow-up.</h2>
-    <p class="section-intro">Set up routine emails, daily digests, and weekly summaries that keep your clients and project teams informed automatically. No more chasing down updates or composing status emails by hand.</p>
+    <div class="section-eyebrow">Step 09 &middot; Show the Client</div>
+    <h2>Everything the client sees, without the manual follow-up.</h2>
+    <p class="section-intro">Two halves to this. Reports, digests, and weekly summaries go out to each client's project team on their own schedule. And a white-label portal gives them somewhere to look between those emails, under your branding, where they can also log what they find themselves.</p>
 
     <div class="comms-features">
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Configurable per-client schedules</h4>
         <p>Each client gets the cadence that works for them, daily, weekly, or on-demand summaries.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Daily digest &amp; weekly summary templates</h4>
-        <p>Pre-built formats that look professional and include everything your client expects to see.</p>
+        <p>Pre-built formats that cover what your client expects to see, without you formatting anything.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Project team distribution lists</h4>
         <p>Route reports and summaries to the right people on each client's team, automatically.</p>
       </div>
-      <div class="comms-feature">
+      <div class="comms-feature" data-reveal>
         <h4>Fully automated delivery</h4>
-        <p>Reports fire on schedule without a manual trigger. Your clients stay informed while you focus on the field.</p>
+        <p>Reports go out on schedule without anyone pressing send.</p>
+      </div>
+      <div class="comms-feature" data-reveal>
+        <h4>A portal with your name on it</h4>
+        <p>Your client logs into your branding, not ours, and sees the trend across their own sites without emailing you for it.</p>
+      </div>
+      <div class="comms-feature" data-reveal>
+        <h4>Clients log their own hazards</h4>
+        <p>Between your visits their team records inspections and hazards in the same place, so you know what to look for before you get to the site.</p>
       </div>
     </div>
   </div>
@@ -1593,9 +2010,9 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">The Stakes</div>
     <h2>The cost of a missing closeout record</h2>
-    <p class="section-intro">Three numbers every safety professional should know, and a liability that's especially acute when your firm's name is on the report.</p>
+    <p class="section-intro">Three numbers worth keeping in mind, and a liability that lands harder when your firm's name is the one on the report.</p>
 
-    <div class="cost-grid">
+    <div class="cost-grid" data-reveal>
       <div class="cost-cell">
         <div class="amount">$47,316</div>
         <div class="cost-label">Average cost of a single lost-time workers' comp claim</div>
@@ -1612,16 +2029,16 @@ footer {
         <div class="source">BLS CFOI (2023)</div>
       </div>
     </div>
-    <p class="cost-footer"><strong>EHS consulting firms carry personal liability for the accuracy and completeness of client safety records. A documented, closed-out hazard is your first line of defense.</strong></p>
+    <p class="cost-footer"><strong>EHS consulting firms carry personal liability for the accuracy and completeness of client safety records. A documented, closed-out hazard is the difference between a defensible file and your best recollection.</strong></p>
   </div>
 </section>
 
 <!-- CASE STUDY TEASER -->
 <section class="section section-alt">
   <div class="inner">
-    <div class="cs-teaser">
+    <div class="cs-teaser" data-reveal>
       <div>
-        <div class="cs-tag">Customer Story</div>
+        <div class="cs-tag">Step 08 &middot; Prove It</div>
         <h3>How a regional general contractor closed the proof-of-fix gap</h3>
         <p>A regional general contractor managing multiple active sites replaced end-of-week manual closeout chasing with a documented, audit-ready workflow, no apps or new logins for subcontractor crews.</p>
         <div class="cs-stats">
@@ -1649,10 +2066,10 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">Who It's For</div>
     <h2>Built for teams that document risk across multiple sites.</h2>
-    <p class="section-intro">Safely Track is designed around multi-site documentation workflows, whether you're an EHS consultant, a general contractor, or a loss control team producing carrier-ready reports.</p>
+    <p class="section-intro">The full ten-step system is built for EHS consulting firms, where the work spans many clients and the liability follows your firm's name. General contractors and loss control teams use the delivery and closeout steps on their own.</p>
 
     <div class="personas">
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Primary, EHS Consulting Firms</div>
         <h3>The Consulting Principal</h3>
         <div class="persona-role">Managers of EHS consulting firm managing multiple client sites</div>
@@ -1662,10 +2079,14 @@ footer {
           <li><span class="pain-icon">→</span> Existing tools built for single companies, not multi-client consultant workflows</li>
           <li><span class="pain-icon">→</span> Hours per week rebuilding field evidence into client-facing reports</li>
         </ul>
-        <div class="persona-quote">"There are 30–50 platforms out there, but none of them fit the mold of a consultant."<br><br><em style="font-size:12px;color:#aaa">COO, EHS consulting firm (Safely Track customer)</em></div>
+        <div class="persona-quote">"There are 30–50 platforms out there, but none of them fit the mold of a consultant."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">CO</div>
+          <div style="font-size:12px;color:var(--text-muted)">COO, EHS consulting firm (Safely Track customer)</div>
+        </div>
       </div>
 
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Also Used By, General Contractors</div>
         <h3>The Safety Director</h3>
         <div class="persona-role">Safety director or ops lead at a 100–999 employee contractor managing multiple active sites</div>
@@ -1674,10 +2095,15 @@ footer {
           <li><span class="pain-icon">→</span> Subcontractor foremen won't adopt enterprise software with logins and training</li>
           <li><span class="pain-icon">→</span> Proof-of-fix ends up in text threads and camera rolls, not the record</li>
         </ul>
-        <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."<br><br><em style="font-size:12px;color:#aaa">Safety Director, mid-market contractor</em></div>
+        <div class="persona-quote">"I know issues are getting fixed, but if I had to prove it cleanly tomorrow, I'd be digging through texts, emails, and spreadsheets."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">SD</div>
+          <div style="font-size:12px;color:var(--text-muted)">Safety Director, mid-market contractor</div>
+        </div>
+        <a href="ehs-inhouse.html#construction" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the in-house EHS overview →</a>
       </div>
 
-      <div class="persona-card">
+      <div class="persona-card" data-reveal>
         <div class="persona-tag">Also Used By, Carriers &amp; Loss Control</div>
         <h3>The Loss Control Consultant</h3>
         <div class="persona-role">Loss control rep or consultant producing policyholder visit reports for carriers and underwriters</div>
@@ -1686,7 +2112,11 @@ footer {
           <li><span class="pain-icon">→</span> No consistent way to assign corrective actions to policyholders and get documented proof</li>
           <li><span class="pain-icon">→</span> Underwriters ask for portfolio risk summaries that require a weekend of report-pulling</li>
         </ul>
-        <div class="persona-quote">"For every hour we spent on site, we were spending another hour at the desk writing it up."<br><br><em style="font-size:12px;color:#aaa">COO, EHS firm on 50+ sites</em></div>
+        <div class="persona-quote">"For every hour we spent on site, we were spending another hour at the desk writing it up."</div>
+        <div class="persona-quote-row" style="margin-top:12px;">
+          <div class="avatar-mono">CO</div>
+          <div style="font-size:12px;color:var(--text-muted)">COO, EHS firm on 50+ sites</div>
+        </div>
         <a href="loss-control.html" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange);text-decoration:none;">See the loss control overview →</a>
       </div>
     </div>
@@ -1696,11 +2126,11 @@ footer {
 <!-- DEMO CTA -->
 <section class="cta-band">
   <div class="inner cta-band-inner">
-    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Get Started</div>
-    <h2 class="white">See it run on your own report template.</h2>
-    <p class="cta-band-sub">Bring a recent inspection template to the call, we'll show you your next report writing itself. 30 minutes, no slides.</p>
-    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a 30-Minute Demo</a>
-    <p class="cta-band-note">Prefer email? <a href="get-started.html">Request access</a> and Thomas will follow up within one business day.</p>
+    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Operations Audit</div>
+    <h2 class="white">Which of the ten is costing you most?</h2>
+    <p class="cta-band-sub">Bring a recent report, an inspection template, or whatever spreadsheet your admin is holding the firm together with. In thirty minutes we'll walk the ten steps against how your firm actually runs them, find the one leaking the most time, and tell you what it would take to fix that one first. We work from your documents, not a deck.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a free data audit</a>
+    <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Thomas replies within one business day.</p>
   </div>
 </section>
 
@@ -1710,8 +2140,8 @@ footer {
     <a href="#home" class="footer-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="footer-links">
       <li><a href="#problem">The Problem</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#ai-reports">AI Reports</a></li>
+      <li><a href="#how-it-works">The 10 Steps</a></li>
+      <li><a href="#ai-reports">Structured Reports</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="quiz.html">AI Quiz</a></li>
       <li><a href="whitepaper.html">Free Guide</a></li>
@@ -1719,11 +2149,114 @@ footer {
       <li><a href="loss-control.html">Loss Control</a></li>
       <li><a href="ehs-inhouse.html">In-House EHS</a></li>
       <li><a href="get-started.html">Request Access</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot">Start a Pilot</a></li>
     </ul>
     <span class="footer-copy">© 2026 Safely Track LLC</span>
   </div>
 </footer>
 
+<script>
+(function () {
+  /* Thin, swappable analytics helper. No analytics vendor is wired into
+     this site yet, so this safely no-ops to console.log; drop in GA/
+     Plausible/Segment/PostHog later and it auto-upgrades with no
+     call-site changes. */
+  function track(event, props) {
+    props = props || {};
+    if (window.gtag) { window.gtag('event', event, props); return; }
+    if (window.plausible) { window.plausible(event, { props: props }); return; }
+    if (window.analytics && typeof window.analytics.track === 'function') { window.analytics.track(event, props); return; }
+    console.log('[track]', event, props);
+  }
+
+  var demoSection = document.getElementById('see-it-work');
+  if (!demoSection) return;
+
+  if ('IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          track('hero_viewed');
+          heroObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    heroObserver.observe(demoSection);
+  } else {
+    track('hero_viewed');
+  }
+
+  var idleState = document.getElementById('demo-state-idle');
+  var generatingState = document.getElementById('demo-state-generating');
+  var resultState = document.getElementById('demo-state-result');
+  var generateBtn = document.getElementById('demo-generate-btn');
+  var statusText = document.getElementById('demo-status-text');
+  var progressBar = document.getElementById('demo-progress-bar');
+  var bookBtn = document.getElementById('demo-book-btn');
+
+  var STATUS_STEPS = ['Reading photos…', 'Classifying findings…', 'Drafting report…'];
+
+  generateBtn.addEventListener('click', function () {
+    track('generate_clicked');
+    idleState.hidden = true;
+    generatingState.hidden = false;
+
+    var stepIndex = 0;
+    statusText.textContent = STATUS_STEPS[0];
+    requestAnimationFrame(function () { progressBar.style.width = '100%'; });
+
+    var stepTimer = setInterval(function () {
+      stepIndex++;
+      if (stepIndex < STATUS_STEPS.length) statusText.textContent = STATUS_STEPS[stepIndex];
+    }, 1000);
+
+    setTimeout(function () {
+      clearInterval(stepTimer);
+      generatingState.hidden = true;
+      resultState.hidden = false;
+      track('result_viewed');
+    }, 3000);
+  });
+
+  /* Single result CTA: books a free data audit. Consulting-led GTM keeps
+     self-serve/email-gated signup off the table for now, so this replaces
+     the earlier "try it yourself" email-capture flow. */
+  bookBtn.addEventListener('click', function () {
+    track('book_audit_clicked');
+  });
+
+  /* Track every other "Book a free data audit" entry point on the page
+     (nav, hero, bottom CTA band) the same way. */
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
+    if (el.id === 'demo-book-btn') return;
+    el.addEventListener('click', function () { track('book_audit_clicked'); });
+  });
+  /* The pilot entry points (nav button, CTA-band link) go to get-started
+     rather than Calendly, so they need their own event. */
+  document.querySelectorAll('a[href*="interest=pilot"]').forEach(function (el) {
+    el.addEventListener('click', function () { track('book_pilot_clicked'); });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>

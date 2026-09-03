@@ -65,6 +65,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -108,7 +111,8 @@ nav {
 }
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 26px;
   list-style: none;
 }
 .nav-links a {
@@ -123,12 +127,34 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; color: var(--white) !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -195,7 +221,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 14px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -675,7 +701,7 @@ h2.white { color: var(--white); }
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -716,7 +742,7 @@ h2.white { color: var(--white); }
   background: var(--orange);
   color: var(--white);
   padding: 12px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -776,7 +802,7 @@ h2.white { color: var(--white); }
   border: 2px solid var(--orange);
   color: var(--orange);
   padding: 12px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -850,7 +876,7 @@ h2.white { color: var(--white); }
   border: 1.5px solid var(--gray-2);
   color: var(--text-muted);
   padding: 13px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -1135,7 +1161,7 @@ footer {
   color: var(--white);
   border: none;
   padding: 13px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
@@ -1159,6 +1185,7 @@ footer {
   border: 1px solid var(--gray-2);
   border-radius: 8px;
   padding: 40px 36px;
+  box-shadow: var(--shadow-md);
 }
 .quiz-box h3 {
   font-family: var(--font-display);
@@ -1297,6 +1324,7 @@ footer {
   font-size: 40px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .quiz-score-denom {
   font-size: 11px;
@@ -1386,10 +1414,12 @@ footer {
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
-      <li><a href="index.html#problem">The Problem</a></li>
       <li><a href="index.html#how-it-works">How It Works</a></li>
-      <li><a href="index.html#who">Who It's For</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
+      <li><a href="index.html">For Consultants</a></li>
+      <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
+      <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -1399,7 +1429,7 @@ footer {
   <div class="inner" style="text-align:center; max-width:640px;">
     <div class="section-eyebrow" style="text-align:center">Free Assessment</div>
     <h2>How AI-ready is your EHS program?</h2>
-    <p class="section-intro" style="margin-left:auto; margin-right:auto; text-align:center;">14 questions, 5 minutes. Get a personalized score based on how your documentation practices hold up against what AI-powered EHS programs can do today.</p>
+    <p class="section-intro" style="margin-left:auto; margin-right:auto; text-align:center;">14 questions, 5 minutes. You'll get a score for how your documentation practices hold up against what AI-powered EHS programs can do today.</p>
   </div>
 </section>
 
@@ -1413,7 +1443,7 @@ footer {
       <div id="quiz-lead-step">
         <div class="quiz-box">
           <h3>Start with your details</h3>
-          <p class="quiz-sub">We'll send your results to your inbox, no spam, just your score.</p>
+          <p class="quiz-sub">We'll send your results to your inbox. Nothing else.</p>
           <form id="quiz-lead-form" onsubmit="handleQuizLeadSubmit(event)">
             <div class="quiz-lead-grid">
               <div class="form-field-light">

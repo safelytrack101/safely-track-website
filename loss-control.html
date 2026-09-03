@@ -5,18 +5,18 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safely Track | Loss Control Reports for Carriers &amp; Consultants</title>
-<meta name="description" content="AI-powered documentation platform that turns policyholder site visit photos into branded, underwriter-ready loss control reports. Less desk time. More defensible records.">
+<meta name="description" content="Your site visit photos are already the report, they're just trapped on a phone. Safely Track turns them into branded, underwriter-ready loss control reports automatically. Less desk time. More defensible records.">
 <link rel="canonical" href="https://usesafelytrack.com/loss-control.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Safely Track">
 <meta property="og:title" content="Safely Track | Loss Control Reports for Carriers &amp; Consultants">
-<meta property="og:description" content="AI-powered documentation platform that turns policyholder site visit photos into branded, underwriter-ready loss control reports. Less desk time. More defensible records.">
+<meta property="og:description" content="Your site visit photos are already the report, they're just trapped on a phone. Safely Track turns them into branded, underwriter-ready loss control reports automatically. Less desk time. More defensible records.">
 <meta property="og:url" content="https://usesafelytrack.com/loss-control.html">
 <meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Safely Track | Loss Control Reports for Carriers &amp; Consultants">
-<meta name="twitter:description" content="AI-powered documentation platform that turns policyholder site visit photos into branded, underwriter-ready loss control reports. Less desk time. More defensible records.">
+<meta name="twitter:description" content="Your site visit photos are already the report, they're just trapped on a phone. Safely Track turns them into branded, underwriter-ready loss control reports automatically. Less desk time. More defensible records.">
 <meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -38,6 +38,9 @@
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --max: 1100px;
   --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,17 +79,39 @@ nav {
   background: var(--orange);
   color: var(--white) !important;
   padding: 8px 20px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600 !important;
   font-size: 13px !important;
   transition: background .15s !important;
 }
 .nav-cta:hover { background: #d05a08 !important; }
+.nav-cta-alt {
+  background: transparent;
+  color: var(--orange) !important;
+  padding: 7px 18px;
+  border: 1.5px solid var(--orange);
+  border-radius: var(--radius-pill);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background .15s, color .15s !important;
+}
+.nav-cta-alt:hover { background: var(--orange-light); color: var(--orange) !important; }
+
+/* Six nav items don't fit a tablet-width bar: tighten, then drop the two
+   least segment-specific links before the 768px rule hides the bar entirely. */
+@media (max-width: 980px) {
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta, .nav-cta-alt { padding: 7px 14px; font-size: 12px !important; }
+}
+@media (max-width: 880px) {
+  .nav-links li:nth-child(1), .nav-links li:nth-child(2) { display: none; }
+}
 .btn-primary {
   background: var(--orange);
   color: var(--white);
   padding: 10px 22px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
@@ -148,7 +173,7 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 14px 30px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -156,6 +181,43 @@ nav {
   display: inline-block;
 }
 .btn-hero:hover { background: #d05a08; transform: translateY(-1px); }
+.btn-ghost {
+  color: #9098B8;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .15s;
+}
+.btn-ghost:hover { color: var(--white); }
+.hero-cta-note { font-size: 13px; color: #6870A0; margin-top: 14px; }
+
+/* ── SEGMENT LISTS / PROOF (trapped vs. does) ── */
+.segment-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+@media (max-width: 700px) { .segment-lists { grid-template-columns: 1fr; } }
+.segment-proof {
+  background: var(--white);
+  border-left: 3px solid var(--orange);
+  padding: 22px 26px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.segment-proof p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--dark);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.segment-proof .attr { font-size: 13px; color: var(--text-muted); font-style: normal; }
 
 /* ── SECTION WRAPPERS ── */
 .section { padding: 88px 24px; }
@@ -210,6 +272,7 @@ h2.white { color: var(--white); }
   font-size: 52px;
   color: var(--orange);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 8px;
 }
 .stat-block .stat-label {
@@ -271,6 +334,7 @@ h2.white { color: var(--white); }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--gray-2);
+  box-shadow: var(--shadow-sm);
 }
 .ba-card.after { border-color: var(--orange); }
 .ba-header {
@@ -427,6 +491,35 @@ footer {
   .stats-bar-inner { grid-template-columns: 1fr; }
   .stats-problem { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
 }
+
+/* ── SCROLL REVEAL ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── TESTIMONIAL AVATAR ── */
+.testimonial-attr-row { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.avatar-mono {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(232,102,10,0.15);
+  border: 1px solid rgba(232,102,10,0.35);
+  color: var(--orange-mid);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -436,10 +529,12 @@ footer {
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
     <ul class="nav-links">
-      <li><a href="index.html">EHS Consulting</a></li>
-      <li><a href="loss-control.html">Loss Control</a></li>
-      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
+      <li><a href="index.html#how-it-works">How It Works</a></li>
+      <li><a href="index.html">For Consultants</a></li>
+      <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
+      <li><a href="loss-control.html">For Loss Control</a></li>
+      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -447,12 +542,14 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Built for Loss Control Teams</div>
-    <h1>Your site visit photos become <em>carrier-ready loss control reports</em>, automatically.</h1>
-    <p class="hero-sub">Safely Track is an AI-powered documentation platform that turns policyholder site visit photos into branded, underwriter-ready loss control reports. Less desk time. More defensible records.</p>
+    <div class="hero-label">For Carriers, Brokers &amp; Loss Control Consultants</div>
+    <h1>From site survey to underwriter-ready report<br><em>in minutes, not a weekend.</em></h1>
+    <p class="hero-sub">Your survey photos sit on a phone. The report gets rebuilt at a desk hours later. The portfolio view underwriters want takes a weekend of pulling PDFs. Safely Track turns the drive between sites into a finished report, and every survey into portfolio data.</p>
     <div class="hero-cta">
-      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a demo →</a>
+      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit</a>
+      <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
     </div>
+    <p class="hero-cta-note">A 30-minute audit of where your data's stuck — bring a recent report, leave with a plan.</p>
   </div>
 </section>
 
@@ -473,17 +570,39 @@ footer {
   </div>
 </div>
 
-<!-- FIELD INSIGHT -->
-<div class="section" style="padding-top:56px; padding-bottom:56px; background:var(--off-white); border-bottom:1px solid var(--gray-2);">
+<!-- WHAT'S TRAPPED / WHAT WE DO -->
+<section class="section section-alt" data-reveal>
   <div class="inner">
-    <div class="section-eyebrow" style="text-align:center">What We Hear From Loss Control Teams</div>
-    <div class="query-list" style="max-width:760px; margin:0 auto;">
-      <div class="query-item"><span class="query-arrow">→</span> The goal usually isn't fewer reports, it's more inspections completed inside the window that matters, before a policy renews and before a risk becomes a claim.</div>
-      <div class="query-item"><span class="query-arrow">→</span> Recommendations get typed one at a time from scratch, even though most hazards map to a small set of standard, boilerplate language underwriters already expect to see.</div>
-      <div class="query-item"><span class="query-arrow">→</span> Legacy platforms that don't work reliably, and vendors that go quiet on support tickets, have left some teams reprogramming their own report forms just to keep working.</div>
+    <div class="section-eyebrow">Where The Time Actually Goes</div>
+    <h2>The report is already in your head. It just hasn't been typed yet.</h2>
+    <div class="segment-lists">
+      <div class="ba-card">
+        <div class="ba-header">What's Trapped</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon x">✕</span> Survey observations stuck on a phone until someone rebuilds them at a desk</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> 60-page legacy reports that take hours to produce and nobody reads in full</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> No clean way to assign corrective actions to policyholders and capture proof</div>
+          <div class="ba-item"><span class="ba-icon x">✕</span> Portfolio risk summaries underwriters ask for, a manual weekend every time</div>
+        </div>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-header">What Safely Track Does</div>
+        <div class="ba-items">
+          <div class="ba-item"><span class="ba-icon check">✓</span> Record a voice memo between sites; the report populates itself, no fixed order required</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Clean 8–10 page output instead of a 60-page wall of text underwriters won't read</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Assign corrective actions to policyholders and track documented proof of fix</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Portfolio analytics for underwriting: filter by policyholder, hazard type, or category</div>
+          <div class="ba-item"><span class="ba-icon check">✓</span> Runs alongside your system of record, not a rip-and-replace of LC360 or your platform</div>
+        </div>
+      </div>
     </div>
+    <div class="segment-proof">
+      <p>"Cleaner and better organized than our current output, and a fraction of the length."</p>
+      <div class="attr">Loss Control lead, regional carrier (evaluating Safely Track against LC360)</div>
+    </div>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
   </div>
-</div>
+</section>
 
 <!-- VIDEO -->
 <div style="background:var(--off-white);padding:72px 24px;text-align:center;border-bottom:1px solid var(--gray-2);">
@@ -524,7 +643,7 @@ footer {
   <div class="inner">
 
     <!-- AI Report Automation -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">AI Report Automation</div>
         <h3>A twenty-five minute walk shouldn't cost you an hour at a desk.</h3>
@@ -553,12 +672,12 @@ footer {
     </div>
 
     <!-- Customization -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Customization</div>
         <h3>Your templates. Your logo. Your format.</h3>
         <p>Safely Track formats reports to match exactly how your loss control documents look today, your header, your carrier's logo, your section structure, your risk-scoring scale. Upload your existing visit templates and we configure the system around them.</p>
-        <p>If a legacy platform has burned you before, unreliable functionality, support tickets that go nowhere, forms your own team ended up reprogramming just to keep things working, we get it. That's why you test Safely Track against your own report format before you commit to anything.</p>
+        <p>If a legacy platform has burned you before — unreliable functionality, support tickets that go nowhere, forms your own team ended up reprogramming just to keep things working — we get it. That's why you test Safely Track against your own report format before you commit to anything.</p>
       </div>
       <div class="feature-visual">
         <div class="tag-grid">
@@ -573,11 +692,11 @@ footer {
     </div>
 
     <!-- Standardized Recommendation Language -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Recommendation Language</div>
         <h3>Consistent language, every time, without typing it from scratch.</h3>
-        <p>Most hazards map to a handful of standard phrases your underwriters already expect, a deteriorated water heater, an outdated electrical panel, a cracked walkway. Flag the hazard type and Safely Track drafts the standard recommendation language and attaches the relevant photo. Edit it if you need to, send it if you don't.</p>
+        <p>Most hazards map to a handful of standard phrases your underwriters already expect: a deteriorated water heater, an outdated electrical panel, a cracked walkway. Flag the hazard type and Safely Track drafts the standard recommendation language and attaches the relevant photo. Edit it if you need to, send it if you don't.</p>
       </div>
       <div class="feature-visual">
         <div class="before-after">
@@ -602,11 +721,11 @@ footer {
     </div>
 
     <!-- Risk Findings -->
-    <div class="feature-row reverse">
+    <div class="feature-row reverse" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Risk Findings</div>
         <h3>Spot something. Document it. Assign it.</h3>
-        <p>Spot a risk finding during the visit, missing guarding, improper chemical storage, fire suppression gap, capture it in under 60 seconds. AI writes the description, flags the relevant OSHA standard, and texts the corrective action to the policyholder contact. No app required.</p>
+        <p>Spot a risk finding during the visit — missing guarding, improper chemical storage, a fire suppression gap — and capture it in under 60 seconds. AI writes the description, flags the relevant OSHA standard, and texts the corrective action to the policyholder contact. No app required.</p>
       </div>
       <div class="feature-visual">
         <div class="before-after">
@@ -631,7 +750,7 @@ footer {
     </div>
 
     <!-- Ask AI -->
-    <div class="feature-row">
+    <div class="feature-row" data-reveal>
       <div class="feature-content">
         <div class="feature-eyebrow">Ask AI</div>
         <h3>Query your portfolio risk data in plain English.</h3>
@@ -651,22 +770,13 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<div class="testimonial-section">
-  <div class="testimonial-inner">
-    <span class="testimonial-mark">"</span>
-    <p class="testimonial-quote">For every hour we spent on site, we were spending another hour at the desk writing it up. Safely Track got report-writing time from an hour to less than fifteen minutes, we took on more sites without adding headcount.</p>
-    <p class="testimonial-attr">COO, EHS consulting firm using Safely Track on 50+ construction, manufacturing, and other sites</p>
-  </div>
-</div>
-
 <!-- FOOTER CTA -->
 <div class="footer-cta">
   <div class="inner">
-    <h2>Ready to see Safely Track in action?</h2>
-    <p>Bring a recent inspection to the call, we'll show you your next report writing itself.</p>
-    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a 30-minute demo →</a>
-    <p class="contact-line">Prefer email? <a href="get-started.html">Request access</a>, or reach us directly at <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
+    <h2>See where your portfolio's data is trapped.</h2>
+    <p>Bring a recent site visit report and we'll show you, on that document, where the manual work actually sits. Thirty minutes, no charge.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a free data audit →</a>
+    <p class="contact-line">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Reach us at <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a></p>
   </div>
 </div>
 
@@ -686,6 +796,43 @@ footer {
     <span class="footer-copy">© 2026 Safely Track LLC</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<script>
+(function () {
+  /* Thin, swappable analytics helper (same as index.html). No vendor
+     wired in yet, so this no-ops to console.log; auto-upgrades to
+     gtag/plausible/segment if any get added later. */
+  function track(event, props) {
+    props = props || {};
+    if (window.gtag) { window.gtag('event', event, props); return; }
+    if (window.plausible) { window.plausible(event, { props: props }); return; }
+    if (window.analytics && typeof window.analytics.track === 'function') { window.analytics.track(event, props); return; }
+    console.log('[track]', event, props);
+  }
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
+    el.addEventListener('click', function () { track('book_audit_clicked'); });
+  });
+})();
+</script>
 
 </body>
 </html>
