@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="assets/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Consultant Software for EHS Consulting Firms | Safely Track</title>
+<meta name="description" content="Software for safety and EHS consulting firms: field reports in each client's format, weekly summaries that draft themselves, proof-of-fix, consultant credentials, hours and billing, and a portal under your brand.">
+<link rel="canonical" href="https://usesafelytrack.com/safety-consultant-software.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safely Track">
+<meta property="og:title" content="Safety Consultant Software for EHS Consulting Firms | Safely Track">
+<meta property="og:description" content="Most safety software is built for one company's safety department. Safely Track is built for the firm that serves many of them.">
+<meta property="og:url" content="https://usesafelytrack.com/safety-consultant-software.html">
+<meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Safety Consultant Software for EHS Consulting Firms | Safely Track">
+<meta name="twitter:description" content="Most safety software is built for one company's safety department. Safely Track is built for the firm that serves many of them.">
+<meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is safety consultant software different from regular EHS software?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Regular EHS software assumes one employer with one safety department. A consulting firm has many clients, each with its own report format, credential requirements, contacts, and invoice. Safely Track keeps each client separate while giving the firm one view across all of them, and it covers the business side too: staffing, hours, and billing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can reports go out in each client's format and under our firm's brand?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Templates are built from the forms you already use, so each client gets the report they already expect, with your firm's logo. Clients can also see their findings in a portal under your branding." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do our clients' workers need an account to close out a corrective action?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The person responsible gets a text or email with a link, replies with a photo of the fix, and the record closes with a timestamp. No app download or login is needed on their end." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to get running?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Send the forms you use today and they get built as templates, so the field team sees familiar paperwork on day one. One consulting firm replaced the EHS platform it had used for years within three weeks of going live." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to the reports we share for a demo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We use them for the demo only. We don't save a copy, and they stay confidential." }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #E8660A;
+  --orange-light: #FEF3EC;
+  --dark: #1A1A2E;
+  --white: #FFFFFF;
+  --off-white: #F8F8F6;
+  --gray-1: #F2F2F0;
+  --gray-2: #E5E5E0;
+  --text: #222228;
+  --text-muted: #666660;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max: 800px;
+  --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav { background: var(--white); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo { font-weight: 700; font-size: 16px; color: var(--dark); text-decoration: none; }
+.nav-logo span { color: var(--orange); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.back-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color .15s; }
+.back-link:hover { color: var(--text); }
+.nav-cta { background: var(--orange); color: var(--white); padding: 7px 18px; border-radius: var(--radius-pill); font-weight: 600; font-size: 13px; text-decoration: none; white-space: nowrap; }
+.nav-cta:hover { background: #d05a08; }
+
+/* HERO */
+.hero { background: var(--dark); padding: 72px 24px 60px; }
+.hero-inner { max-width: var(--max); margin: 0 auto; }
+.hero-label { display: inline-block; background: rgba(232,102,10,0.15); border: 1px solid rgba(232,102,10,0.3); color: #F5A05A; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 24px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 48px); color: var(--white); line-height: 1.15; margin-bottom: 18px; letter-spacing: -0.02em; }
+.hero-sub { font-size: 17px; color: #A8AED0; line-height: 1.6; font-weight: 300; margin-bottom: 28px; }
+.hero-note { font-size: 13px; color: #8890B8; margin-top: 14px; max-width: 560px; }
+
+/* STATS BAR */
+.stats-bar { background: var(--orange); padding: 28px 24px; }
+.stats-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 0; }
+.stat { flex: 1; text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.25); }
+.stat:last-child { border-right: none; }
+.stat .num { font-family: var(--font-display); font-size: 32px; color: var(--white); line-height: 1; }
+.stat .desc { font-size: 12px; color: rgba(255,255,255,0.85); margin-top: 4px; line-height: 1.3; }
+
+/* CONTENT */
+.content { max-width: var(--max); margin: 0 auto; padding: 64px 24px; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+h2 { font-family: var(--font-display); font-size: 28px; color: var(--dark); margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-size: 16px; color: var(--dark); margin-bottom: 6px; }
+p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.7; }
+p strong { color: var(--text); }
+p a { color: var(--orange); }
+
+/* FIT TABLE */
+.fit { width: 100%; border-collapse: collapse; margin: 24px 0 8px; font-size: 14px; }
+.fit th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 10px 0; border-bottom: 2px solid var(--gray-2); }
+.fit th:first-child { color: #999; }
+.fit th:last-child { color: var(--orange); }
+.fit td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--gray-2); vertical-align: top; line-height: 1.5; color: var(--text-muted); width: 50%; }
+.fit td:last-child { color: var(--text); }
+
+/* FEATURE GRID */
+.features { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray-2); border: 1px solid var(--gray-2); border-radius: var(--radius); overflow: hidden; margin: 28px 0; }
+.feature { background: var(--white); padding: 22px 22px 18px; }
+.feature p { font-size: 13.5px; margin-bottom: 0; line-height: 1.6; }
+
+/* PULL QUOTE */
+.pull-quote { border-left: 3px solid var(--orange); padding: 18px 24px; margin: 32px 0; background: var(--orange-light); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm); }
+.pull-quote p { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--dark); line-height: 1.5; margin-bottom: 10px; }
+.pull-quote .attr { font-size: 12px; color: var(--text-muted); font-style: normal; margin: 0; }
+
+/* BEFORE/AFTER */
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 32px 0; border-radius: var(--radius); overflow: hidden; background: var(--gray-2); }
+.ba-col { padding: 28px 24px; }
+.ba-before { background: var(--off-white); }
+.ba-after { background: var(--orange-light); }
+.ba-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.ba-before .ba-label { color: #999; }
+.ba-after .ba-label { color: var(--orange); }
+.ba-col ul { list-style: none; }
+.ba-col ul li { font-size: 13px; color: var(--text); padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.06); line-height: 1.45; display: flex; gap: 8px; }
+.ba-col ul li:last-child { border-bottom: none; }
+.ba-before li .icon { color: #bbb; flex-shrink: 0; }
+.ba-after li .icon { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+
+hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; }
+
+/* DIFFERENTIATOR BOX */
+.diff-box { background: var(--dark); border-radius: var(--radius); padding: 36px; margin: 32px 0; box-shadow: var(--shadow-md); }
+.diff-box .eyebrow { color: #F5A05A; }
+.diff-box h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 12px; }
+.diff-box p { color: #A8AED0; margin-bottom: 0; }
+
+/* FAQ */
+.faq details { border-bottom: 1px solid var(--gray-2); padding: 16px 0; }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--dark); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--orange); font-weight: 700; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin: 10px 0 0; }
+
+/* CTA */
+.cta-block { background: var(--off-white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 44px 40px; text-align: center; margin-top: 56px; box-shadow: var(--shadow-sm); }
+.cta-block h3 { font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
+.cta-block p { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; }
+.btn-primary { display: inline-block; background: var(--orange); color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 28px; border-radius: var(--radius-pill); }
+.btn-primary:hover { background: #d05a08; }
+.cta-sub { font-size: 13px; color: #999; margin-top: 14px !important; margin-bottom: 0 !important; }
+.cta-sub a { color: var(--orange); }
+[data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 32px 24px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-logo { font-weight: 700; font-size: 15px; color: var(--white); text-decoration: none; }
+.footer-logo span { color: var(--orange); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; }
+.footer-links a { font-size: 12px; color: #8890B8; text-decoration: none; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 12px; color: #5A6080; }
+
+@media (max-width: 640px) {
+  .back-link { display: none; }
+  .features, .before-after { grid-template-columns: 1fr; }
+  .stats-inner { flex-wrap: wrap; gap: 20px; }
+  .stat { flex-basis: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; }
+  .stat:last-child { border-bottom: none; }
+  .cta-block { padding: 36px 22px; }
+  .fit td { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Safely<span>Track</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="back-link">← Back to home</a>
+      <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Safety Consultant Software</div>
+    <h1>Software for safety consulting firms, not a single safety department</h1>
+    <p class="hero-sub">Your firm serves many clients. Each has its own report format, its own credential requirements, its own contacts, and its own invoice. Most safety software assumes one employer and one safety team. Safely Track is built around the consulting firm: the field report, the client deliverable, the proof of fix, and the hours behind it.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo to see your own reports at work</a>
+    <p class="hero-note">Bring a recent report and we'll run it through Safely Track live. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="num">30 to 60 min</div>
+      <div class="desc">back to each safety manager, every week, on the client summary</div>
+    </div>
+    <div class="stat">
+      <div class="num">90 to 20</div>
+      <div class="desc">minutes to write up a site visit, for a loss control consultant</div>
+    </div>
+    <div class="stat">
+      <div class="num">3 weeks</div>
+      <div class="desc">to replace a firm's long-standing EHS platform in production</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="eyebrow">Why the usual tools don't fit</div>
+  <h2>In-house EHS software answers the wrong question for a consultant.</h2>
+
+  <p>Inspection apps and enterprise EHS suites are good at what they were built for: one company inspecting its own sites. A consulting firm's problem is different. You are producing a deliverable for someone else, many times a week, across clients who each want it their own way, and you have to staff, prove, and bill that work.</p>
+
+  <table class="fit">
+    <thead><tr><th>Built for an in-house team</th><th>What a consulting firm needs</th></tr></thead>
+    <tbody>
+      <tr><td>One employer, one set of sites</td><td>Many clients, kept separate, with one view across all of them</td></tr>
+      <tr><td>One report format for the company</td><td>Each client's own format, under your firm's logo</td></tr>
+      <tr><td>Findings stay inside the safety team</td><td>Findings go to client contacts and subcontractors who have no account</td></tr>
+      <tr><td>Training records for the company's employees</td><td>Your consultants' credentials, matched to what each client requires</td></tr>
+      <tr><td>Cost is a line in the safety budget</td><td>Hours, invoices, and margin per client, because the work is what you sell</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pull-quote" data-reveal>
+    <p>"There are 30 to 50 platforms out there, but none of them fit the mold of a consultant."</p>
+    <div class="attr">COO, EHS consulting firm (Safely Track customer)</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">What it does</div>
+  <h2>The consulting work, from the site walk to the invoice.</h2>
+
+  <p>Most firms start with reporting, because that is where the hours most obviously go. The rest is there when you need it.</p>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Field capture in the walk</h3>
+      <p>Photos and a voice note on any phone. The finding, the corrective action, and the likely OSHA standard are drafted for the consultant to review and edit.</p>
+    </div>
+    <div class="feature">
+      <h3>Each client's report format</h3>
+      <p>Templates are built from the forms you already use. Daily reports fill from the day's observations instead of being re-typed.</p>
+    </div>
+    <div class="feature">
+      <h3>Weekly and monthly summaries</h3>
+      <p>The week's daily reports pull into a draft client summary. The consultant edits and sends it.</p>
+    </div>
+    <div class="feature">
+      <h3>Proof of fix, no login needed</h3>
+      <p>The person responsible gets a link by text or email, replies with a photo, and the record closes with a timestamp.</p>
+    </div>
+    <div class="feature">
+      <h3>Consultant credentials</h3>
+      <p>Certifications tracked per person, with expiry flagged before a card lapses and a view of who is qualified for which client.</p>
+    </div>
+    <div class="feature">
+      <h3>Staffing, hours, and billing</h3>
+      <p>Schedules, timesheets, and hours by project, feeding client invoices and margin per client.</p>
+    </div>
+    <div class="feature">
+      <h3>A portal under your brand</h3>
+      <p>Clients see their findings and trends between visits, with your firm's name on it.</p>
+    </div>
+    <div class="feature">
+      <h3>One searchable record</h3>
+      <p>Every site, date, contractor, and issue type across all clients, filterable in seconds instead of opened file by file.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">In practice</div>
+  <h2>One firm, more than 60 safety managers, more than 70 sites.</h2>
+
+  <p>One of our customers is a safety consulting firm that places full-time safety managers on clients' manufacturing plants and construction sites. Before Safely Track, every manager captured observations, inspections, and incidents a different way: paper notes written up hours later, photos that stayed on a phone, a spreadsheet on one laptop, hazards raised in a group text with no owner. Each week someone read every daily report and wrote the client summary from scratch.</p>
+
+  <div class="before-after">
+    <div class="ba-col ba-before">
+      <div class="ba-label">Before</div>
+      <ul>
+        <li><span class="icon">✕</span> Four capture methods, no shared record</li>
+        <li><span class="icon">✕</span> Weekly client summary written by hand, 30 to 60 minutes per manager</li>
+        <li><span class="icon">✕</span> Nothing searchable or rolled up across sites</li>
+        <li><span class="icon">✕</span> Each new site added another way of doing it</li>
+      </ul>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-label">With Safely Track</div>
+      <ul>
+        <li><span class="icon">✓</span> One path on every site: photo and voice note to finished report</li>
+        <li><span class="icon">✓</span> Weekly summary drafts itself from the dailies; the manager edits and sends</li>
+        <li><span class="icon">✓</span> Every site and finding in one dashboard, filterable by issue type and date</li>
+        <li><span class="icon">✓</span> Templates built from the firm's own forms, so day one looked familiar</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>The firm had run its previous EHS platform for years. Safely Track replaced it in production within three weeks of going live, and field usage went up rather than down.</p>
+
+  <div class="pull-quote" data-reveal>
+    <p>"Our team is so much more into this than they were with our previous EHS software provider. The functionality for the guys in the field is the most important part."</p>
+    <div class="attr">COO, safety consulting firm</div>
+  </div>
+
+  <p>The same pattern holds for independent consultants. A loss control consultant who spent more than 90 minutes writing up each site visit now finishes the report in about 20, and gets more than 8 hours a month back.</p>
+
+  <div class="diff-box" data-reveal>
+    <div class="eyebrow">How setup works</div>
+    <h3>Your forms first, not ours.</h3>
+    <p>Send the forms you use today. They get built as templates, with your fields, your issue types, your risk tiers, and a report PDF that looks like the one your client already receives. When you want a change and can't make it yourself, we make it, usually within a day.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Questions</div>
+  <h2>What consulting firms ask first.</h2>
+
+  <div class="faq">
+    <details>
+      <summary>How is this different from regular EHS software?</summary>
+      <p>Regular EHS software assumes one employer with one safety department. A consulting firm has many clients, each with its own report format, credential requirements, contacts, and invoice. Safely Track keeps each client separate while giving the firm one view across all of them, and it covers the business side too: staffing, hours, and billing.</p>
+    </details>
+    <details>
+      <summary>Can reports go out in each client's format and under our brand?</summary>
+      <p>Yes. Templates are built from the forms you already use, so each client gets the report it already expects, with your firm's logo. Clients can also see their findings in a portal under your branding.</p>
+    </details>
+    <details>
+      <summary>Do client workers or subcontractors need an account?</summary>
+      <p>No. The person responsible for a fix gets a text or email with a link, replies with a photo, and the record closes with a timestamp. No app download or login on their end.</p>
+    </details>
+    <details>
+      <summary>How long does it take to get running?</summary>
+      <p>Send the forms you use today and they get built as templates, so the field team sees familiar paperwork on day one. The firm described above replaced its previous platform within three weeks of going live.</p>
+    </details>
+    <details>
+      <summary>We already use an inspection app. Where does this fit?</summary>
+      <p>If your inspection app covers what you need, keep it. Firms usually come to us when the app handles the checklist but the client deliverable, the closeout record, and the hours still live in Word, email, and spreadsheets. SafetyCulture is the most common one: <a href="safetyculture-alternative.html">Why not SafetyCulture / Mitti?</a></p>
+    </details>
+    <details>
+      <summary>What happens to the reports we share for a demo?</summary>
+      <p>We use them for the demo only. We don't save a copy, and they stay confidential.</p>
+    </details>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block" data-reveal>
+    <h3>See your own reports at work.</h3>
+    <p>Bring a recent report or inspection template and we'll run it through Safely Track live, so you judge the value on your own work. Thirty minutes. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo to see your own reports at work →</a>
+    <p class="cta-sub">Ready to try it on a live client? <a href="get-started.html?interest=pilot#pilot">Start a pilot</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Safely<span>Track</span></a>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="case-study-gc.html">Case Study</a></li>
+      <li><a href="safetyculture-alternative.html">Why not SafetyCulture / Mitti?</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Safely Track LLC</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
