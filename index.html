@@ -1669,7 +1669,7 @@ footer {
       <li><a href="ehs-inhouse.html">For In-House EHS</a></li>
       <li><a href="loss-control.html">For Loss Control</a></li>
       <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Free Audit</a></li>
+      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
     </ul>
   </div>
 </nav>
@@ -1682,10 +1682,10 @@ footer {
       <h1>The operating system for<br><em>your EHS consulting firm.</em></h1>
       <p class="hero-sub">Your firm wins the work, tracks what credentials each client demands, staffs the job with someone actually certified, writes the report, proves the hazard got fixed, bills it, and works out the margin afterward. Most firms run those ten steps across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs them in one place, in whatever order your firm needs them.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a free data audit</a>
+        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo to see your own reports at work</a>
         <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
       </div>
-      <p class="hero-cta-note">A 30-minute audit of where your operation is leaking time — bring a recent report, leave with a plan.</p>
+      <p class="hero-cta-note">Bring a recent report and we'll run it through Safely Track live, so you see the value on your own work. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="num">15x+</div>
@@ -1762,7 +1762,7 @@ footer {
         <div class="demo-report">
           <div class="demo-report-header">
             <div class="demo-report-eyebrow">Sample Output</div>
-            <h3>Site Walk — North Stairwell, Bldg 2</h3>
+            <h3>Site Walk: North Stairwell, Bldg 2</h3>
           </div>
           <ul class="demo-report-findings">
             <li class="flagged">
@@ -1786,7 +1786,7 @@ footer {
         </div>
 
         <div class="demo-result-ctas">
-          <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See it on your own data — book a free audit →</a>
+          <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See your own reports at work: book a demo →</a>
         </div>
         <p class="demo-result-note">Step 04 of ten, running on sample data. Book thirty minutes and we'll walk all ten against how your firm actually works.</p>
       </div>
@@ -2126,10 +2126,10 @@ footer {
 <!-- DEMO CTA -->
 <section class="cta-band">
   <div class="inner cta-band-inner">
-    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">Free Operations Audit</div>
+    <div class="section-eyebrow section-eyebrow-white" style="text-align:center">A Demo on Your Own Reports</div>
     <h2 class="white">Which of the ten is costing you most?</h2>
-    <p class="cta-band-sub">Bring a recent report, an inspection template, or whatever spreadsheet your admin is holding the firm together with. In thirty minutes we'll walk the ten steps against how your firm actually runs them, find the one leaking the most time, and tell you what it would take to fix that one first. We work from your documents, not a deck.</p>
-    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a free data audit</a>
+    <p class="cta-band-sub">Bring a recent report, an inspection template, or whatever spreadsheet your admin is holding the firm together with. In thirty minutes we'll walk the ten steps against how your firm actually runs them, find the one leaking the most time, and tell you what it would take to fix that one first. We work from your documents, not a deck, and we use them for the demo only: we don't save a copy, and they stay confidential.</p>
+    <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a demo to see your own reports at work</a>
     <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Thomas replies within one business day.</p>
   </div>
 </section>
@@ -2146,8 +2146,10 @@ footer {
       <li><a href="quiz.html">AI Quiz</a></li>
       <li><a href="whitepaper.html">Free Guide</a></li>
       <li><a href="case-study-gc.html">Case Study</a></li>
+      <li><a href="safety-consultant-software.html">Consultant Software</a></li>
       <li><a href="loss-control.html">Loss Control</a></li>
       <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="safetyculture-alternative.html">vs SafetyCulture</a></li>
       <li><a href="get-started.html">Request Access</a></li>
       <li><a href="get-started.html?interest=pilot#pilot">Start a Pilot</a></li>
     </ul>
@@ -2218,14 +2220,14 @@ footer {
     }, 3000);
   });
 
-  /* Single result CTA: books a free data audit. Consulting-led GTM keeps
+  /* Single result CTA: books a demo on the visitor's own reports. Consulting-led GTM keeps
      self-serve/email-gated signup off the table for now, so this replaces
      the earlier "try it yourself" email-capture flow. */
   bookBtn.addEventListener('click', function () {
     track('book_audit_clicked');
   });
 
-  /* Track every other "Book a free data audit" entry point on the page
+  /* Track every other "Book a demo" entry point on the page
      (nav, hero, bottom CTA band) the same way. */
   document.querySelectorAll('a[href*="calendly.com"]').forEach(function (el) {
     if (el.id === 'demo-book-btn') return;
