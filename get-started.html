@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="assets/analytics.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a Demo With Your Own Reports | Safely Track</title>
 <meta name="description" content="See Safely Track work on your own reports. We use them for the demo only and keep them confidential. Tell us about your firm and Thomas will follow up within one business day, or book directly.">
@@ -1551,6 +1552,7 @@ async function handlePilotSubmit(e) {
     if (res.ok) {
       document.getElementById('pilot-form-container').style.display = 'none';
       document.getElementById('pilot-form-success').style.display = 'block';
+      if (window.gtag) window.gtag('event', 'generate_lead', { interest: data.get('interest') });
     } else {
       btn.textContent = originalLabel;
       btn.disabled = false;
