@@ -22,6 +22,21 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Safely Track tour: the ten steps of an EHS consulting firm, in one system",
+  "description": "A narrated tour of Safely Track for EHS consulting firms: pipeline and proposals, contracts, credentials and staffing, observations and reports, training, timesheets, billing, corrective actions, client trends, and contract delivery across the business.",
+  "thumbnailUrl": "https://usesafelytrack.com/assets/os-tour-poster.jpg",
+  "uploadDate": "2026-10-02",
+  "duration": "PT1M46S",
+  "contentUrl": "https://usesafelytrack.com/assets/os-tour.mp4",
+  "embedUrl": "https://usesafelytrack.com/#os-tour",
+  "publisher": { "@type": "Organization", "name": "Safely Track", "url": "https://usesafelytrack.com/", "logo": { "@type": "ImageObject", "url": "https://usesafelytrack.com/assets/logo.jpg" } },
+  "transcript": "Every safety consulting firm runs the same ten steps, from winning the work to knowing what it earned. Here's one system that runs all of them. Win work. Your pipeline scores companies in your territory on public safety signals, like OSHA inspections. And proposals are built from your own services and rates. Onboard the client. A signed proposal becomes a contract: who brought it in, who services it, and who to call on the client side. Staff it. Every credential and its expiry in one place, so you can see who's qualified for the job, and who's actually free. Deliver it. Observations come in from the field with photos, a drafted description, and the OSHA standard, then roll up into reports on your own forms. Support delivery. Your toolbox talks, sign-in sheets, and courses sit right alongside the work. Capture the work. Timesheets fill in from the schedule. Your consultant fixes what changed, signs, and collects the client signature. Bill it. Every contract shows what's been invoiced, and what's left to bill. Prove it. Corrective actions go to whoever owns the fix, by text, with a completion link. No login needed. And the closeout stays on the record. Show the client. Findings by client and by site, so every visit starts with what to look for. Run the business. What's under contract, what's been delivered, and what's left, across every client. Tell us which step costs your team the most time. That's the one we build around first."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Safely Track",
   "url": "https://usesafelytrack.com",
@@ -1154,11 +1169,18 @@ footer {
   background: var(--dark);
   margin-top: 48px;
 }
-.video-wrap iframe {
+.video-wrap iframe,
+.video-wrap video {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   border: none;
+}
+.video-caption {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 14px 0 0;
 }
 
 /* ── AI REPORTS ── */
@@ -1684,7 +1706,7 @@ footer {
       <p class="hero-sub">Your firm wins the work, tracks what credentials each client demands, staffs the job with someone actually certified, writes the report, proves the hazard got fixed, bills it, and works out the margin afterward. Most firms run those ten steps across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs them in one place, in whatever order your firm needs them.</p>
       <div class="hero-actions">
         <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo to see your own reports at work</a>
-        <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+        <a href="#os-tour" class="btn-ghost">Watch the 2-min tour →</a>
       </div>
       <p class="hero-cta-note">Bring a recent report and we'll run it through Safely Track live, so you see the value on your own work. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
       <div class="hero-stats">
@@ -1892,9 +1914,14 @@ footer {
       <p>Tell us which of the ten actually costs your team time, or which one your admin is running by hand across three different systems, and that is the one that gets built first. Most firms start at step 04, because that's where the hours are most obviously going. Not every firm does.</p>
     </div>
 
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/PAn6zHNSBzU" allowfullscreen loading="lazy" title="Safely Track consultant workflow demo"></iframe>
+    <div class="video-wrap" id="os-tour">
+      <video controls playsinline preload="none" poster="assets/os-tour-poster.jpg" aria-label="Safely Track tour: the ten steps of an EHS consulting firm in one system">
+        <source src="assets/os-tour.mp4" type="video/mp4">
+        <track kind="captions" src="assets/os-tour.vtt" srclang="en" label="English">
+        <a href="assets/os-tour.mp4">Download the tour (MP4, 2 minutes)</a>
+      </video>
     </div>
+    <p class="video-caption">Under two minutes, sound on. All ten steps, filmed in the live product with a demo consulting firm's data.</p>
   </div>
 </section>
 
