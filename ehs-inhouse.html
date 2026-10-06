@@ -241,6 +241,16 @@ nav {
   margin-bottom: 8px;
 }
 .segment-proof .attr { font-size: 13px; color: var(--text-muted); font-style: normal; }
+.segment-video { margin: 0 0 40px; scroll-margin-top: 140px; }
+.segment-video-frame {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1A1A2E;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+.segment-video-frame video { display: block; width: 100%; height: 100%; }
+.segment-video-note { margin-top: 12px; font-size: 14px; color: var(--text-muted); }
 
 /* ── SECTION WRAPPERS ── */
 .section { padding: 88px 24px; }
@@ -632,7 +642,7 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
     <p class="hero-sub">Your team sees everything on the floor and the jobsite, but the record lives in camera rolls, voice memos, and texts. Safely Track turns what your people observe into structured, defensible records and the trend data your leadership actually asks for.</p>
     <div class="hero-actions">
       <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-hero">Book a demo to see your own reports at work</a>
-      <a href="https://youtu.be/PAn6zHNSBzU" target="_blank" rel="noopener" class="btn-ghost">Watch the 1-min demo →</a>
+      <a href="#construction-demo" class="btn-ghost">Watch the 2-min construction demo →</a>
     </div>
     <p class="hero-cta-note">Bring a recent report and we'll run it through Safely Track live, so you see the value on your own work. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
   </div>
@@ -685,6 +695,16 @@ footer { background: var(--dark); padding: 40px 24px; border-top: 1px solid rgba
     <div class="feature-eyebrow">Construction</div>
     <h2>Prove every hazard got closed, without chasing texts.</h2>
     <p class="segment-hook">More than 80% of jobsite hazards are handled by text, phone call, or verbal instruction, no record, no owner assigned, no proof of fix. That gap is what OSHA and your insurer come looking for.</p>
+    <div class="segment-video" id="construction-demo">
+      <div class="segment-video-frame">
+        <video controls playsinline preload="none" poster="assets/construction-demo-poster.jpg" aria-label="Construction demo: a hazard photographed on site, assigned to the subcontractor by text, closed with proof, and rolled into audits, toolbox talks, the OSHA 300 log and trend reporting">
+          <source src="assets/construction-demo.mp4" type="video/mp4">
+          <track kind="captions" src="assets/construction-demo.vtt" srclang="en" label="English">
+          <a href="assets/construction-demo.mp4">Download the construction demo video (MP4, under 2 minutes)</a>
+        </video>
+      </div>
+      <p class="segment-video-note">Sound on. Recorded in the live product on a demo general contractor's projects. The wait for the AI draft is cut.</p>
+    </div>
     <div class="segment-lists">
       <div class="ba-card">
         <div class="ba-header">What's Trapped</div>
