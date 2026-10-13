@@ -304,6 +304,48 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
 }
+/* Email-first CTA: one pill holding the field and the button, like a search bar. */
+.hero-capture {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.32);
+  backdrop-filter: blur(6px);
+  transition: border-color .15s, background .15s;
+}
+.hero-capture:focus-within { border-color: var(--orange-mid); background: rgba(255,255,255,0.2); }
+.hero-capture input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 17px;
+  padding: 12px 18px;
+  outline: none;
+}
+.hero-capture input[type="email"]::placeholder { color: rgba(255,255,255,0.72); }
+.hero-capture .hero-btn { border: 0; cursor: pointer; font-family: inherit; flex-shrink: 0; padding: 14px 30px; }
+.hero-capture .hero-btn:disabled { opacity: .7; cursor: default; transform: none; }
+.hero-capture.is-invalid { border-color: #FF8A80; }
+.hero-capture-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.hero-capture-msg {
+  min-height: 1.4em;
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+.hero-capture-msg a { color: var(--orange-mid); font-weight: 600; }
+.hero-capture-msg.is-error { color: #FFB4AB; }
+@media (max-width: 520px) {
+  .hero-capture { flex-direction: column; align-items: stretch; gap: 6px; border-radius: 18px; }
+  .hero-capture input[type="email"] { text-align: center; padding: 12px 14px; }
+}
 .hero-btn {
   font-size: 17px;
   padding: 16px 40px;
@@ -313,7 +355,7 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 8px;
   color: var(--white);
   font-size: 15px;
   font-weight: 600;
@@ -1850,9 +1892,13 @@ footer {
       <div class="hero-label">Built for EHS Consulting Firms</div>
       <h1>Your consultants belong on site.<br><em>Not stuck writing reports.</em></h1>
       <p class="hero-sub">Safely Track runs your EHS consulting firm in one place, from the site walk to the closeout to the invoice.</p>
-      <div class="hero-actions">
-        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary hero-btn">Book a demo</a>
-      </div>
+      <form class="hero-capture" id="hero-capture" novalidate>
+        <label for="hero-email" class="sr-only">Work email</label>
+        <input id="hero-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="What's your work email?" required>
+        <input type="text" name="_honey" class="hero-capture-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn-primary hero-btn">Get a demo</button>
+      </form>
+      <p class="hero-capture-msg" id="hero-capture-msg" role="status" aria-live="polite"></p>
       <a href="#os-tour" class="hero-play"><span class="hero-play-icon" aria-hidden="true"></span>Watch the 2-min tour</a>
       <div class="hero-chips" aria-label="Who Safely Track is for">
         <a href="#how-it-works" class="hero-chip is-current">Consulting firms</a>
@@ -2484,6 +2530,104 @@ footer {
       visible = entries[0].isIntersecting; sync();
     }).observe(line);
   } else sync();
+})();
+</script>
+
+<script>
+/* Hero email capture. The lead is emailed to Thomas first (same formsubmit.co
+   inbox as the pilot and quiz forms), so it is kept even if the visitor
+   never books. Then Calendly opens over the page with the email prefilled.
+   If the Calendly widget cannot load, the booking page opens in a new tab. */
+(function () {
+  var form = document.getElementById('hero-capture');
+  if (!form) return;
+  var input = document.getElementById('hero-email');
+  var msg = document.getElementById('hero-capture-msg');
+  var btn = form.querySelector('button[type="submit"]');
+  var CALENDLY = 'https://calendly.com/thomas-usesafelytrack/30min';
+  var widget = null;
+
+  function track(name, params) {
+    if (window.gtag) window.gtag('event', name, params || {});
+    else console.log('[track]', name, params || {});
+  }
+
+  /* Fetch Calendly's widget once the visitor shows intent, not on page load. */
+  function loadWidget() {
+    if (widget) return widget;
+    widget = new Promise(function (resolve, reject) {
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(css);
+      var js = document.createElement('script');
+      js.src = 'https://assets.calendly.com/assets/external/widget.js';
+      js.async = true;
+      js.onload = function () { window.Calendly ? resolve(window.Calendly) : reject(); };
+      js.onerror = reject;
+      document.head.appendChild(js);
+    });
+    widget.catch(function () { widget = null; });
+    return widget;
+  }
+  input.addEventListener('focus', function () { loadWidget().catch(function () {}); }, { once: true });
+
+  function say(text, isError) {
+    msg.innerHTML = text;
+    msg.classList.toggle('is-error', !!isError);
+  }
+
+  function withTimeout(p, ms) {
+    return Promise.race([p, new Promise(function (_, rej) { setTimeout(rej, ms); })]);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      form.classList.add('is-invalid');
+      say('Please enter a valid work email.', true);
+      input.focus();
+      return;
+    }
+    form.classList.remove('is-invalid');
+    if (form.elements._honey.value) return;
+
+    btn.disabled = true;
+    btn.textContent = 'One moment…';
+    say('');
+
+    var data = new FormData();
+    data.append('email', email);
+    data.append('source', 'Homepage hero');
+    data.append('page', location.href);
+    data.append('_subject', 'New demo request, Safely Track website: ' + email);
+    data.append('_template', 'table');
+    data.append('_captcha', 'false');
+    var sent = fetch('https://formsubmit.co/ajax/thomas@usesafelytrack.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    }).then(function (r) { return r.ok; }).catch(function () { return false; });
+
+    sent.then(function (ok) { track('generate_lead', { source: 'hero_email', saved: ok }); });
+
+    /* Do not hold the visitor on the lead post; give it a moment, then book. */
+    withTimeout(sent, 2500).catch(function () {}).then(function () {
+      return withTimeout(loadWidget(), 4000);
+    }).then(function (Calendly) {
+      /* Prefill rides on the iframe URL, Calendly's documented form; the
+         prefill option alone did not reach the booking page. */
+      Calendly.initPopupWidget({ url: CALENDLY + '?email=' + encodeURIComponent(email) });
+      say('Thanks. Pick a time that works, or Thomas will reach out within one business day.');
+    }).catch(function () {
+      window.open(CALENDLY, '_blank', 'noopener');
+      say('Thanks. Your calendar opened in a new tab. <a href="' + CALENDLY + '" target="_blank" rel="noopener">Open it again</a>.');
+    }).then(function () {
+      btn.disabled = false;
+      btn.textContent = 'Get a demo';
+    });
+  });
 })();
 </script>
 
