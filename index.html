@@ -232,72 +232,132 @@ nav {
   .os-order { padding: 22px 20px; }
 }
 /* ── HERO ── */
+/* Full-bleed field footage under a navy scrim. The poster carries the look
+   when the video is blocked, still loading, or switched off for reduced motion. */
 .hero {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-2);
-  padding: 96px 24px 80px;
   position: relative;
   overflow: hidden;
+  background: var(--dark) url('assets/hero-site-walk.jpg') center / cover no-repeat;
+  color: var(--white);
+  padding: 120px 24px 0;
+  min-height: min(860px, calc(100svh - 60px));
+  display: flex;
+  text-align: center;
 }
-.hero::before {
-  content: '';
+.hero-video {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 55% at 78% 15%, rgba(232,102,10,0.20) 0%, transparent 72%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26,26,46,0.70) 0%, rgba(26,26,46,0.76) 55%, rgba(26,26,46,0.95) 100%);
   pointer-events: none;
 }
 .hero-inner {
   max-width: var(--max);
   margin: 0 auto;
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+.hero-content { display: flex; flex-direction: column; align-items: center; }
 .hero-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(232,102,10,0.12);
-  border: 1px solid rgba(232,102,10,0.45);
-  color: #C2530A;
+  color: var(--orange-mid);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5.5vw, 64px);
-  color: var(--dark);
-  line-height: 1.1;
-  max-width: 800px;
+  font-size: clamp(38px, 6vw, 72px);
+  color: var(--white);
+  line-height: 1.06;
+  max-width: 980px;
   margin-bottom: 24px;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.25);
 }
 .hero h1 em {
-  color: var(--orange);
+  color: var(--orange-mid);
   font-style: italic;
 }
 .hero-sub {
-  font-size: 18px;
-  color: var(--text-muted);
-  max-width: 560px;
-  margin-bottom: 40px;
-  line-height: 1.6;
-  font-weight: 300;
+  font-size: clamp(17px, 2vw, 20px);
+  color: rgba(255,255,255,0.88);
+  max-width: 620px;
+  margin-bottom: 36px;
+  line-height: 1.55;
 }
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-btn {
+  font-size: 17px;
+  padding: 16px 40px;
+  box-shadow: 0 8px 28px rgba(232,102,10,0.35);
+}
+.hero-play {
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
 }
-.hero-cta-note {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 14px;
+.hero-play-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  position: relative;
+  transition: background .15s, border-color .15s;
 }
+.hero-play-icon::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  border-style: solid;
+  border-width: 6.5px 0 6.5px 10px;
+  border-color: transparent transparent transparent var(--white);
+}
+.hero-play:hover .hero-play-icon { background: var(--orange); border-color: var(--orange); }
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.hero-chip {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+  transition: background .15s, border-color .15s;
+}
+.hero-chip:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.6); }
+.hero-chip.is-current { border-color: var(--orange-mid); background: rgba(232,102,10,0.22); }
 .btn-primary {
   background: var(--orange);
   color: var(--white);
@@ -322,37 +382,38 @@ nav {
 .btn-ghost:hover { color: var(--dark); }
 .hero-stats {
   display: flex;
-  gap: 48px;
+  justify-content: center;
+  gap: 64px;
   margin-top: 64px;
-  padding-top: 48px;
-  border-top: 1px solid var(--gray-2);
+  padding: 32px 0 40px;
+  border-top: 1px solid rgba(255,255,255,0.16);
   flex-wrap: wrap;
 }
 .hero-stat .num {
   font-family: var(--font-display);
-  font-size: 38px;
-  color: var(--orange);
+  font-size: 36px;
+  color: var(--orange-mid);
   line-height: 1;
   margin-bottom: 6px;
   font-variant-numeric: tabular-nums;
 }
 .hero-stat .label {
   font-size: 13px;
-  color: var(--text-muted);
-  max-width: 140px;
+  color: rgba(255,255,255,0.72);
+  max-width: 170px;
+  margin: 0 auto;
   line-height: 1.4;
 }
-.hero-audience-line {
-  margin-top: 28px;
-  font-size: 13px;
-  color: var(--text-muted);
+@media (max-width: 640px) {
+  /* The walkers sit right of center in the footage; keep them in a narrow crop. */
+  .hero, .hero-video { background-position: 72% center; object-position: 72% center; }
+  .hero { padding: 64px 16px 0; min-height: 0; }
+  .hero-chips { margin-top: 32px; }
+  .hero-stats { flex-wrap: nowrap; gap: 14px; margin-top: 44px; padding: 24px 0 28px; }
+  .hero-stat { flex: 1 1 0; }
+  .hero-stat .num { font-size: 26px; }
+  .hero-stat .label { font-size: 11.5px; }
 }
-.hero-audience-line a {
-  color: var(--orange);
-  text-decoration: none;
-  font-weight: 600;
-}
-.hero-audience-line a:hover { text-decoration: underline; }
 
 /* ── SEE IT WORK DEMO ── */
 .demo-section { background: var(--white); padding: 8px 24px 96px; }
@@ -1632,7 +1693,6 @@ footer {
   .wp-inner { grid-template-columns: 1fr; gap: 40px; }
   .cs-teaser { grid-template-columns: 1fr; }
   .nav-links { display: none; }
-  .hero-stats { gap: 28px; }
   .ai-reports-grid { grid-template-columns: 1fr; }
   .pilot-form-grid { grid-template-columns: 1fr; }
   .comms-features { grid-template-columns: 1fr; }
@@ -1699,31 +1759,38 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-site-walk.jpg" aria-hidden="true" tabindex="-1">
+    <source src="assets/hero-site-walk.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-label">Built for EHS Consulting Firms</div>
-      <h1>The operating system for<br><em>your EHS consulting firm.</em></h1>
-      <p class="hero-sub">Your firm wins the work, tracks what credentials each client demands, staffs the job with someone actually certified, writes the report, proves the hazard got fixed, bills it, and works out the margin afterward. Most firms run those ten steps across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs them in one place, in whatever order your firm needs them.</p>
+      <h1>Your consultants belong on site.<br><em>Not stuck writing reports.</em></h1>
+      <p class="hero-sub">Safely Track runs your EHS consulting firm in one place, from the site walk to the closeout to the invoice.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo to see your own reports at work</a>
-        <a href="#os-tour" class="btn-ghost">Watch the 2-min tour →</a>
+        <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary hero-btn">Book a demo</a>
       </div>
-      <p class="hero-cta-note">Bring a recent report and we'll run it through Safely Track live, so you see the value on your own work. We use it for the demo only: we don't save a copy, and it stays confidential.</p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">15x+</div>
-          <div class="label">return on Safely Track spend</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">2–4 hrs</div>
-          <div class="label">recovered per report for billable field work</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">2+</div>
-          <div class="label">new clients each consultant can take on, without adding headcount</div>
-        </div>
+      <a href="#os-tour" class="hero-play"><span class="hero-play-icon" aria-hidden="true"></span>Watch the 2-min tour</a>
+      <div class="hero-chips" aria-label="Who Safely Track is for">
+        <a href="#how-it-works" class="hero-chip is-current">Consulting firms</a>
+        <a href="loss-control.html" class="hero-chip">Loss control teams</a>
+        <a href="ehs-inhouse.html" class="hero-chip">In-house EHS</a>
       </div>
-      <p class="hero-audience-line">Also built for <a href="loss-control.html">Loss Control teams</a> and <a href="ehs-inhouse.html">In-House EHS teams</a> →</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">15x+</div>
+        <div class="label">return on Safely Track spend</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2–4 hrs</div>
+        <div class="label">recovered per report for billable field work</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2+</div>
+        <div class="label">new clients each consultant can take on, without adding headcount</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1854,7 +1921,7 @@ footer {
   <div class="inner">
     <div class="section-eyebrow">The Operating System</div>
     <h2>Ten steps your firm already runs. One system that runs them.</h2>
-    <p class="section-intro">This is the operation, not just the report. Every EHS consulting firm moves through roughly the same ten steps between winning a job and knowing what it earned. Safely Track covers them, tailored to how your firm already works.</p>
+    <p class="section-intro">This is the operation, not just the report. Every EHS consulting firm moves through roughly the same ten steps between winning a job and knowing what it earned, and most run them across spreadsheets, an inbox, QuickBooks, and a reporting tool built for a single company rather than a consultancy. Safely Track runs all ten in one place, in whatever order your firm needs them.</p>
 
     <div class="os-grid" data-reveal>
       <div class="os-step">
@@ -2267,6 +2334,25 @@ footer {
   document.querySelectorAll('a[href*="interest=pilot"]').forEach(function (el) {
     el.addEventListener('click', function () { track('book_pilot_clicked'); });
   });
+})();
+</script>
+
+<script>
+/* Hero footage is decoration: stop it for reduced motion or data saver and
+   leave the poster frame, and pause it once it scrolls out of view. */
+(function () {
+  var v = document.querySelector('.hero-video');
+  if (!v) return;
+  var still = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+    (navigator.connection && navigator.connection.saveData);
+  if (still) { v.removeAttribute('autoplay'); v.pause(); v.remove(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else v.pause();
+    });
+  }).observe(v);
 })();
 </script>
 
