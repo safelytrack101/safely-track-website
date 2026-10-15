@@ -25,6 +25,7 @@
   --t-client: #2E7D5B;  /* Client deliverables */
   --t-buy: #6B4FBB;     /* Buying guides */
   --t-train: #B7791F;   /* Training */
+  --t-staff: #1F7A8C;   /* Staffing */
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-body); color: var(--text); background: var(--off-white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
@@ -72,6 +73,7 @@ nav { background: var(--white); border-bottom: 1px solid var(--gray-2); padding:
 [data-cat="Client deliverables"] { --c: var(--t-client); }
 [data-cat="Buying guides"] { --c: var(--t-buy); }
 [data-cat="Training"] { --c: var(--t-train); }
+[data-cat="Staffing"] { --c: var(--t-staff); }
 
 /* CARD GRID: cards read like numbered inspection items */
 .grid { max-width: 1140px; margin: 0 auto; padding: 0 24px 88px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: item; }

@@ -32,6 +32,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://usesafelytrack.com/safety-bench.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://usesafelytrack.com/blog/</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,6 +57,12 @@
   </url>
   <url>
     <loc>https://usesafelytrack.com/blog/weekly-client-safety-summary.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://usesafelytrack.com/blog/introducing-safety-bench.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
