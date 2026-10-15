@@ -535,6 +535,74 @@ nav {
   margin: 0 auto 36px;
   line-height: 1.6;
 }
+.demo-step { text-align: left; }
+.demo-step-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.demo-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.demo-step-hint { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--text-muted); }
+.demo-link-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  cursor: pointer;
+  padding: 0;
+}
+.demo-link-btn:hover { text-decoration: underline; }
+
+/* Step 1: template + site */
+.demo-templates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.demo-template {
+  text-align: left;
+  font: inherit;
+  background: var(--white);
+  border: 1.5px solid var(--gray-2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.demo-template:hover { border-color: var(--gray-3); }
+.demo-template[aria-checked="true"] { border-color: var(--orange); background: var(--orange-light); }
+.demo-template-name { display: block; font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.demo-template-std { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--orange); margin-bottom: 4px; }
+.demo-template-blurb { display: block; font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+.demo-site-row { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.demo-site-row label { font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+.demo-site-row input {
+  flex: 1;
+  max-width: 360px;
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--gray-2);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+}
+
+/* Steps 2 and 3: photos + notes */
 .demo-sample-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -542,28 +610,103 @@ nav {
   margin-bottom: 32px;
   align-items: start;
 }
-.demo-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.demo-photo {
+.demo-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: start; }
+.demo-photo-pick {
+  position: relative;
   aspect-ratio: 4 / 3;
+  font: inherit;
   background: linear-gradient(135deg, var(--gray-1), var(--gray-2));
-  border: 1px solid var(--gray-2);
+  border: 1.5px solid var(--gray-2);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  color: var(--gray-3);
+  gap: 4px;
+  padding: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color .15s, opacity .15s, background .15s;
 }
-.demo-photo svg { width: 22px; height: 22px; }
-.demo-photo span { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.demo-photo-pick svg { width: 22px; height: 22px; }
+.demo-photo-pick .demo-photo-label { font-size: 11px; font-weight: 700; color: var(--text); line-height: 1.2; text-align: center; }
+.demo-photo-pick .demo-photo-cap { font-size: 10px; color: var(--text-muted); line-height: 1.25; text-align: center; }
+.demo-photo-pick[aria-pressed="false"] { opacity: 0.55; border-style: dashed; }
+.demo-photo-pick[aria-pressed="false"]:hover { opacity: 0.85; }
+.demo-photo-pick[aria-pressed="true"] { border-color: var(--orange); background: linear-gradient(135deg, var(--white), var(--orange-light)); color: var(--orange); }
+.demo-photo-check {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gray-3);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-photo-pick[aria-pressed="true"] .demo-photo-check { background: var(--orange); border-color: var(--orange); }
+.demo-photo-check svg { width: 10px; height: 10px; color: var(--white); }
+.demo-photo-up { position: relative; border: 1.5px solid var(--orange); border-radius: 8px; overflow: hidden; background: var(--white); }
+.demo-photo-up img, .demo-photo-up .demo-photo-noprev { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--gray-1); }
+.demo-photo-noprev { display: flex !important; align-items: center; justify-content: center; font-size: 10px; color: var(--text-muted); padding: 6px; text-align: center; }
+.demo-photo-up input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--gray-2);
+  font: inherit;
+  font-size: 11px;
+  padding: 6px 8px;
+  color: var(--text);
+  background: var(--white);
+}
+.demo-photo-up input:focus { outline: 2px solid var(--orange); outline-offset: -2px; }
+.demo-photo-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(26,26,46,0.75);
+  color: var(--white);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.demo-photo-add {
+  aspect-ratio: 4 / 3;
+  border: 1.5px dashed var(--gray-3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  background: var(--white);
+  transition: border-color .15s, color .15s;
+}
+.demo-photo-add:hover, .demo-photo-add:focus-within { border-color: var(--orange); color: var(--orange); }
+.demo-photo-add svg { width: 20px; height: 20px; }
+.demo-photo-add input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.demo-privacy { display: flex; gap: 6px; align-items: flex-start; font-size: 12px; color: var(--text-muted); margin-top: 10px; line-height: 1.45; }
+.demo-privacy svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
 .demo-transcript {
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-radius: 8px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   box-shadow: var(--shadow-sm);
 }
+.demo-transcript:focus-within { border-color: var(--orange); }
 .demo-transcript-label {
   display: flex;
   align-items: center;
@@ -573,17 +716,26 @@ nav {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .demo-transcript-label svg { width: 16px; height: 16px; }
-.demo-transcript-text {
+.demo-notes {
+  display: block;
+  width: 100%;
+  min-height: 210px;
+  border: none;
+  resize: vertical;
+  background: transparent;
   font-family: var(--font-display);
   font-style: italic;
   font-size: 15px;
   color: var(--text);
   line-height: 1.6;
 }
+.demo-notes:focus { outline: none; }
+.demo-hint { font-size: 12px; color: var(--text-muted); margin-top: 10px; line-height: 1.45; }
 .demo-generate-btn { display: block; margin: 0 auto; font-size: 16px; padding: 16px 34px; border: none; cursor: pointer; }
+.demo-error { text-align: center; font-size: 13px; color: #B42318; margin-top: 12px; }
 
 /* Generating */
 .demo-generating-inner { text-align: center; padding: 56px 24px; }
@@ -599,43 +751,105 @@ nav {
 @keyframes demo-spin { to { transform: rotate(360deg); } }
 .demo-status-text { font-size: 16px; color: var(--text); font-weight: 600; margin-bottom: 20px; }
 .demo-progress-track { max-width: 280px; margin: 0 auto; height: 4px; background: var(--gray-2); border-radius: 2px; overflow: hidden; }
-.demo-progress-bar { height: 100%; width: 0%; background: var(--orange); border-radius: 2px; transition: width 3s linear; }
+.demo-progress-bar { height: 100%; width: 0%; background: var(--orange); border-radius: 2px; transition: width 3.2s linear; }
 
-/* Result */
-.demo-report { background: var(--dark); border-radius: 12px; padding: 32px 30px; margin-bottom: 28px; box-shadow: var(--shadow-md); }
-.demo-report-header { margin-bottom: 20px; }
-.demo-report-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-mid); margin-bottom: 8px; }
-.demo-report-header h3 { font-family: var(--font-display); font-size: 22px; color: var(--white); line-height: 1.3; }
-.demo-report-findings { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
-.demo-report-findings li { padding: 16px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
-.demo-report-findings li.flagged { border-color: rgba(232,102,10,0.4); background: rgba(232,102,10,0.08); }
-.finding-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
-.finding-title { font-size: 14px; font-weight: 700; color: var(--white); }
-.finding-osha {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--orange-mid);
-  background: rgba(232,102,10,0.15);
-  border: 1px solid rgba(232,102,10,0.4);
-  padding: 3px 9px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-.demo-report-findings p { font-size: 13px; color: #8890B8; line-height: 1.5; margin-bottom: 8px; }
-.demo-report-findings li p:last-child { margin-bottom: 0; }
-.finding-action { font-size: 12px; color: var(--orange-mid); }
-.finding-action strong { color: var(--white); }
-.demo-report-caption { font-size: 13px; color: var(--text-muted); text-align: center; }
-.demo-result-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+/* Result: a mock report on paper */
+.demo-paper { background: var(--white); border: 1px solid var(--gray-2); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; text-align: left; }
+.paper-top { background: var(--dark); color: var(--white); padding: 16px 26px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.paper-brand { font-family: var(--font-display); font-size: 18px; }
+.paper-brand span { color: var(--orange-mid); }
+.paper-stamp { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange-mid); border: 1.5px solid var(--orange-mid); border-radius: 4px; padding: 4px 9px; white-space: nowrap; }
+.paper-body { padding: 26px 26px 22px; }
+.paper-title { font-family: var(--font-display); font-size: 26px; color: var(--dark); line-height: 1.2; margin-bottom: 4px; }
+.paper-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.paper-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 18px; padding: 16px 0; border-top: 1px solid var(--gray-2); border-bottom: 1px solid var(--gray-2); margin-bottom: 20px; }
+.paper-meta dt { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-3); margin-bottom: 3px; }
+.paper-meta dd { font-size: 13px; font-weight: 600; color: var(--text); }
+.paper-summary { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 10px; margin-bottom: 26px; }
+.paper-stat { border: 1px solid var(--gray-2); border-radius: 8px; padding: 12px 14px; }
+.paper-stat strong { display: block; font-size: 24px; line-height: 1.1; color: var(--dark); }
+.paper-stat span { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.paper-stat.score { background: var(--dark); border-color: var(--dark); }
+.paper-stat.score strong { color: var(--white); }
+.paper-stat.score strong small { font-size: 13px; color: #8890B8; font-weight: 500; }
+.paper-stat.score span { color: #8890B8; }
+.paper-stat.high strong { color: #B42318; }
+.paper-stat.medium strong { color: #B54708; }
+.paper-section { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); padding-bottom: 8px; border-bottom: 2px solid var(--dark); margin: 6px 0 4px; }
+.paper-finding { display: grid; grid-template-columns: 132px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--gray-2); }
+.paper-thumb { width: 132px; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, var(--gray-1), var(--gray-2)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--gray-3); border: 1px solid var(--gray-2); }
+.paper-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.paper-thumb svg { width: 24px; height: 24px; }
+.paper-thumb span { font-size: 10px; font-weight: 600; color: var(--text-muted); text-align: center; padding: 0 4px; }
+.paper-thumb.empty { border-style: dashed; background: var(--white); }
+.paper-thumb-more { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+.paper-f-head { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.paper-f-num { font-size: 12px; font-weight: 700; color: var(--gray-3); margin-right: 2px; padding-top: 2px; }
+.paper-f-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-right: auto; }
+.paper-pill { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.paper-pill.high { color: #B42318; background: #FEF3F2; border: 1px solid #FECDCA; }
+.paper-pill.medium { color: #B54708; background: #FFFAEB; border: 1px solid #FEDF89; }
+.paper-pill.low { color: #475467; background: #F2F4F7; border: 1px solid #E4E7EC; }
+.paper-pill.cite { color: var(--orange); background: var(--orange-light); border: 1px solid rgba(232,102,10,0.35); text-transform: none; }
+.paper-pill.review { color: var(--text-muted); background: var(--white); border: 1px dashed var(--gray-3); text-transform: none; }
+.paper-f-loc { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+.paper-f-row { font-size: 13px; color: var(--text); line-height: 1.55; margin-bottom: 6px; }
+.paper-f-row b { font-weight: 700; color: var(--dark); }
+.paper-f-row.quiet { color: var(--text-muted); }
+.paper-f-ca { margin-top: 10px; font-size: 12px; background: var(--off-white); border-left: 3px solid var(--orange); padding: 8px 12px; border-radius: 0 6px 6px 0; line-height: 1.5; }
+.paper-f-ca b { color: var(--dark); }
+.paper-good { list-style: none; padding: 12px 0 18px; }
+.paper-good li { font-size: 13px; color: var(--text); padding: 4px 0 4px 22px; position: relative; line-height: 1.5; }
+.paper-good li::before { content: "\2713"; position: absolute; left: 2px; color: #067647; font-weight: 700; }
+.paper-photolog { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; padding: 14px 0 18px; }
+.paper-photolog figure { margin: 0; }
+.paper-photolog img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; border: 1px solid var(--gray-2); display: block; }
+.paper-photolog figcaption { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+.paper-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 10px 0 18px; }
+.paper-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-3); padding: 8px 8px 6px 0; border-bottom: 1px solid var(--gray-2); }
+.paper-table td { padding: 8px 8px 8px 0; border-bottom: 1px solid var(--gray-1); color: var(--text); vertical-align: top; }
+.paper-table td:first-child { color: var(--gray-3); font-weight: 700; width: 28px; }
+.paper-foot { font-size: 11px; color: var(--text-muted); line-height: 1.5; padding-top: 14px; border-top: 1px solid var(--gray-2); }
+.demo-report-caption { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 22px; }
+.demo-result-ctas { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+.demo-result-ctas button.btn-secondary { background: var(--white); cursor: pointer; font-family: inherit; }
 .demo-result-note { font-size: 13px; color: var(--text-muted); text-align: center; }
-@media (max-width: 700px) {
+.demo-again-btn { background: none; border: none; font-family: inherit; cursor: pointer; padding: 8px 4px; }
+@media (max-width: 860px) {
+  .demo-templates { grid-template-columns: 1fr; }
   .demo-sample-grid { grid-template-columns: 1fr; }
+  .paper-meta { grid-template-columns: repeat(2, 1fr); }
+  .paper-summary { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .demo-card { padding: 32px 22px; }
+  .demo-card { padding: 32px 18px; }
+  .demo-photos { grid-template-columns: repeat(2, 1fr); }
+  .demo-templates { gap: 8px; }
+  .demo-template { padding: 10px 14px; }
+  .demo-template-blurb { display: none; }
+  .demo-site-row { flex-direction: column; align-items: stretch; }
+  .demo-site-row input { max-width: none; }
+  .paper-body { padding: 20px 16px; }
+  .paper-top { padding: 14px 16px; }
+  .paper-finding { display: block; overflow: hidden; }
+  .paper-finding > div:first-child { float: right; margin: 0 0 8px 12px; }
+  .paper-thumb { width: 84px; }
+  .paper-thumb span { display: none; }
   .demo-result-ctas { flex-direction: column; align-items: stretch; }
-  .demo-result-ctas .btn-primary { text-align: center; }
+  .demo-result-ctas .btn-primary, .demo-result-ctas .btn-secondary { text-align: center; }
+}
+@media print {
+  body.demo-printing > * { display: none !important; }
+  body.demo-printing > #see-it-work { display: block !important; padding: 0; }
+  body.demo-printing #see-it-work .inner { max-width: none; padding: 0; }
+  body.demo-printing .demo-card { border: none; box-shadow: none; padding: 0; background: none; }
+  body.demo-printing .demo-card > *:not(#demo-state-result),
+  body.demo-printing .demo-result-ctas,
+  body.demo-printing .demo-result-note,
+  body.demo-printing .demo-report-caption { display: none !important; }
+  body.demo-printing .demo-paper { box-shadow: none; border: none; }
+  body.demo-printing .paper-top, body.demo-printing .paper-stat.score { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body.demo-printing .paper-finding { break-inside: avoid; }
 }
 
 /* ── SECTION WRAPPERS ── */
@@ -1906,7 +2120,8 @@ footer {
   </div>
 </section>
 
-<!-- SEE IT WORK DEMO -->
+<!-- SEE IT WORK DEMO: runs entirely in the browser. Nothing the visitor
+     types or uploads leaves the tab. -->
 <section class="demo-section" id="see-it-work">
   <div class="inner">
     <div class="demo-card">
@@ -1915,38 +2130,42 @@ footer {
       <div class="demo-state" id="demo-state-idle">
         <div class="demo-eyebrow">See It Work</div>
         <h2 class="demo-heading">Sixty seconds from site walk to finished report.</h2>
-        <p class="demo-subhead">Drop in photos and a voice memo and Safely Track drafts the report. Here's a sample walk you can run yourself.</p>
+        <p class="demo-subhead">Pick a template, choose photos or add your own, and write notes the way you'd say them on a walk. Safely Track drafts the report.</p>
+
+        <div class="demo-step">
+          <div class="demo-step-label"><span class="demo-step-num">1</span> Pick a template</div>
+          <div class="demo-templates" id="demo-templates" role="radiogroup" aria-label="Report template"></div>
+          <div class="demo-site-row">
+            <label for="demo-site">Site name</label>
+            <input type="text" id="demo-site" maxlength="80" autocomplete="off">
+          </div>
+        </div>
 
         <div class="demo-sample-grid">
-          <div class="demo-photos" role="group" aria-label="Sample jobsite photos from this site walk">
-            <div class="demo-photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
-              <span>North stairwell</span>
-            </div>
-            <div class="demo-photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
-              <span>Panel room</span>
-            </div>
-            <div class="demo-photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
-              <span>Loading dock</span>
-            </div>
-            <div class="demo-photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
-              <span>North exit</span>
-            </div>
+          <div class="demo-step">
+            <div class="demo-step-label"><span class="demo-step-num">2</span> Choose photos <span class="demo-step-hint" id="demo-photo-count"></span></div>
+            <div class="demo-photos" id="demo-photos" role="group" aria-label="Photos from this site walk"></div>
+            <p class="demo-privacy">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+              <span>Photos you add stay in this browser tab. Nothing is uploaded or saved, and it's gone when you leave the page.</span>
+            </p>
           </div>
 
-          <div class="demo-transcript">
-            <div class="demo-transcript-label">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
-              Voice memo, 0:42
+          <div class="demo-step">
+            <div class="demo-step-label"><span class="demo-step-num">3</span> Add notes <button type="button" class="demo-link-btn" id="demo-notes-reset">Use sample notes</button></div>
+            <div class="demo-transcript">
+              <label class="demo-transcript-label" for="demo-notes">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+                Voice memo, transcribed
+              </label>
+              <textarea class="demo-notes" id="demo-notes" maxlength="2000" spellcheck="true"></textarea>
             </div>
-            <p class="demo-transcript-text">"...walking the north stairwell now, missing guardrail on the second landing, tagged it for the sub. Also got an extension cord running through standing water by the panel room, pulled the crew back from that one. Fire extinguisher at the loading dock is past its inspection tag. And the north exit's got debris blocking the door, need that cleared today..."</p>
+            <p class="demo-hint">Edit it or write your own. Try "ladder with a cracked side rail" or "no hard hats on level three."</p>
           </div>
         </div>
 
         <button type="button" class="btn-primary demo-generate-btn" id="demo-generate-btn">Generate the report →</button>
+        <p class="demo-error" id="demo-error" role="alert" hidden></p>
       </div>
 
       <!-- GENERATING STATE -->
@@ -1960,34 +2179,13 @@ footer {
 
       <!-- RESULT STATE -->
       <div class="demo-state" id="demo-state-result" hidden>
-        <div class="demo-report">
-          <div class="demo-report-header">
-            <div class="demo-report-eyebrow">Sample Output</div>
-            <h3>Site Walk: North Stairwell, Bldg 2</h3>
-          </div>
-          <ul class="demo-report-findings">
-            <li class="flagged">
-              <div class="finding-head">
-                <span class="finding-title">Missing guardrail, second-floor landing</span>
-                <span class="finding-osha">OSHA 1926.502(b)</span>
-              </div>
-              <p>Guardrail absent on north stairwell, second landing. Fall hazard for crews accessing upper floor.</p>
-              <div class="finding-action"><strong>Corrective action:</strong> Assigned to ABC Framing &amp; Sub · Due within 24 hrs</div>
-            </li>
-            <li>
-              <div class="finding-head"><span class="finding-title">Extension cord through standing water</span></div>
-              <p>Cord run observed passing through standing water near the panel room. Crew pulled back on-site.</p>
-            </li>
-            <li>
-              <div class="finding-head"><span class="finding-title">Fire extinguisher past inspection date</span></div>
-              <p>Loading dock extinguisher tag expired. Flagged for replacement/recertification.</p>
-            </li>
-          </ul>
-          <p class="demo-report-caption">Generated from the photos and voice memo above. No typing.</p>
-        </div>
+        <div id="demo-report"></div>
+        <p class="demo-report-caption">Drafted from your photos and notes. In the app the AI reads the photos themselves, and your inspector reviews before it goes to the client.</p>
 
         <div class="demo-result-ctas">
           <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary" id="demo-book-btn">See your own reports at work: book a demo →</a>
+          <button type="button" class="btn-secondary" id="demo-print-btn">Save as PDF</button>
+          <button type="button" class="btn-ghost demo-again-btn" id="demo-again-btn">← Try another walk</button>
         </div>
         <p class="demo-result-note">Step 04 of ten, running on sample data. Book thirty minutes and we'll walk all ten against how your firm actually works.</p>
       </div>
@@ -2396,6 +2594,162 @@ footer {
     track('hero_viewed');
   }
 
+  /* The demo is a mock: findings come from matching the visitor's notes and
+     photo captions against a small rule list. Uploaded photos are shown with
+     object URLs and never leave the tab. */
+  var ICONS = {
+    camera: '<path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle>',
+    fall: '<path d="M3 21h7v-7h11"></path><circle cx="16" cy="4.5" r="1.8"></circle><path d="M16 6.5l-1.5 4.5 3 2"></path><path d="M14.5 11l-3.5-1"></path>',
+    bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"></path>',
+    fire: '<rect x="8" y="8" width="8" height="13" rx="3"></rect><path d="M12 8V4h4"></path><path d="M9 4h3"></path>',
+    exit: '<path d="M14 3H6v18h8"></path><path d="M11 12h10"></path><path d="M18 9l3 3-3 3"></path>',
+    scaffold: '<path d="M5 3v18M19 3v18M5 8h14M5 14h14M5 8l14 6"></path>',
+    cylinder: '<rect x="8" y="6" width="8" height="15" rx="4"></rect><path d="M10 6V3h4v3"></path>',
+    gear: '<circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path>',
+    drop: '<path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"></path>',
+    eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle>',
+    ladder: '<path d="M7 2v20M17 2v20M7 6h10M7 11h10M7 16h10"></path>',
+    forklift: '<path d="M3 18V9h7l3 5v4"></path><circle cx="6" cy="19" r="2"></circle><circle cx="13" cy="19" r="2"></circle><path d="M17 4v15h4"></path>',
+    rack: '<path d="M4 3v18M20 3v18M4 9h16M4 15h16"></path><rect x="7" y="5" width="4" height="4"></rect><rect x="13" y="11" width="4" height="4"></rect>',
+    helmet: '<path d="M4 16a8 8 0 0 1 16 0"></path><path d="M2 16h20v3H2z"></path><path d="M12 8v4"></path>',
+    broom: '<path d="M19 3l-7 7"></path><path d="M12 10l-6 6 2 4 4-2 6-6z"></path>',
+    note: '<path d="M6 3h9l4 4v14H6z"></path><path d="M9 12h7M9 16h5"></path>',
+    plus: '<path d="M12 5v14M5 12h14"></path>',
+    check: '<path d="M5 12l5 5L20 7"></path>'
+  };
+  function icon(name, sw) {
+    return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.6) + '" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[name] || ICONS.camera) + '</svg>';
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* Order matters: the first rule that matches a sentence wins. */
+  var RULES = [
+    { id: 'lockout', icon: 'gear', sev: 'high', re: /lock ?out|\bloto\b|tag ?out|energy isolation|zero energy/i,
+      title: 'Hazardous energy not controlled', cite: { c: '1926.417(a)', g: '1910.147(c)(1)' },
+      req: 'Equipment must be locked and tagged out before servicing so it cannot start up or release stored energy.',
+      action: 'Stop the work, apply lock and tag, verify zero energy, and retrain the crew on the procedure.' },
+    { id: 'scaffold', icon: 'scaffold', sev: 'high', re: /scaffold|planking|toe ?board/i,
+      title: 'Scaffold not fully planked or guarded', cite: { c: '1926.451(b)(1)', g: '1910.27(a)' },
+      req: 'Each scaffold platform must be fully planked or decked, with guardrails on open sides more than 10 ft up.',
+      action: 'Tag the scaffold out of service until a competent person corrects it and re-inspects.' },
+    { id: 'trench', icon: 'fall', sev: 'high', re: /trench|excavat|shoring|cave[- ]?in|spoil pile/i,
+      title: 'Excavation without cave-in protection', cite: { c: '1926.652(a)(1)', g: '1926.652(a)(1)' },
+      req: 'Excavations 5 ft or deeper need sloping, shoring, or a trench box designed by a competent person.',
+      action: 'Get everyone out of the trench. Competent person installs protection and re-inspects before entry.' },
+    { id: 'fall', icon: 'fall', sev: 'high', re: /guard ?rail|hand ?rail|stair ?rail|top rail|mid ?rail|\bfall|leading edge|open edge|unprotected (side|edge)|floor opening|\bhole\b|harness|tie[- ]?off|dock (door|edge)|mezzanine|\broof\b/i,
+      title: 'Unprotected edge, fall hazard', cite: { c: '1926.501(b)(1)', g: '1910.28(b)(1)' },
+      req: 'Unprotected sides and edges need guardrails, safety nets, or personal fall arrest (6 ft in construction, 4 ft in general industry).',
+      action: 'Install guardrail or barricade the edge now. No access without fall protection until it is fixed.' },
+    { id: 'cord', icon: 'bolt', sev: 'high', re: /extension cord|power cord|drop cord|\bcords?\b|gfci|frayed|exposed wir|standing water/i,
+      title: 'Temporary power cord damaged or in water', cite: { c: '1926.404(b)(1)(ii)', g: '1910.304(b)(3)(ii)' },
+      req: 'Temporary power must be GFCI protected, and cords kept out of water and protected from damage.',
+      action: 'Pull the cord from service, reroute it out of the water, and confirm GFCI protection at the source.' },
+    { id: 'panel', icon: 'bolt', sev: 'medium', re: /\bpanel\b|breaker|junction box|electrical box|knockout|energized|live wire/i,
+      title: 'Electrical panel access obstructed or open', cite: { c: '1926.403(i)(1)(i)', g: '1910.303(g)(1)' },
+      req: 'Keep at least 3 ft of clear working space in front of electrical equipment, with covers and knockouts closed.',
+      action: 'Clear the 3 ft zone, close any open knockouts, and mark the floor so it stays clear.' },
+    { id: 'machine', icon: 'gear', sev: 'high', re: /unguarded|guard (is |was )?(off|missing|removed)|missing guard|point of operation|pinch point|\bblade|pulley|belt drive|\bpress\b|grinder|tool rest|table saw|chop saw/i,
+      title: 'Machine guarding missing', cite: { c: '1926.300(b)(1)', g: '1910.212(a)(1)' },
+      req: 'Point of operation, rotating parts, and pinch points must be guarded whenever the machine runs.',
+      action: 'Lock out the machine, reinstall the guard, and confirm it is in place before restart.' },
+    { id: 'eyewash', icon: 'eye', sev: 'medium', re: /eye ?wash|emergency shower/i,
+      title: 'Eyewash station not accessible or maintained', cite: { c: '1926.50(g)', g: '1910.151(c)' },
+      req: 'Where corrosives are used, an eyewash must be reachable within seconds, unobstructed, and flushed on a schedule.',
+      action: 'Clear the path to the station, flush it, and start a weekly flush log.' },
+    { id: 'hazcom', icon: 'drop', sev: 'medium', re: /\blabel|unmarked|\bsds\b|safety data sheet|chemical|solvent|spray bottle|secondary container/i,
+      title: 'Chemical container not labeled', cite: { c: '1910.1200(f)(6)', g: '1910.1200(f)(6)' },
+      req: 'Workplace chemical containers must show the product name and hazard warnings, with an SDS available.',
+      action: 'Label or dispose of the containers today and confirm the SDS binder covers the product.' },
+    { id: 'cylinder', icon: 'cylinder', sev: 'medium', re: /cylinder|propane|oxygen|acetylene|compressed gas/i,
+      title: 'Compressed gas cylinders not secured', cite: { c: '1926.350(a)(9)', g: '1910.253(b)(2)(ii)' },
+      req: 'Cylinders must be secured upright and capped when not in use, with oxygen kept apart from fuel gas.',
+      action: 'Chain the cylinders upright, cap them, and separate oxygen from fuel gas by 20 ft or a barrier.' },
+    { id: 'extinguisher', icon: 'fire', sev: 'medium', re: /extinguisher/i,
+      title: 'Fire extinguisher not inspected or accessible', cite: { c: '1926.150(c)(1)(viii)', g: '1910.157(e)(3)' },
+      req: 'Portable extinguishers must be inspected monthly, maintained yearly, and kept mounted and visible.',
+      action: 'Swap in a tagged, charged extinguisher and log the monthly check.' },
+    { id: 'egress', icon: 'exit', sev: 'high', re: /\bexits?\b|egress|fire door|blocked door|door (is |was )?blocked/i,
+      title: 'Exit route blocked', cite: { c: '1926.34(c)', g: '1910.37(a)(3)' },
+      req: 'Exit routes must be kept free of obstructions and stored material at all times.',
+      action: 'Clear the exit route today and post it as a no-storage zone.' },
+    { id: 'ladder', icon: 'ladder', sev: 'medium', re: /ladder|step ?stool/i,
+      title: 'Damaged or misused ladder', cite: { c: '1926.1053(b)(16)', g: '1910.23(b)(9)' },
+      req: 'Ladders with structural defects must be tagged "Do Not Use" and taken out of service.',
+      action: 'Tag the ladder out of service and replace it with an undamaged one.' },
+    { id: 'forklift', icon: 'forklift', sev: 'medium', re: /forklift|fork truck|lift truck|pallet jack|powered industrial|reach truck|order picker|\bhorn\b|pre-?shift/i,
+      title: 'Forklift not inspected or not road-ready', cite: { c: '1926.602(c)(1)(vi)', g: '1910.178(q)(7)' },
+      req: 'Powered industrial trucks must be examined before each shift, and trucks with defects taken out of service.',
+      action: 'Park the truck until it is repaired, and require a signed pre-shift checklist every day.' },
+    { id: 'racking', icon: 'rack', sev: 'medium', re: /\brack|upright|overhang|stacked too high|unstable stack|shel(f|ves)/i,
+      title: 'Storage racking damaged or overloaded', cite: { c: '1926.250(a)(1)', g: '1910.176(b)' },
+      req: 'Stored material must be stacked, blocked, and limited in height so it stays stable and secure.',
+      action: 'Unload the damaged bay, have the upright inspected, and fix the overhanging loads.' },
+    { id: 'headppe', icon: 'helmet', sev: 'medium', re: /hard ?hats?|head protection|helmet/i,
+      title: 'Head protection not worn', cite: { c: '1926.100(a)', g: '1910.135(a)(1)' },
+      req: 'Workers exposed to falling objects or overhead hazards must wear protective helmets.',
+      action: 'Stop work in the area until hard hats are on, and brief the crew at the next toolbox talk.' },
+    { id: 'eyeppe', icon: 'eye', sev: 'medium', re: /safety glasses|eye protection|goggles|face shield/i,
+      title: 'Eye protection not worn', cite: { c: '1926.102(a)(1)', g: '1910.133(a)(1)' },
+      req: 'Eye or face protection is required where there is exposure to flying particles, chemicals, or light radiation.',
+      action: 'Issue safety glasses on the spot and add eye protection to the task hazard analysis.' },
+    { id: 'ppe', icon: 'helmet', sev: 'low', re: /\bppe\b|gloves|hi-?vis|\bvests?\b|respirator|hearing protection|ear ?plugs/i,
+      title: 'PPE not worn as required', cite: { c: '1926.95(a)', g: '1910.132(a)' },
+      req: 'Protective equipment must be provided, used, and maintained wherever hazards require it.',
+      action: 'Supply the missing PPE and re-check at the next walk.' },
+    { id: 'housekeeping', icon: 'broom', sev: 'low', re: /debris|\btrip|clutter|housekeeping|spill|slipp|oil on|wet floor|shrink ?wrap/i,
+      title: 'Housekeeping, slip and trip hazards', cite: { c: '1926.25(a)', g: '1910.22(a)(1)' },
+      req: 'Work areas, passageways, and stairs must be kept clear of scrap, debris, and slip hazards.',
+      action: 'Clean up the area today and assign a daily end-of-shift housekeeping check.' }
+  ];
+  var RULE_BY_ID = {};
+  RULES.forEach(function (r) { RULE_BY_ID[r.id] = r; });
+  var POSITIVE = /\b(looks?|looked|was|were|is|are) (good|great|fine|clean|solid)\b|no issues|all good|in good shape|nice job|good job|well (kept|maintained|organized)/i;
+  var SEV_DAYS = { high: 1, medium: 3, low: 7 };
+  var SEV_LABEL = { high: 'High', medium: 'Medium', low: 'Low' };
+
+  var TEMPLATES = [
+    { id: 'construction', name: 'Construction Site Walk', std: 'OSHA 29 CFR 1926', key: 'c',
+      blurb: 'GCs and subs: fall protection, electrical, egress.',
+      site: 'Riverside Medical Office, Bldg 2', owner: 'Site superintendent',
+      photos: [
+        { id: 'c1', label: 'North stairwell', cap: 'Second landing, no rail', rule: 'fall', on: true },
+        { id: 'c2', label: 'Panel room', cap: 'Cord in standing water', rule: 'cord', on: true },
+        { id: 'c3', label: 'Loading dock', cap: 'Extinguisher tag expired', rule: 'extinguisher', on: true },
+        { id: 'c4', label: 'North exit', cap: 'Debris at the door', rule: 'egress', on: true },
+        { id: 'c5', label: 'East scaffold', cap: 'Gap in the planking', rule: 'scaffold', on: false },
+        { id: 'c6', label: 'Gang box', cap: 'Cylinders not chained', rule: 'cylinder', on: false }
+      ],
+      notes: "Walking the north stairwell now, missing guardrail on the second landing, tagged it for the sub. Also got an extension cord running through standing water by the panel room, pulled the crew back from that one. Fire extinguisher at the loading dock is past its inspection tag. And the north exit's got debris blocking the door, need that cleared today. Housekeeping on level two looked good." },
+    { id: 'general', name: 'General Industry Inspection', std: 'OSHA 29 CFR 1910', key: 'g',
+      blurb: 'Plants and shops: guarding, HazCom, electrical.',
+      site: 'Northfield Plant, Line 3', owner: 'Maintenance lead',
+      photos: [
+        { id: 'g1', label: 'Press 4', cap: 'Side guard removed', rule: 'machine', on: true },
+        { id: 'g2', label: 'Wash station', cap: 'Unlabeled spray bottles', rule: 'hazcom', on: true },
+        { id: 'g3', label: 'Battery room', cap: 'Eyewash blocked by cart', rule: 'eyewash', on: true },
+        { id: 'g4', label: 'Back hall', cap: 'Boxes in front of panel', rule: 'panel', on: true },
+        { id: 'g5', label: 'Mezzanine', cap: 'Gate left open at edge', rule: 'fall', on: false },
+        { id: 'g6', label: 'Tool crib', cap: 'Step ladder, cracked rail', rule: 'ladder', on: false }
+      ],
+      notes: "Press 4 on line three is running with the side guard off, operator says it's been like that a week. Two spray bottles at the wash station with no labels on them. Eyewash by the battery charger was blocked by a cart and the flush tag is from March. Electrical panel in the back hall has boxes stacked in front of it. Break room and walkways looked good." },
+    { id: 'warehouse', name: 'Warehouse Walkthrough', std: 'OSHA 29 CFR 1910', key: 'g',
+      blurb: 'DCs and docks: forklifts, racking, dock edges.',
+      site: 'Dock 4 Distribution Center', owner: 'Warehouse supervisor',
+      photos: [
+        { id: 'w1', label: 'Forklift 7', cap: 'No pre-shift checklist', rule: 'forklift', on: true },
+        { id: 'w2', label: 'Aisle 12', cap: 'Bent upright, overhang', rule: 'racking', on: true },
+        { id: 'w3', label: 'Dock door 3', cap: 'Open dock, no chain', rule: 'fall', on: true },
+        { id: 'w4', label: 'Shipping exit', cap: 'Blocked by wrap rolls', rule: 'egress', on: true },
+        { id: 'w5', label: 'Picking aisle', cap: 'Shrink wrap on floor', rule: 'housekeeping', on: false },
+        { id: 'w6', label: 'Break room', cap: 'Extinguisher missing', rule: 'extinguisher', on: false }
+      ],
+      notes: "Forklift 7 has no pre-shift checklist for this week and the horn doesn't work. Aisle twelve racking has a bent upright and pallets overhanging the beam. Dock door three was open with no chain across it. Emergency exit by shipping is blocked with rolls of stretch film. Battery charging area looked good." }
+  ];
+
   var idleState = document.getElementById('demo-state-idle');
   var generatingState = document.getElementById('demo-state-generating');
   var resultState = document.getElementById('demo-state-result');
@@ -2403,30 +2757,361 @@ footer {
   var statusText = document.getElementById('demo-status-text');
   var progressBar = document.getElementById('demo-progress-bar');
   var bookBtn = document.getElementById('demo-book-btn');
+  var templatesEl = document.getElementById('demo-templates');
+  var photosEl = document.getElementById('demo-photos');
+  var photoCountEl = document.getElementById('demo-photo-count');
+  var siteInput = document.getElementById('demo-site');
+  var notesInput = document.getElementById('demo-notes');
+  var notesReset = document.getElementById('demo-notes-reset');
+  var errorEl = document.getElementById('demo-error');
+  var reportEl = document.getElementById('demo-report');
+  var printBtn = document.getElementById('demo-print-btn');
+  var againBtn = document.getElementById('demo-again-btn');
 
-  var STATUS_STEPS = ['Reading photos…', 'Classifying findings…', 'Drafting report…'];
+  var MAX_UPLOADS = 6;
+  function scrollToDemo() {
+    var nav = document.querySelector('nav');
+    var top = demoSection.getBoundingClientRect().top + window.pageYOffset - (nav ? nav.offsetHeight : 0) - 8;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+  var state = { tpl: TEMPLATES[0], picked: {}, uploads: [], uid: 0 };
+
+  function selectTemplate(tpl, fromUser) {
+    var prev = state.tpl;
+    var notesUntouched = !notesInput.value.trim() || notesInput.value === prev.notes;
+    var siteUntouched = !siteInput.value.trim() || siteInput.value === prev.site;
+    state.tpl = tpl;
+    state.picked = {};
+    tpl.photos.forEach(function (p) { state.picked[p.id] = p.on; });
+    if (notesUntouched) notesInput.value = tpl.notes;
+    if (siteUntouched) siteInput.value = tpl.site;
+    renderTemplates();
+    renderPhotos();
+    if (fromUser) track('demo_template_selected', { template: tpl.id });
+  }
+
+  function renderTemplates() {
+    templatesEl.innerHTML = TEMPLATES.map(function (t) {
+      var on = t === state.tpl;
+      return '<button type="button" class="demo-template" role="radio" aria-checked="' + on + '" tabindex="' + (on ? 0 : -1) + '" data-tpl="' + t.id + '">' +
+        '<span class="demo-template-name">' + esc(t.name) + '</span>' +
+        '<span class="demo-template-std">' + esc(t.std) + '</span>' +
+        '<span class="demo-template-blurb">' + esc(t.blurb) + '</span></button>';
+    }).join('');
+  }
+
+  function renderPhotos() {
+    var html = state.tpl.photos.map(function (p) {
+      var on = !!state.picked[p.id];
+      return '<button type="button" class="demo-photo-pick" aria-pressed="' + on + '" data-photo="' + p.id + '" aria-label="' + esc(p.label + ': ' + p.cap) + '">' +
+        '<span class="demo-photo-check">' + icon('check', 3) + '</span>' +
+        icon(RULE_BY_ID[p.rule].icon) +
+        '<span class="demo-photo-label">' + esc(p.label) + '</span>' +
+        '<span class="demo-photo-cap">' + esc(p.cap) + '</span></button>';
+    }).join('');
+    html += state.uploads.map(function (u) {
+      var media = u.broken
+        ? '<div class="demo-photo-noprev">' + esc(u.name) + '<br>(no preview)</div>'
+        : '<img src="' + u.url + '" alt="" data-up="' + u.id + '">';
+      return '<div class="demo-photo-up">' + media +
+        '<button type="button" class="demo-photo-remove" data-remove="' + u.id + '" aria-label="Remove ' + esc(u.name) + '">×</button>' +
+        '<input type="text" data-cap="' + u.id + '" value="' + esc(u.caption) + '" maxlength="80" placeholder="What\'s in it?" aria-label="Describe ' + esc(u.name) + '"></div>';
+    }).join('');
+    if (state.uploads.length < MAX_UPLOADS) {
+      html += '<label class="demo-photo-add">' + icon('plus', 2) + '<span>Add your own</span>' +
+        '<input type="file" id="demo-photo-file" accept="image/*" multiple></label>';
+    }
+    photosEl.innerHTML = html;
+    photosEl.querySelectorAll('img[data-up]').forEach(function (img) {
+      img.addEventListener('error', function () {
+        var u = findUpload(img.getAttribute('data-up'));
+        if (u && !u.broken) { u.broken = true; renderPhotos(); }
+      });
+    });
+    var n = countPhotos();
+    photoCountEl.textContent = n + (n === 1 ? ' photo' : ' photos');
+  }
+
+  function countPhotos() {
+    var n = state.uploads.length;
+    state.tpl.photos.forEach(function (p) { if (state.picked[p.id]) n++; });
+    return n;
+  }
+  function findUpload(id) {
+    for (var i = 0; i < state.uploads.length; i++) if (String(state.uploads[i].id) === String(id)) return state.uploads[i];
+    return null;
+  }
+
+  templatesEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-tpl]');
+    if (!btn) return;
+    var tpl = TEMPLATES.filter(function (t) { return t.id === btn.getAttribute('data-tpl'); })[0];
+    if (tpl && tpl !== state.tpl) selectTemplate(tpl, true);
+    var next = templatesEl.querySelector('[aria-checked="true"]');
+    if (next) next.focus();
+  });
+  templatesEl.addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].indexOf(e.key) === -1) return;
+    e.preventDefault();
+    var i = TEMPLATES.indexOf(state.tpl);
+    var step = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : -1;
+    selectTemplate(TEMPLATES[(i + step + TEMPLATES.length) % TEMPLATES.length], true);
+    templatesEl.querySelector('[aria-checked="true"]').focus();
+  });
+
+  photosEl.addEventListener('click', function (e) {
+    var pick = e.target.closest('[data-photo]');
+    if (pick) {
+      var id = pick.getAttribute('data-photo');
+      state.picked[id] = !state.picked[id];
+      renderPhotos();
+      var again = photosEl.querySelector('[data-photo="' + id + '"]');
+      if (again) again.focus();
+      return;
+    }
+    var rm = e.target.closest('[data-remove]');
+    if (rm) {
+      var u = findUpload(rm.getAttribute('data-remove'));
+      if (u) URL.revokeObjectURL(u.url);
+      state.uploads = state.uploads.filter(function (x) { return x !== u; });
+      renderPhotos();
+    }
+  });
+  photosEl.addEventListener('input', function (e) {
+    var id = e.target.getAttribute && e.target.getAttribute('data-cap');
+    if (!id) return;
+    var u = findUpload(id);
+    if (u) u.caption = e.target.value;
+  });
+  photosEl.addEventListener('change', function (e) {
+    if (e.target.id !== 'demo-photo-file') return;
+    var files = Array.prototype.slice.call(e.target.files || []);
+    var added = 0;
+    files.forEach(function (f) {
+      if (state.uploads.length >= MAX_UPLOADS) return;
+      if (f.type && f.type.indexOf('image/') !== 0) return;
+      state.uploads.push({ id: ++state.uid, url: URL.createObjectURL(f), name: f.name, caption: '', broken: false });
+      added++;
+    });
+    renderPhotos();
+    if (added) {
+      track('demo_photo_added', { count: added });
+      var caps = photosEl.querySelectorAll('[data-cap]');
+      if (caps.length) caps[caps.length - added].focus();
+    }
+  });
+
+  notesReset.addEventListener('click', function () {
+    notesInput.value = state.tpl.notes;
+    notesInput.focus();
+  });
+
+  /* ---------- building the report ---------- */
+
+  function matchRule(text) {
+    for (var i = 0; i < RULES.length; i++) if (RULES[i].re.test(text)) return RULES[i];
+    return null;
+  }
+  function cleanSentence(s) {
+    s = s.replace(/^\s*(and|also|ok|okay|so|um|uh|then)\b[\s,]*/i, '').replace(/^\s*(and|also)\b[\s,]*/i, '').trim();
+    if (!s) return s;
+    return s.charAt(0).toUpperCase() + s.slice(1) + (/[.!?]$/.test(s) ? '' : '.');
+  }
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function fmtDate(d) { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+
+  function buildReport() {
+    var tpl = state.tpl;
+    var findings = [];
+    var byRule = {};
+    var positives = [];
+    var photoLog = [];
+
+    function findingFor(rule) {
+      if (!byRule[rule.id]) {
+        byRule[rule.id] = { rule: rule, notes: [], photos: [], locs: [] };
+        findings.push(byRule[rule.id]);
+      }
+      return byRule[rule.id];
+    }
+
+    notesInput.value.split(/[.!?;\n]+/).forEach(function (raw) {
+      var s = cleanSentence(raw);
+      if (s.replace(/[^a-z]/gi, '').length < 6) return;
+      if (POSITIVE.test(s)) { positives.push(s); return; }
+      var rule = matchRule(s);
+      if (rule) { findingFor(rule).notes.push(s); return; }
+      findings.push({ rule: null, notes: [s], photos: [], locs: [] });
+    });
+
+    tpl.photos.forEach(function (p) {
+      if (!state.picked[p.id]) return;
+      var f = findingFor(RULE_BY_ID[p.rule]);
+      f.photos.push({ icon: RULE_BY_ID[p.rule].icon, label: p.label, cap: p.cap });
+      f.locs.push(p.label);
+      if (!f.notes.length) f.capOnly = (f.capOnly || []).concat(p.cap + '.');
+    });
+
+    state.uploads.forEach(function (u, i) {
+      var cap = (u.caption || '').trim();
+      var photo = { url: u.broken ? null : u.url, label: 'Your photo ' + (i + 1), cap: cap };
+      if (!cap) { photoLog.push(photo); return; }
+      var rule = matchRule(cap);
+      if (rule) {
+        var f = findingFor(rule);
+        f.photos.unshift(photo);
+        if (!f.notes.length) f.capOnly = (f.capOnly || []).concat(cleanSentence(cap));
+      } else {
+        findings.push({ rule: null, notes: [cleanSentence(cap)], photos: [photo], locs: [] });
+      }
+    });
+
+    var order = { high: 0, medium: 1, low: 2 };
+    findings.forEach(function (f, i) { f.idx = i; });
+    findings.sort(function (a, b) {
+      var sa = a.rule ? order[a.rule.sev] : 3, sb = b.rule ? order[b.rule.sev] : 3;
+      return sa - sb || a.idx - b.idx;
+    });
+
+    var counts = { high: 0, medium: 0, low: 0, review: 0 };
+    findings.forEach(function (f) { if (f.rule) counts[f.rule.sev]++; else counts.review++; });
+    var score = Math.max(40, 100 - counts.high * 10 - counts.medium * 5 - counts.low * 2 - counts.review);
+
+    return { tpl: tpl, findings: findings, positives: positives, photoLog: photoLog, counts: counts, score: score,
+      site: siteInput.value.trim() || tpl.site, photoCount: countPhotos() };
+  }
+
+  function thumb(photo) {
+    if (photo && photo.url) return '<div class="paper-thumb"><img src="' + photo.url + '" alt="' + esc(photo.cap || photo.label) + '"></div>';
+    if (photo) return '<div class="paper-thumb">' + icon(photo.icon || 'camera') + '<span>' + esc(photo.label) + '</span></div>';
+    return '<div class="paper-thumb empty">' + icon('note') + '<span>From voice memo</span></div>';
+  }
+
+  function renderReport(r) {
+    var today = new Date();
+    var reportNo = 'SW-' + today.getFullYear() + '-' + String(Math.floor(1000 + Math.random() * 9000));
+    var h = '';
+    h += '<article class="demo-paper" aria-label="Mock inspection report">';
+    h += '<div class="paper-top"><div class="paper-brand">Safely <span>Track</span></div><div class="paper-stamp">Sample report</div></div>';
+    h += '<div class="paper-body">';
+    h += '<h3 class="paper-title">' + esc(r.tpl.name) + ': ' + esc(r.site) + '</h3>';
+    h += '<p class="paper-sub">Report ' + reportNo + ' &middot; Findings referenced to ' + esc(r.tpl.std) + '</p>';
+    h += '<dl class="paper-meta">' +
+      '<div><dt>Date of walk</dt><dd>' + fmtDate(today) + '</dd></div>' +
+      '<div><dt>Inspector</dt><dd>You (sample)</dd></div>' +
+      '<div><dt>Standard</dt><dd>' + esc(r.tpl.std) + '</dd></div>' +
+      '<div><dt>Photos</dt><dd>' + r.photoCount + '</dd></div></dl>';
+    h += '<div class="paper-summary">' +
+      '<div class="paper-stat score"><strong>' + r.score + '<small> / 100</small></strong><span>Site score</span></div>' +
+      '<div class="paper-stat high"><strong>' + r.counts.high + '</strong><span>High</span></div>' +
+      '<div class="paper-stat medium"><strong>' + r.counts.medium + '</strong><span>Medium</span></div>' +
+      '<div class="paper-stat"><strong>' + (r.counts.low + r.counts.review) + '</strong><span>Low / review</span></div></div>';
+
+    h += '<div class="paper-section">Findings (' + r.findings.length + ')</div>';
+    if (!r.findings.length) {
+      h += '<p class="paper-f-row quiet" style="padding:16px 0">No findings. Add notes or pick a few photos and run it again.</p>';
+    }
+    r.findings.forEach(function (f, i) {
+      var rule = f.rule;
+      var sev = rule ? rule.sev : 'low';
+      var due = addDays(today, SEV_DAYS[sev]);
+      var obs = f.notes.length ? f.notes.join(' ') : (f.capOnly || []).join(' ');
+      f.due = due; f.sev = sev; f.title = rule ? rule.title : 'Observation for review';
+      h += '<div class="paper-finding">';
+      h += '<div>' + thumb(f.photos[0]) + (f.photos.length > 1 ? '<div class="paper-thumb-more">+' + (f.photos.length - 1) + ' more photo' + (f.photos.length > 2 ? 's' : '') + '</div>' : '') + '</div>';
+      h += '<div><div class="paper-f-head"><span class="paper-f-num">' + (i + 1) + '.</span><span class="paper-f-title">' + esc(f.title) + '</span>';
+      h += '<span class="paper-pill ' + sev + '">' + SEV_LABEL[sev] + '</span>';
+      h += rule ? '<span class="paper-pill cite">OSHA ' + esc(rule.cite[r.tpl.key]) + '</span>' : '<span class="paper-pill review">Needs a citation</span>';
+      h += '</div>';
+      if (f.locs.length) h += '<div class="paper-f-loc">Location: ' + esc(f.locs.join(', ')) + '</div>';
+      h += '<p class="paper-f-row"><b>Observed:</b> ' + esc(obs) + '</p>';
+      if (rule) h += '<p class="paper-f-row quiet"><b>Requirement:</b> ' + esc(rule.req) + '</p>';
+      else h += '<p class="paper-f-row quiet">No standard matched automatically. Your inspector picks one before the report goes to the client.</p>';
+      h += '<div class="paper-f-ca"><b>Corrective action:</b> ' + esc(rule ? rule.action : 'Inspector to review and assign.') +
+        '<br><b>Assigned to:</b> ' + esc(r.tpl.owner) + ' &middot; <b>Due:</b> ' + (sev === 'high' ? 'within 24 hrs (' + fmtDate(due) + ')' : fmtDate(due)) + '</div>';
+      h += '</div></div>';
+    });
+
+    if (r.positives.length) {
+      h += '<div class="paper-section" style="margin-top:22px">Positive observations</div><ul class="paper-good">' +
+        r.positives.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>';
+    }
+    if (r.photoLog.length) {
+      h += '<div class="paper-section" style="margin-top:22px">Photo log</div><div class="paper-photolog">' +
+        r.photoLog.map(function (p) {
+          return '<figure>' + (p.url ? '<img src="' + p.url + '" alt="">' : thumb(p)) + '<figcaption>' + esc(p.label) + ', no description yet</figcaption></figure>';
+        }).join('') + '</div>';
+    }
+    if (r.findings.length) {
+      h += '<div class="paper-section" style="margin-top:22px">Corrective action log</div>';
+      h += '<table class="paper-table"><thead><tr><th>#</th><th>Item</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody>' +
+        r.findings.map(function (f, i) {
+          return '<tr><td>' + (i + 1) + '</td><td>' + esc(f.title) + '</td><td>' + esc(r.tpl.owner) + '</td><td>' + fmtDate(f.due) + '</td><td>Open</td></tr>';
+        }).join('') + '</tbody></table>';
+    }
+    h += '<p class="paper-foot">Mock report generated in your browser for demonstration. Citations are the typical match for each finding; a qualified person should confirm them before citing. Nothing you entered was uploaded or saved.</p>';
+    h += '</div></article>';
+    reportEl.innerHTML = h;
+  }
 
   generateBtn.addEventListener('click', function () {
-    track('generate_clicked');
+    var hasNotes = notesInput.value.replace(/[^a-z]/gi, '').length >= 6;
+    if (!hasNotes && countPhotos() === 0) {
+      errorEl.textContent = 'Pick at least one photo or add a note first.';
+      errorEl.hidden = false;
+      return;
+    }
+    errorEl.hidden = true;
+    var report = buildReport();
+    track('generate_clicked', { template: state.tpl.id, photos: report.photoCount, uploads: state.uploads.length,
+      findings: report.findings.length, notes_edited: notesInput.value !== state.tpl.notes });
+
     idleState.hidden = true;
     generatingState.hidden = false;
+    scrollToDemo();
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    void progressBar.offsetWidth;
+    progressBar.style.transition = '';
 
+    var steps = [
+      'Reading ' + report.photoCount + (report.photoCount === 1 ? ' photo…' : ' photos…'),
+      'Matching findings to ' + state.tpl.std + '…',
+      'Assigning corrective actions…',
+      'Formatting the report…'
+    ];
     var stepIndex = 0;
-    statusText.textContent = STATUS_STEPS[0];
+    statusText.textContent = steps[0];
     requestAnimationFrame(function () { progressBar.style.width = '100%'; });
-
     var stepTimer = setInterval(function () {
       stepIndex++;
-      if (stepIndex < STATUS_STEPS.length) statusText.textContent = STATUS_STEPS[stepIndex];
-    }, 1000);
+      if (stepIndex < steps.length) statusText.textContent = steps[stepIndex];
+    }, 800);
 
     setTimeout(function () {
       clearInterval(stepTimer);
+      renderReport(report);
       generatingState.hidden = true;
       resultState.hidden = false;
-      track('result_viewed');
-    }, 3000);
+      scrollToDemo();
+      track('result_viewed', { template: state.tpl.id, findings: report.findings.length });
+    }, 3200);
   });
+
+  printBtn.addEventListener('click', function () {
+    track('demo_report_printed', { template: state.tpl.id });
+    document.body.classList.add('demo-printing');
+    window.print();
+  });
+  window.addEventListener('afterprint', function () { document.body.classList.remove('demo-printing'); });
+
+  againBtn.addEventListener('click', function () {
+    resultState.hidden = true;
+    idleState.hidden = false;
+    scrollToDemo();
+  });
+
+  selectTemplate(state.tpl, false);
 
   /* Single result CTA: books a demo on the visitor's own reports. Consulting-led GTM keeps
      self-serve/email-gated signup off the table for now, so this replaces
