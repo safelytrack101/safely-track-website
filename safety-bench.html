@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="assets/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety Bench: Find Available Safety Professionals Without the Phone Tree | Safely Track</title>
+<meta name="description" content="Safety Bench is a network of independent safety professionals and the firms that hire them. Professionals list free. Hiring firms search by certification, state and availability, request introductions, and pay a flat monthly subscription with no placement fees.">
+<link rel="canonical" href="https://usesafelytrack.com/safety-bench.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safely Track">
+<meta property="og:title" content="Safety Bench: safety professionals and the firms that need them | Safely Track">
+<meta property="og:description" content="Professionals list free and keep their contact details private. Firms search by certification and availability, ask for an introduction, and pay no placement fees.">
+<meta property="og:url" content="https://usesafelytrack.com/safety-bench.html">
+<meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Safety Bench: safety professionals and the firms that need them | Safely Track">
+<meta name="twitter:description" content="Professionals list free and keep their contact details private. Firms search by certification and availability, ask for an introduction, and pay no placement fees.">
+<meta name="twitter:image" content="https://usesafelytrack.com/assets/social-share.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Safety Bench cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Listing yourself as a safety professional is free, and stays free. Hiring firms pay a flat monthly subscription. There are no placement fees and no cut of anyone's rate." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account or a password to list myself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. You fill in one form and we email you a private link. That link is how you edit your listing, hide it, or remove it. Your listing stays hidden until you open the link once." }
+    },
+    {
+      "@type": "Question",
+      "name": "What can a firm see about me before I accept an introduction?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Your first name and last initial, your headline and summary, certifications, industries, specializations, city and state, whether you travel, when you are available, and a range around your hourly rate rather than the rate itself. Your email, phone, LinkedIn and full last name stay private until you accept, and you choose which of those to share." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are certifications verified?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not yet. Certifications on Safety Bench are self-reported, and firms see them labelled that way. Check credentials before you place someone, the same as you would with any resume." }
+    },
+    {
+      "@type": "Question",
+      "name": "Who gets a staffing call-out text?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only the people on your own roster in Safely Track. Call-outs go by text, with email as the fallback, and nobody on the wider bench is contacted." }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #E8660A;
+  --orange-light: #FEF3EC;
+  --dark: #1A1A2E;
+  --white: #FFFFFF;
+  --off-white: #F8F8F6;
+  --gray-1: #F2F2F0;
+  --gray-2: #E5E5E0;
+  --text: #222228;
+  --text-muted: #666660;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --max: 800px;
+  --radius: 6px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(26,26,46,0.04), 0 2px 8px rgba(26,26,46,0.05);
+  --shadow-md: 0 4px 20px rgba(26,26,46,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav { background: var(--white); border-bottom: 1px solid var(--gray-2); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo { font-weight: 700; font-size: 16px; color: var(--dark); text-decoration: none; }
+.nav-logo span { color: var(--orange); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.back-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color .15s; }
+.back-link:hover { color: var(--text); }
+.nav-cta { background: var(--orange); color: var(--white); padding: 7px 18px; border-radius: var(--radius-pill); font-weight: 600; font-size: 13px; text-decoration: none; white-space: nowrap; }
+.nav-cta:hover { background: #d05a08; }
+
+/* HERO */
+.hero { background: var(--dark); padding: 72px 24px 64px; }
+.hero-inner { max-width: var(--max); margin: 0 auto; }
+.hero-label { display: inline-block; background: rgba(232,102,10,0.15); border: 1px solid rgba(232,102,10,0.3); color: #F5A05A; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 24px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 48px); color: var(--white); line-height: 1.15; margin-bottom: 18px; letter-spacing: -0.02em; }
+.hero-sub { font-size: 17px; color: #A8AED0; line-height: 1.6; font-weight: 300; margin-bottom: 32px; }
+.hero-note { font-size: 13px; color: #8890B8; margin-top: 18px; }
+
+/* TWO DOORS */
+.doors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.door { display: block; text-decoration: none; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); border-radius: 8px; padding: 22px 22px 20px; transition: border-color .15s, background .15s; }
+.door:hover { border-color: var(--orange); background: rgba(232,102,10,0.08); }
+.door .who { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #F5A05A; margin-bottom: 8px; }
+.door .title { font-family: var(--font-display); font-size: 22px; color: var(--white); line-height: 1.2; margin-bottom: 8px; }
+.door .line { font-size: 14px; color: #A8AED0; line-height: 1.5; margin-bottom: 14px; }
+.door .go { font-size: 14px; font-weight: 600; color: var(--white); }
+
+/* CONTENT */
+.content { max-width: var(--max); margin: 0 auto; padding: 64px 24px; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+h2 { font-family: var(--font-display); font-size: 28px; color: var(--dark); margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-size: 16px; color: var(--dark); margin-bottom: 6px; }
+p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.7; }
+p strong { color: var(--text); }
+p a { color: var(--orange); }
+hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; }
+
+/* BEFORE/AFTER */
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 32px 0; border-radius: var(--radius); overflow: hidden; background: var(--gray-2); }
+.ba-col { padding: 28px 24px; }
+.ba-before { background: var(--off-white); }
+.ba-after { background: var(--orange-light); }
+.ba-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.ba-before .ba-label { color: #999; }
+.ba-after .ba-label { color: var(--orange); }
+.ba-col ul { list-style: none; }
+.ba-col ul li { font-size: 13px; color: var(--text); padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.06); line-height: 1.45; display: flex; gap: 8px; }
+.ba-col ul li:last-child { border-bottom: none; }
+.ba-before li .icon { color: #bbb; flex-shrink: 0; }
+.ba-after li .icon { color: var(--orange); font-weight: 700; flex-shrink: 0; }
+
+/* SIDE SECTIONS */
+.side-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); background: var(--orange-light); border-radius: 20px; padding: 3px 12px; }
+.steps { list-style: none; counter-reset: step; margin: 24px 0 8px; }
+.steps li { counter-increment: step; position: relative; padding: 0 0 22px 52px; }
+.steps li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 0; font-family: var(--font-display); font-size: 22px; color: var(--orange); line-height: 1.2; }
+.steps li p { margin-bottom: 0; }
+
+/* PROFILE CARD MOCK */
+.mock { border: 1px solid var(--gray-2); border-radius: 8px; box-shadow: var(--shadow-sm); padding: 22px 24px; margin: 28px 0 8px; background: var(--white); }
+.mock-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.mock-name { font-family: var(--font-display); font-size: 22px; color: var(--dark); line-height: 1.2; }
+.mock-head { font-size: 14px; color: var(--text-muted); }
+.mock-avail { font-size: 12px; font-weight: 600; color: #2E7D5B; background: #EAF5EF; border-radius: 20px; padding: 3px 12px; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 14px; }
+.chip { font-size: 12px; font-weight: 600; color: var(--dark); background: var(--gray-1); border-radius: 4px; padding: 3px 9px; }
+.mock-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; font-size: 13px; border-top: 1px solid var(--gray-2); padding-top: 14px; }
+.mock-rows div span { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; }
+.mock-rows .locked { color: var(--text-muted); }
+.mock-foot { font-size: 12px; color: var(--text-muted); margin-top: 14px; }
+.mock-caption { font-size: 13px; color: #999; text-align: center; margin-bottom: 0; }
+
+/* CALL-OUT TEXT MOCK */
+.sms { max-width: 420px; margin: 28px auto 8px; background: var(--gray-1); border-radius: 14px; padding: 18px; }
+.sms .bubble { background: var(--white); border-radius: 12px 12px 12px 4px; padding: 12px 14px; font-size: 14px; color: var(--text); line-height: 1.5; box-shadow: var(--shadow-sm); }
+.sms .bubble a { color: var(--orange); }
+.sms .answers { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+.sms .answers span { font-size: 13px; font-weight: 600; border-radius: 20px; padding: 5px 14px; background: var(--white); border: 1px solid var(--gray-2); }
+.sms .answers span:first-child { background: var(--orange); border-color: var(--orange); color: var(--white); }
+
+/* DIFFERENTIATOR BOX */
+.diff-box { background: var(--dark); border-radius: var(--radius); padding: 36px; margin: 32px 0; box-shadow: var(--shadow-md); }
+.diff-box .eyebrow { color: #F5A05A; }
+.diff-box h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 12px; }
+.diff-box p { color: #A8AED0; margin-bottom: 0; }
+
+/* PRICING */
+.pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 8px; }
+.plan { border: 1px solid var(--gray-2); border-radius: 8px; padding: 26px 24px; background: var(--white); box-shadow: var(--shadow-sm); }
+.plan.firm { border-color: var(--orange); }
+.plan .for { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.plan .price { font-family: var(--font-display); font-size: 34px; color: var(--dark); line-height: 1.1; margin-bottom: 4px; }
+.plan .per { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+.plan ul { list-style: none; }
+.plan li { font-size: 14px; color: var(--text); padding: 6px 0; display: flex; gap: 8px; line-height: 1.45; }
+.plan li::before { content: "✓"; color: var(--orange); font-weight: 700; flex-shrink: 0; }
+
+/* FAQ */
+.faq details { border-bottom: 1px solid var(--gray-2); padding: 16px 0; }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--dark); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--orange); font-weight: 700; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { margin: 10px 0 0; }
+
+/* WAITLIST */
+.waitlist { background: var(--off-white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 44px 40px; margin-top: 56px; box-shadow: var(--shadow-sm); scroll-margin-top: 24px; }
+.waitlist h3 { font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--dark); margin-bottom: 10px; text-align: center; }
+.waitlist .lede { text-align: center; max-width: 520px; margin-left: auto; margin-right: auto; margin-bottom: 26px; }
+.side-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.side-pick label { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--gray-2); border-radius: 6px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--dark); cursor: pointer; }
+.side-pick label:has(input:checked) { border-color: var(--orange); background: var(--orange-light); }
+.side-pick input { accent-color: var(--orange); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+.field label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+.field input { width: 100%; background: var(--white); border: 1px solid var(--gray-2); border-radius: 4px; padding: 11px 14px; font-size: 14px; color: var(--text); font-family: var(--font-body); outline: none; transition: border-color .15s; }
+.field input:focus { border-color: var(--orange); }
+.field.wide { grid-column: 1 / -1; }
+.field[hidden] { display: none; }
+.btn-form { width: 100%; background: var(--orange); color: var(--white); border: none; padding: 13px; border-radius: var(--radius-pill); font-size: 15px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: background .15s; }
+.btn-form:hover { background: #d05a08; }
+.form-note { font-size: 12px; color: var(--text-muted); margin: 10px 0 0; text-align: center; }
+.form-error { display: none; font-size: 13px; color: #B3261E; margin: 10px 0 0; text-align: center; }
+.form-success { display: none; text-align: center; padding: 12px 0; }
+.form-success .success-icon { font-size: 36px; color: var(--orange); margin-bottom: 8px; }
+.form-success h4 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
+.form-success p { margin-bottom: 0; }
+.cta-sub { font-size: 13px; color: #999; margin: 18px 0 0; text-align: center; }
+.cta-sub a { color: var(--orange); }
+
+[data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+[data-reveal].in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 32px 24px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-logo { font-weight: 700; font-size: 15px; color: var(--white); text-decoration: none; }
+.footer-logo span { color: var(--orange); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; }
+.footer-links a { font-size: 12px; color: #8890B8; text-decoration: none; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 12px; color: #5A6080; }
+
+@media (max-width: 640px) {
+  .back-link { display: none; }
+  .doors, .before-after, .pricing, .side-pick, .form-grid, .mock-rows { grid-template-columns: 1fr; }
+  .waitlist { padding: 36px 22px; }
+  .diff-box { padding: 28px 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Safely<span>Track</span></a>
+    <div class="nav-right">
+      <a href="index.html" class="back-link">← Back to home</a>
+      <a href="#waitlist" class="nav-cta" data-side="hiring">Join the waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Safety Bench by Safely Track</div>
+    <h1>Find a qualified safety person who is free next week, without calling twenty of them first</h1>
+    <p class="hero-sub">Safety Bench is a network of safety professionals and the firms that hire them. Site safety reps, CHSTs, CSPs, contract safety techs and trainers list themselves for free. In-house EHS teams and safety consulting and staffing firms search by certification, state and availability, then ask for an introduction.</p>
+
+    <div class="doors">
+      <a href="#professionals" class="door">
+        <div class="who">I'm a safety professional</div>
+        <div class="title">List yourself free</div>
+        <div class="line">No account, no password. Firms see your credentials and availability. Your contact details stay private until you say yes.</div>
+        <span class="go">How it works for you →</span>
+      </a>
+      <a href="#hiring" class="door">
+        <div class="who">I'm hiring</div>
+        <div class="title">Search the bench</div>
+        <div class="line">For in-house EHS teams and consulting or staffing firms. One flat monthly subscription, no placement fees.</div>
+        <span class="go">How it works for firms →</span>
+      </a>
+    </div>
+    <p class="hero-note">Safety Bench opens soon. Join the waitlist and we will tell you the day it does.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="eyebrow">The problem</div>
+  <h2>Short-notice safety coverage still runs on a phone tree.</h2>
+
+  <p>A shutdown gets moved up. A client adds a second shift. A site safety rep gives notice two weeks into a six-month job. Whoever has to fill the gap starts making calls: the techs who worked the last job, a friend at another firm, a LinkedIn search for "CHST" plus a city name. Half the people don't pick up. Of the ones who do, some are booked, some don't hold the certification the client asked for, and some moved two states away last spring.</p>
+
+  <p>Meanwhile the good independent safety people are hard to find on purpose. They don't want their phone number on a job board, and they don't want a recruiter adding a markup to their rate. So they wait for the call from someone who already knows them.</p>
+
+  <div class="before-after">
+    <div class="ba-col ba-before">
+      <div class="ba-label">Today</div>
+      <ul>
+        <li><span class="icon">✕</span> A spreadsheet of names, half of them out of date</li>
+        <li><span class="icon">✕</span> Twenty calls to find out who is free</li>
+        <li><span class="icon">✕</span> Credentials checked one conversation at a time</li>
+        <li><span class="icon">✕</span> A recruiter's markup when the list runs dry</li>
+      </ul>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-label">With Safety Bench</div>
+      <ul>
+        <li><span class="icon">✓</span> Professionals keep their own availability current</li>
+        <li><span class="icon">✓</span> Filter by certification, state and available date</li>
+        <li><span class="icon">✓</span> Ask for an introduction; they decide what to share</li>
+        <li><span class="icon">✓</span> A flat monthly price, nothing per hire</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PROFESSIONALS -->
+  <section id="professionals" style="scroll-margin-top: 24px;">
+    <div class="side-head"><div class="eyebrow">For safety professionals</div><span class="tag">Free, always</span></div>
+    <h2>Get found for the work you want. Keep your number to yourself.</h2>
+
+    <p>If you work contract, per diem, travel, or you're open to the right full-time role, Safety Bench puts you in front of the firms looking for someone like you. You don't pay for it, ever, and nobody takes a cut of your rate.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>Fill in one form</h3>
+        <p>Your headline, years in EHS, certifications (CSP, CHST, OHST, OSHA 500 and 510, competent person cards, HAZWOPER and more), the industries and specialties you work in, your home city and state, whether you travel, when you're next free, and the hourly rate range you work for. No password to make up.</p>
+      </li>
+      <li>
+        <h3>Confirm from your email</h3>
+        <p>We email you a private link. Your listing stays hidden until you open it once. After that, the same link is how you update your availability, hide your listing for a while, or remove it.</p>
+      </li>
+      <li>
+        <h3>Say yes or no to introductions</h3>
+        <p>When a firm wants to talk, you get an email with who they are, the role, and their note. Accept and pick what to share: email, phone, LinkedIn, or any mix. Decline with a note if you like, or block that firm altogether.</p>
+      </li>
+    </ol>
+
+    <div class="mock" aria-label="Example of what a firm sees before an introduction">
+      <div class="mock-top">
+        <div>
+          <div class="mock-name">Dana R.</div>
+          <div class="mock-head">Site safety manager, heavy civil and data centers</div>
+        </div>
+        <span class="mock-avail">Available Nov 3</span>
+      </div>
+      <div class="chips">
+        <span class="chip">CHST</span><span class="chip">OSHA 500</span><span class="chip">Competent Person: Excavation</span><span class="chip">First Aid/CPR</span>
+      </div>
+      <div class="mock-rows">
+        <div><span>Based in</span>Milwaukee, WI · will travel</div>
+        <div><span>Open to</span>Contract, travel</div>
+        <div><span>Rate</span>About $60 to $80/hr</div>
+        <div class="locked"><span>Contact</span>Shared if Dana accepts</div>
+      </div>
+      <p class="mock-foot">Certifications are self-reported. Rate is shown as a range around Dana's own, not the exact number.</p>
+    </div>
+    <p class="mock-caption">An example listing, as a hiring firm sees it before an introduction.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- HIRING -->
+  <section id="hiring" style="scroll-margin-top: 24px;">
+    <div class="side-head"><div class="eyebrow">For hiring firms</div><span class="tag">In-house EHS and consulting firms</span></div>
+    <h2>Search people who said they want the work.</h2>
+
+    <p>Safety Bench is for anyone who has to put a qualified safety person on a site: <strong>in-house EHS teams</strong> at contractors and manufacturers covering a project or a leave, and <strong>safety consulting and staffing firms</strong> filling client requests. It sits inside Safely Track, next to the scheduling you already do there.</p>
+
+    <ol class="steps">
+      <li>
+        <h3>Search the bench</h3>
+        <p>Filter by certification (a listing has to hold every one you pick), state, industry, contract or full-time, and who is available by a date you choose, or search the text of headlines and summaries. You see first name and last initial, credentials, experience, home base, travel, availability, and a rate range.</p>
+      </li>
+      <li>
+        <h3>Ask for an introduction</h3>
+        <p>Add the role and a short note. The professional gets it by email and decides. If they accept, their name and the contact details they chose show up on your Introductions tab, and you take it from there. No middleman, no fee on the hire.</p>
+      </li>
+      <li>
+        <h3>Text your own roster first</h3>
+        <p>Sometimes the right person already works for you. A staffing call-out texts the people on your own roster, "who's free Nov 3 to Dec 12 in Milwaukee?", and each person answers yes, no or partly from a link, no login. Answers land in Assignments, sorted with the yeses on top and an Assign button beside each one.</p>
+      </li>
+    </ol>
+
+    <div class="sms" aria-label="Example staffing call-out text">
+      <div class="bubble">Ridgeline Safety: Site Safety Rep needed, Lakeshore plant expansion, Nov 3 to Dec 12. Are you available? <a href="#hiring">Answer here</a> Reply STOP to opt out.</div>
+      <div class="answers" aria-hidden="true"><span>Yes</span><span>Partly</span><span>No</span></div>
+    </div>
+    <p class="mock-caption">An example call-out. It goes by text, with email as the fallback, and only to your own people.</p>
+
+    <div class="diff-box" data-reveal>
+      <div class="eyebrow">What it isn't</div>
+      <h3>Not a staffing agency, and not a job board.</h3>
+      <p>We don't recruit, screen or place anyone, and we don't take a percentage of the hire or the rate. Safety Bench makes the introduction. The firm and the professional agree the terms between themselves. Certifications are self-reported today, so check them before you place someone, the same as you would with a resume.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PRICING -->
+  <section id="pricing" style="scroll-margin-top: 24px;">
+    <div class="eyebrow">Pricing</div>
+    <h2>Free to list. One flat price to hire. No placement fees.</h2>
+
+    <div class="pricing">
+      <div class="plan">
+        <div class="for">Safety professionals</div>
+        <div class="price">Free</div>
+        <div class="per">Always. No cut of your rate.</div>
+        <ul>
+          <li>Your listing, managed from an emailed link</li>
+          <li>Accept, decline or block any firm</li>
+          <li>Choose which contact details to share</li>
+          <li>Hide or remove your listing at any time</li>
+        </ul>
+      </div>
+      <div class="plan firm">
+        <div class="for">Hiring firms</div>
+        <div class="price">Monthly</div>
+        <div class="per">A flat subscription. <a href="#waitlist" data-side="hiring" style="color: var(--orange);">Talk to us about pricing</a>.</div>
+        <ul>
+          <li>Search the bench and request introductions</li>
+          <li>Staffing call-outs to your own roster by text</li>
+          <li>Answers flow into Assignments</li>
+          <li>No placement fees, no per-hire charge</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Questions</div>
+  <h2>What people ask first.</h2>
+
+  <div class="faq">
+    <details>
+      <summary>What does Safety Bench cost?</summary>
+      <p>Listing yourself as a safety professional is free, and stays free. Hiring firms pay a flat monthly subscription. There are no placement fees and no cut of anyone's rate.</p>
+    </details>
+    <details>
+      <summary>Do I need an account or a password to list myself?</summary>
+      <p>No. You fill in one form and we email you a private link. That link is how you edit your listing, hide it, or remove it. Your listing stays hidden until you open the link once.</p>
+    </details>
+    <details>
+      <summary>What can a firm see about me before I accept?</summary>
+      <p>Your first name and last initial, your headline and summary, certifications, industries, specializations, city and state, whether you travel, when you're available, and a range around your hourly rate rather than the rate itself. Your email, phone, LinkedIn and full last name stay private until you accept, and you choose which of those to share.</p>
+    </details>
+    <details>
+      <summary>Are certifications verified?</summary>
+      <p>Not yet. Certifications on Safety Bench are self-reported, and firms see them labelled that way. Check credentials before you place someone, the same as you would with any resume.</p>
+    </details>
+    <details>
+      <summary>Who gets a staffing call-out text?</summary>
+      <p>Only the people on your own roster in Safely Track. Call-outs go by text, with email as the fallback, and nobody on the wider bench is contacted. Anyone can reply STOP.</p>
+    </details>
+    <details>
+      <summary>We're an in-house EHS team, not a staffing firm. Is this for us?</summary>
+      <p>Yes. If you cover projects, turnarounds or leaves with contract safety people, you're hiring from the same pool consulting firms are. The subscription and the tools are the same.</p>
+    </details>
+  </div>
+
+  <!-- WAITLIST -->
+  <div class="waitlist" id="waitlist" data-reveal>
+    <h3>Join the Safety Bench waitlist.</h3>
+    <p class="lede">Safety Bench opens soon. Tell us which side you're on and we'll email you when it does. Hiring firms: Thomas will follow up about pricing.</p>
+
+    <div id="wl-form-container">
+      <form id="wl-form" onsubmit="handleWaitlistSubmit(event)">
+        <div class="side-pick" role="radiogroup" aria-label="I am">
+          <label><input type="radio" name="side" value="Safety professional" checked> I'm a safety professional</label>
+          <label><input type="radio" name="side" value="Hiring firm" id="wl-side-hiring"> I'm hiring</label>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label for="wl-name">Name</label>
+            <input type="text" id="wl-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="wl-email">Email</label>
+            <input type="email" id="wl-email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field" id="wl-company-field" hidden>
+            <label for="wl-company">Company</label>
+            <input type="text" id="wl-company" name="company" placeholder="Company name">
+          </div>
+          <div class="field">
+            <label for="wl-location">City and state</label>
+            <input type="text" id="wl-location" name="location" placeholder="Milwaukee, WI">
+          </div>
+          <div class="field wide">
+            <label for="wl-detail" id="wl-detail-label">Main certifications</label>
+            <input type="text" id="wl-detail" name="detail" placeholder="CHST, OSHA 500">
+          </div>
+        </div>
+        <button type="submit" class="btn-form" id="wl-submit">Join the waitlist →</button>
+        <p class="form-note" id="wl-note">Free for safety professionals. We'll only email you about Safety Bench.</p>
+        <p class="form-error" id="wl-error" role="alert">That didn't send. Please try again, or email thomas@usesafelytrack.com.</p>
+      </form>
+    </div>
+    <div class="form-success" id="wl-success">
+      <div class="success-icon">✓</div>
+      <h4>You're on the list.</h4>
+      <p id="wl-success-note">We'll email you the day Safety Bench opens.</p>
+    </div>
+
+    <p class="cta-sub">Want to talk it through first? <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book thirty minutes with Thomas</a>, or read <a href="blog/introducing-safety-bench.html">why we built Safety Bench</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Safely<span>Track</span></a>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="safety-consultant-software.html">Consultant Software</a></li>
+      <li><a href="safety-training-software.html">Safety Training Courses</a></li>
+      <li><a href="loss-control.html">Loss Control</a></li>
+      <li><a href="ehs-inhouse.html">In-House EHS</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Safely Track LLC</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* Waitlist: the form asks different questions for each side.
+   Links with data-side="hiring" (and ?side=hiring) open it on the hiring side.
+   At launch, point the professional side at the live join page instead. */
+(function () {
+  var form = document.getElementById('wl-form');
+  var company = document.getElementById('wl-company-field');
+  var companyInput = document.getElementById('wl-company');
+  var detailLabel = document.getElementById('wl-detail-label');
+  var detail = document.getElementById('wl-detail');
+  var note = document.getElementById('wl-note');
+
+  function apply() {
+    var hiring = form.querySelector('input[name="side"]:checked').value === 'Hiring firm';
+    company.hidden = !hiring;
+    companyInput.required = hiring;
+    detailLabel.textContent = hiring ? 'Who you need to staff' : 'Main certifications';
+    detail.placeholder = hiring ? 'Contract site safety reps for a plant shutdown' : 'CHST, OSHA 500';
+    note.textContent = hiring
+      ? 'Thomas replies within one business day about pricing and timing.'
+      : "Free for safety professionals. We'll only email you about Safety Bench.";
+  }
+
+  function pickHiring() {
+    document.getElementById('wl-side-hiring').checked = true;
+    apply();
+  }
+
+  form.querySelectorAll('input[name="side"]').forEach(function (r) { r.addEventListener('change', apply); });
+  document.querySelectorAll('[data-side="hiring"]').forEach(function (a) { a.addEventListener('click', pickHiring); });
+  if (/[?&]side=hiring(&|$)/.test(window.location.search)) pickHiring();
+  apply();
+})();
+
+async function handleWaitlistSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn = document.getElementById('wl-submit');
+  var err = document.getElementById('wl-error');
+  var originalLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  err.style.display = 'none';
+  var data = new FormData(form);
+  var side = data.get('side');
+  data.append('_subject', 'Safety Bench waitlist: ' + side);
+  try {
+    var res = await fetch('https://formsubmit.co/ajax/thomas@usesafelytrack.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    if (!res.ok) throw new Error('send failed');
+    document.getElementById('wl-form-container').style.display = 'none';
+    if (side === 'Hiring firm') {
+      document.getElementById('wl-success-note').textContent = 'Thomas will be in touch within one business day about pricing and timing.';
+    }
+    document.getElementById('wl-success').style.display = 'block';
+    if (window.gtag) window.gtag('event', 'generate_lead', { interest: 'Safety Bench: ' + side });
+  } catch (ex) {
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+    err.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>
