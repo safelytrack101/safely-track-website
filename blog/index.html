@@ -5,13 +5,13 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <script src="../assets/analytics.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog: Field Notes for Safety Professionals | Safely Track</title>
-<meta name="description" content="Practical field notes on hazard observations, proof of fix, client reporting, loss control, and safety training, written for people who walk sites for a living.">
+<title>The Closeout: The Safely Track Blog</title>
+<meta name="description" content="Practical notes on hazard observations, proof of fix, client reporting, loss control, and safety training, written for people who walk sites for a living.">
 <link rel="canonical" href="https://usesafelytrack.com/blog/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Safely Track">
-<meta property="og:title" content="Field notes for safety professionals | Safely Track Blog">
+<meta property="og:title" content="The Closeout: the Safely Track blog">
 <meta property="og:description" content="Practical notes on observations, proof of fix, client reporting, and training, for people who walk sites for a living.">
 <meta property="og:url" content="https://usesafelytrack.com/blog/">
 <meta property="og:image" content="https://usesafelytrack.com/assets/social-share.jpg">
@@ -36,31 +36,51 @@
   </div>
 </nav>
 
-<header class="blog-head">
-  <div class="kicker">Blog</div>
-  <h1>Field notes for safety professionals</h1>
-  <p>How to document what you see on site, get it fixed, and prove it, written for people who walk sites for a living.</p>
+<header class="blog-head band">
+  <div class="blog-head-inner">
+    <div>
+      <div class="pill">The Safely Track blog</div>
+      <h1>The <em>Closeout</em></h1>
+      <p>Most safety programs are good at finding hazards. This is about the other half: getting them fixed, proving it, and reporting it so the client acts.</p>
+    </div>
+    <ol class="lifecycle" aria-label="What we write about">
+      <li>Found<span>Observations a stranger could act on</span></li>
+      <li>Assigned<span>An owner and a due date, every time</span></li>
+      <li>Fixed<span>Proof from the people who did the work</span></li>
+      <li>Verified<span>A record that holds up months later</span></li>
+    </ol>
+  </div>
 </header>
 
 <div class="filters" role="group" aria-label="Filter by topic">
   <button type="button" aria-pressed="true" data-filter="all">All</button>
-  <button type="button" aria-pressed="false" data-filter="Field reports">Field reports</button>
-  <button type="button" aria-pressed="false" data-filter="Corrective actions">Corrective actions</button>
-  <button type="button" aria-pressed="false" data-filter="Client deliverables">Client deliverables</button>
-  <button type="button" aria-pressed="false" data-filter="Buying guides">Buying guides</button>
-  <button type="button" aria-pressed="false" data-filter="Training">Training</button>
+  <button type="button" aria-pressed="false" data-filter="Field reports" data-cat="Field reports"><i></i>Field reports</button>
+  <button type="button" aria-pressed="false" data-filter="Corrective actions" data-cat="Corrective actions"><i></i>Corrective actions</button>
+  <button type="button" aria-pressed="false" data-filter="Client deliverables" data-cat="Client deliverables"><i></i>Client deliverables</button>
+  <button type="button" aria-pressed="false" data-filter="Buying guides" data-cat="Buying guides"><i></i>Buying guides</button>
+  <button type="button" aria-pressed="false" data-filter="Training" data-cat="Training"><i></i>Training</button>
 </div>
 
 <main class="grid" id="posts">
 
-  <a class="card" href="proof-of-fix.html" data-cat="Corrective actions">
-    <div class="meta"><span class="cat">Corrective actions</span><span class="mins">7 min</span></div>
-    <h2>What Counts as Proof of Fix (and What Doesn't)</h2>
-    <p>"Fixed, per the super" is not a record. Here is what a closed corrective action should contain, who should supply it, and how to collect it from people who will never log into your software.</p>
-    <span class="read">Read</span>
+  <a class="card featured" href="proof-of-fix.html" data-cat="Corrective actions">
+    <div>
+      <div class="no"><span>Featured</span></div>
+      <div class="meta"><span class="cat">Corrective actions</span><span class="mins">7 min</span></div>
+      <h2>What Counts as Proof of Fix (and What Doesn't)</h2>
+      <p>"Fixed, per the super" is not a record. Here is what a closed corrective action should contain, who should supply it, and how to collect it from people who will never log into your software.</p>
+      <span class="read">Read the post</span>
+    </div>
+    <div class="ticket" aria-hidden="true">
+      <div class="ticket-row"><b>Unprotected edge, L3 east</b><span class="status verified">Verified</span></div>
+      <div class="ticket-row"><span>Fixed by J. Ortiz, framing</span><span>2:14 PM</span></div>
+      <div class="ticket-row"><b>Ladder not secured, L2</b><span class="status fixed">Fixed</span></div>
+      <div class="ticket-row"><b>Blocked egress, dock 4</b><span class="status open">Open</span></div>
+    </div>
   </a>
 
   <a class="card" href="hazard-observations-that-get-fixed.html" data-cat="Field reports">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Field reports</span><span class="mins">6 min</span></div>
     <h2>How to Write a Hazard Observation Someone Will Actually Fix</h2>
     <p>Most observations die because they describe a condition instead of asking for an action. A five-part structure that turns a photo and a note into a task with an owner and a date.</p>
@@ -68,6 +88,7 @@
   </a>
 
   <a class="card" href="weekly-client-safety-summary.html" data-cat="Client deliverables">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Client deliverables</span><span class="mins">6 min</span></div>
     <h2>The Weekly Client Safety Summary: What to Put In, What to Leave Out</h2>
     <p>Clients do not read twelve-page visit reports. They read one page that tells them what changed. What a consultant's weekly summary should cover, in what order, and how to stop writing it by hand.</p>
@@ -75,6 +96,7 @@
   </a>
 
   <a class="card" href="../safetyculture-alternative.html" data-cat="Buying guides">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Buying guides</span><span class="mins">8 min</span></div>
     <h2>Why Not SafetyCulture / Mitti? An Honest Look for Consulting Firms</h2>
     <p>Where the inspection app fits a consulting firm, where it doesn't, and what to use for the parts it leaves to Word, email, and spreadsheets.</p>
@@ -82,6 +104,7 @@
   </a>
 
   <a class="card" href="../safety-consultant-software.html" data-cat="Buying guides">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Buying guides</span><span class="mins">7 min</span></div>
     <h2>Safety Consultant Software: What an EHS Firm Actually Needs</h2>
     <p>Field reports in each client's format, weekly summaries, proof of fix, consultant credentials, hours and billing, and a portal under your brand.</p>
@@ -89,6 +112,7 @@
   </a>
 
   <a class="card" href="../whitepaper.html" data-cat="Corrective actions">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Research</span><span class="mins">10 min</span></div>
     <h2>The Closeout Gap: Where Safety Documentation Breaks Down</h2>
     <p>Based on 150+ interviews with safety directors and EHS consultants: why records fail between observation and proof of fix, and what it costs.</p>
@@ -96,6 +120,7 @@
   </a>
 
   <a class="card" href="../case-study-gc.html" data-cat="Corrective actions">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Case study</span><span class="mins">5 min</span></div>
     <h2>How a Regional General Contractor Closed the Closeout Gap</h2>
     <p>No new logins for field crews, automated proof of fix, and records that hold up in an audit.</p>
@@ -103,6 +128,7 @@
   </a>
 
   <a class="card" href="../safety-training-software.html" data-cat="Training">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Training</span><span class="mins">6 min</span></div>
     <h2>Turn the PowerPoint Safety Training You Already Teach Into Narrated Courses</h2>
     <p>Upload a deck, get a narrated self-paced module you can edit, send for client review, and publish with completion tracking.</p>
@@ -110,6 +136,7 @@
   </a>
 
   <a class="card" href="../loss-control.html" data-cat="Client deliverables">
+    <div class="no"></div>
     <div class="meta"><span class="cat">Loss control</span><span class="mins">6 min</span></div>
     <h2>Your Site Visit Photos Are Already the Loss Control Report</h2>
     <p>Turning the photos trapped on a phone into branded, underwriter-ready reports, with less desk time and more defensible records.</p>
