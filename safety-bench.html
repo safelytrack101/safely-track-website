@@ -482,7 +482,7 @@ footer { background: var(--dark); padding: 32px 24px; }
   <!-- WAITLIST -->
   <div class="waitlist" id="waitlist" data-reveal>
     <h3>Join the Safety Bench waitlist.</h3>
-    <p class="lede">Safety Bench opens soon. Tell us which side you're on and we'll email you when it does. Hiring firms: Thomas will follow up about pricing.</p>
+    <p class="lede">Safety Bench opens soon. Tell us which side you're on and we'll email you when it does. Hiring firms: the Safely Track team will follow up about pricing.</p>
 
     <div id="wl-form-container">
       <form id="wl-form" onsubmit="handleWaitlistSubmit(event)">
@@ -523,7 +523,7 @@ footer { background: var(--dark); padding: 32px 24px; }
       <p id="wl-success-note">We'll email you the day Safety Bench opens.</p>
     </div>
 
-    <p class="cta-sub">Want to talk it through first? <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book thirty minutes with Thomas</a>, or read <a href="blog/introducing-safety-bench.html">why we built Safety Bench</a>.</p>
+    <p class="cta-sub">Want to talk it through first? <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book thirty minutes with the Safely Track team</a>, or read <a href="blog/introducing-safety-bench.html">why we built Safety Bench</a>.</p>
   </div>
 
 </div>
@@ -617,7 +617,7 @@ footer { background: var(--dark); padding: 32px 24px; }
     detailLabel.textContent = hiring ? 'Who you need to staff' : 'Main certifications';
     detail.placeholder = hiring ? 'Contract site safety reps for a plant shutdown' : 'CHST, OSHA 500';
     note.textContent = hiring
-      ? 'Thomas replies within one business day about pricing and timing.'
+      ? 'The Safely Track team replies within one business day about pricing and timing.'
       : "Free for safety professionals. We'll only email you about Safety Bench.";
   }
 
@@ -653,7 +653,7 @@ async function handleWaitlistSubmit(e) {
     if (!res.ok) throw new Error('send failed');
     document.getElementById('wl-form-container').style.display = 'none';
     if (side === 'Hiring firm') {
-      document.getElementById('wl-success-note').textContent = 'Thomas will be in touch within one business day about pricing and timing.';
+      document.getElementById('wl-success-note').textContent = 'The Safely Track team will be in touch within one business day about pricing and timing.';
     }
     document.getElementById('wl-success').style.display = 'block';
     if (window.gtag) window.gtag('event', 'generate_lead', { interest: 'Safety Bench: ' + side });

@@ -2696,7 +2696,7 @@ footer {
     </form>
     <p class="hero-capture-msg" id="hero-capture-msg" role="status" aria-live="polite"></p>
 
-    <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? Thomas replies within one business day.</p>
+    <p class="cta-band-note">Prefer email, or ready to <a href="get-started.html?interest=pilot#pilot">start a pilot</a>? The Safely Track team replies within one business day.</p>
   </div>
 </section>
 
@@ -3366,7 +3366,7 @@ footer {
 </script>
 
 <script>
-/* Hero email capture. The lead is emailed to Thomas first (same formsubmit.co
+/* Hero email capture. The lead is emailed to the team first (same formsubmit.co
    inbox as the pilot and quiz forms), so it is kept even if the visitor
    never books. Then Calendly opens over the page with the email prefilled.
    If the Calendly widget cannot load, the booking page opens in a new tab. */
@@ -3451,7 +3451,7 @@ footer {
       /* Prefill rides on the iframe URL, Calendly's documented form; the
          prefill option alone did not reach the booking page. */
       Calendly.initPopupWidget({ url: CALENDLY + '?email=' + encodeURIComponent(email) });
-      say('Thanks. Pick a time that works, or Thomas will reach out within one business day.');
+      say('Thanks. Pick a time that works, or the Safely Track team will reach out within one business day.');
     }).catch(function () {
       window.open(CALENDLY, '_blank', 'noopener');
       say('Thanks. Your calendar opened in a new tab. <a href="' + CALENDLY + '" target="_blank" rel="noopener">Open it again</a>.');
