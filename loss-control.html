@@ -632,23 +632,52 @@ footer {
   flex-shrink: 0;
 }
 </style>
+<link rel="stylesheet" href="assets/site-chrome.css">
+<script src="assets/site-chrome.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#how-it-works">How It Works</a></li>
-      <li><a href="safety-consultant-software.html">For Consultants</a></li>
-      <li><a href="ehs-inhouse.html">For In-House Safety</a></li>
-      <li><a href="loss-control.html">For Loss Control</a></li>
-      <li><a href="get-started.html?interest=pilot#pilot" class="nav-cta-alt">Book a Pilot</a></li>
-      <li><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="nav-cta">Book a Demo</a></li>
-    </ul>
-  </div>
-</nav>
+<!-- site-header:start -->
+<header class="st-header">
+  <nav class="st-nav" aria-label="Main">
+    <a href="index.html" class="st-logo"><img src="assets/logo.jpg" alt="Safely Track" width="112" height="36"></a>
+    <button class="st-menu-btn" type="button" aria-expanded="false" aria-controls="st-menu"><span class="st-menu-icon" aria-hidden="true"></span><span class="st-sr">Menu</span></button>
+    <div class="st-menu" id="st-menu">
+      <div class="st-dd">
+        <button class="st-dd-btn" type="button" aria-expanded="false">Who it's for</button>
+        <div class="st-dd-panel">
+          <a href="safety-consultant-software.html"><strong>Safety consulting firms</strong><span>Field reports to invoices, across every client</span></a>
+          <a href="loss-control.html"><strong>Loss control teams</strong><span>Underwriter-ready survey reports</span></a>
+          <a href="ehs-inhouse.html"><strong>In-house safety teams</strong><span>Construction, manufacturing, food and beverage</span></a>
+          <a href="safetyculture-alternative-retail-hospitality-facilities.html"><strong>Multi-site teams</strong><span>Retail, hospitality and facilities</span></a>
+        </div>
+      </div>
+      <div class="st-dd">
+        <button class="st-dd-btn" type="button" aria-expanded="false">Product</button>
+        <div class="st-dd-panel">
+          <a href="index.html#how-it-works"><strong>How it works</strong><span>The ten steps a consulting firm runs</span></a>
+          <a href="index.html#ai-reports"><strong>Field reports and proof of fix</strong><span>Photos and voice in, client report out</span></a>
+          <a href="safety-training-software.html"><strong>Safety training courses</strong><span>Turn your decks into narrated courses</span></a>
+          <a href="safety-bench.html"><strong>Safety Bench</strong><span>Find available safety professionals</span></a>
+        </div>
+      </div>
+      <div class="st-dd">
+        <button class="st-dd-btn" type="button" aria-expanded="false">Compare</button>
+        <div class="st-dd-panel">
+          <a href="safetyculture-alternative.html"><strong>SafetyCulture</strong><span>For safety consulting firms</span></a>
+          <a href="sitedocs-alternative.html"><strong>SiteDocs</strong><span>For safety consulting firms</span></a>
+          <a href="safety-reports-alternative.html"><strong>Safety Reports</strong><span>For consulting firms and loss control</span></a>
+        </div>
+      </div>
+      <a class="st-link" href="blog/">Blog</a>
+      <a class="st-link st-login" href="https://app.usesafelytrack.com">Log in</a>
+      <a class="st-cta st-cta-menu" href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+    <a class="st-cta st-cta-bar" href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book a demo</a>
+  </nav>
+</header>
+<!-- site-header:end -->
 
 <!-- HERO -->
 <section class="hero">
@@ -929,24 +958,58 @@ footer {
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <a href="index.html" class="footer-logo"><img src="assets/logo.jpg" alt="Safely Track"></a>
-    <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#how-it-works">How It Works</a></li>
-      <li><a href="index.html#who">Who It's For</a></li>
-      <li><a href="quiz.html">AI Quiz</a></li>
-      <li><a href="whitepaper.html">Free Guide</a></li>
-      <li><a href="safety-training-software.html">Safety Training Courses</a></li>
-      <li><a href="safety-consultant-software.html">Consultant Software</a></li>
-      <li><a href="ehs-inhouse.html">In-House Safety</a></li>
-      <li><a href="safety-reports-alternative.html">Safety Reports Alternative</a></li>
-      <li><a href="get-started.html">Request Access</a></li>
-    </ul>
-    <span class="footer-copy">© 2026 Safely Track LLC</span>
+<!-- site-footer:start -->
+<footer class="st-footer">
+  <div class="st-footer-inner">
+    <div class="st-footer-brand">
+      <a href="index.html" class="st-footer-logo">Safely<span>Track</span></a>
+      <p>Software for safety consulting firms, loss control teams and in-house safety teams.</p>
+      <a class="st-cta" href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+    <div class="st-footer-col">
+      <h2>Who it's for</h2>
+      <ul>
+        <li><a href="safety-consultant-software.html">Safety consulting firms</a></li>
+        <li><a href="loss-control.html">Loss control teams</a></li>
+        <li><a href="ehs-inhouse.html">In-house safety teams</a></li>
+        <li><a href="safetyculture-alternative-retail-hospitality-facilities.html">Multi-site teams</a></li>
+      </ul>
+    </div>
+    <div class="st-footer-col">
+      <h2>Product</h2>
+      <ul>
+        <li><a href="index.html#how-it-works">How it works</a></li>
+        <li><a href="index.html#ai-reports">Field reports</a></li>
+        <li><a href="safety-training-software.html">Safety training courses</a></li>
+        <li><a href="safety-bench.html">Safety Bench</a></li>
+      </ul>
+    </div>
+    <div class="st-footer-col">
+      <h2>Compare</h2>
+      <ul>
+        <li><a href="safetyculture-alternative.html">SafetyCulture alternative</a></li>
+        <li><a href="sitedocs-alternative.html">SiteDocs alternative</a></li>
+        <li><a href="safety-reports-alternative.html">Safety Reports alternative</a></li>
+      </ul>
+    </div>
+    <div class="st-footer-col">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="resources/ehs-guide/">Free guides</a></li>
+        <li><a href="whitepaper.html">The Closeout Gap report</a></li>
+        <li><a href="quiz.html">AI readiness quiz</a></li>
+        <li><a href="get-started.html?interest=pilot#pilot">Start a pilot</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="st-footer-base">
+    <a href="mailto:thomas@usesafelytrack.com">thomas@usesafelytrack.com</a>
+    <a href="https://app.usesafelytrack.com">Log in</a>
+    <span>© 2026 Safely Track LLC</span>
   </div>
 </footer>
+<!-- site-footer:end -->
 
 <script>
 (function () {
