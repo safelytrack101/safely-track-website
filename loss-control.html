@@ -613,6 +613,9 @@ footer {
   .feature-row { grid-template-columns: 1fr; gap: 36px; padding: 56px 0; }
   .feature-row.reverse .feature-content { order: 0; }
   .feature-row.reverse .feature-visual { order: 0; }
+  /* Phones: the link row can't fit beside the logo. Keep only Book a Demo. */
+  .nav-links li { display: none; }
+  .nav-links li:last-child { display: block; }
 }
 @media (max-width: 540px) {
   .stats-bar-inner { grid-template-columns: 1fr; }
