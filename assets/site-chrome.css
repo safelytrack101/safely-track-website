@@ -23,7 +23,7 @@
   display: flex; align-items: center; gap: 8px;
 }
 .st-logo { display: flex; align-items: center; margin-right: auto; }
-.st-logo img { height: 36px; width: auto; display: block; }
+.st-logo img { height: 30px; width: auto; display: block; }
 .st-menu { display: flex; align-items: center; gap: 4px; }
 .st-dd { position: relative; }
 .st-dd-btn, .st-link {
@@ -46,6 +46,8 @@
   box-shadow: 0 12px 32px rgba(26,26,46,0.12);
 }
 .st-dd.is-open .st-dd-panel { display: block; }
+/* An invisible strip over the gap, so moving the mouse from the button down to the panel never leaves the menu. */
+.st-dd-panel::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
 .st-dd-panel a { display: block; padding: 10px 12px; border-radius: 6px; text-decoration: none; }
 .st-dd-panel a:hover, .st-dd-panel a:focus-visible { background: #FEF3EC; }
 .st-dd-panel strong { display: block; font-size: 15px; font-weight: 600; color: var(--st-text); }
@@ -65,7 +67,7 @@
 /* Phone and small tablet: one row with logo, demo button and menu button. */
 @media (max-width: 960px) {
   .st-header .st-nav { padding: 0 16px; height: 60px; }
-  .st-logo img { height: 32px; }
+  .st-logo img { height: 24px; }
   .st-cta-bar { display: inline-block; padding: 8px 16px; font-size: 14px; }
   .st-menu-btn {
     display: inline-flex; align-items: center; justify-content: center;
@@ -108,8 +110,8 @@
   max-width: 1180px; margin: 0 auto;
   display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 40px;
 }
-.st-footer-logo { font-weight: 700; font-size: 20px; color: #fff; text-decoration: none; }
-.st-footer-logo span { color: var(--st-orange); }
+.st-footer-logo { display: inline-block; }
+.st-footer-logo img { height: 30px; width: auto; display: block; }
 .st-footer-brand p { font-size: 15px; color: #C9CDE4; margin: 12px 0 20px; max-width: 280px; line-height: 1.6; }
 .st-footer h2 {
   font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;

@@ -28,8 +28,19 @@
       closeAll(dd);
       setDd(dd, open);
     });
-    dd.addEventListener('mouseenter', function () { if (hoverable.matches) { closeAll(dd); setDd(dd, true); } });
-    dd.addEventListener('mouseleave', function () { if (hoverable.matches) setDd(dd, false); });
+    // Close after a short pause rather than instantly, so a mouse that strays
+    // off the panel for a moment (or cuts a corner on the way down) keeps it open.
+    var closeTimer;
+    dd.addEventListener('mouseenter', function () {
+      if (!hoverable.matches) return;
+      clearTimeout(closeTimer);
+      closeAll(dd);
+      setDd(dd, true);
+    });
+    dd.addEventListener('mouseleave', function () {
+      if (!hoverable.matches) return;
+      closeTimer = setTimeout(function () { setDd(dd, false); }, 300);
+    });
   });
 
   menuBtn.addEventListener('click', function () {
