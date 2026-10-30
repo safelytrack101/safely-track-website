@@ -35,6 +35,7 @@ const PAGES = [
   ['blog/ai-in-ehs-assp-survey.html', 'monthly', '0.7'],
   ['blog/ai-human-oversight-ehs-policy.html', 'monthly', '0.7'],
   ['blog/ehs-data-quality-before-ai.html', 'monthly', '0.7'],
+  ['blog/safety-as-a-performance-driver.html', 'monthly', '0.7'],
 ];
 
 const fileFor = p => (p === '' || p.endsWith('/')) ? p + 'index.html' : p;
