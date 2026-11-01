@@ -123,6 +123,39 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
 .promise p { font-size: 13.5px; margin-bottom: 0; line-height: 1.6; }
 .credit { font-size: 14px; color: var(--text); background: var(--off-white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 14px 18px; margin: 0 0 8px; }
 
+/* WEEKLY BOARD: a sample of the one-page week a firm gets each Monday */
+.board { margin: 28px 0 8px; border: 1px solid var(--gray-2); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-md); background: var(--white); }
+.board-bar { background: var(--dark); color: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; flex-wrap: wrap; }
+.board-title { font-weight: 700; font-size: 14px; }
+.board-title span { font-weight: 400; color: #A8AED0; margin-left: 8px; }
+.board-meta { display: flex; align-items: center; gap: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; color: #A8AED0; letter-spacing: 0.02em; }
+.board-ok { display: inline-flex; align-items: center; gap: 6px; background: rgba(46,160,90,0.18); color: #7FD9A2; border-radius: var(--radius-pill); padding: 2px 10px; font-family: var(--font-body); font-weight: 600; letter-spacing: 0; }
+.board-ok::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #3FBF74; }
+.board-row { display: grid; grid-template-columns: 26px 120px 150px 1fr auto; align-items: center; gap: 14px; padding: 14px 20px; border-top: 1px solid var(--gray-2); font-size: 14px; }
+.board-bar + .board-row { border-top: none; }
+.board-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.is-done .board-icon { background: #E6F6EC; color: #23874B; }
+.is-moving .board-icon { background: #FFF4DB; color: #A86B00; }
+.is-you .board-icon { background: var(--orange-light); color: var(--orange); }
+.is-queued .board-icon { background: var(--gray-1); color: var(--text-muted); }
+.board-job { font-weight: 600; color: var(--dark); }
+.board-status { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--text); }
+.board-detail { color: var(--text-muted); font-size: 13px; line-height: 1.45; }
+.board-progress { display: block; height: 4px; background: var(--gray-1); border-radius: 2px; margin-top: 6px; max-width: 120px; overflow: hidden; }
+.board-progress i { display: block; height: 100%; width: 93%; background: #E0A21B; }
+.chip { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border-radius: var(--radius-pill); padding: 3px 10px; white-space: nowrap; }
+.is-done .chip { background: #E6F6EC; color: #23874B; }
+.is-moving .chip { background: #FFF4DB; color: #A86B00; }
+.is-you .chip { background: var(--orange); color: var(--white); }
+.is-queued .chip { background: var(--gray-1); color: var(--text-muted); }
+.board-you { background: var(--orange-light); border-top: 1px solid #F6D3BC; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.board-you p { margin: 0; font-size: 14px; color: var(--dark); }
+.board-you p strong { color: var(--orange); }
+.board-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.board-btn { font-size: 13px; font-weight: 600; border-radius: var(--radius-pill); padding: 7px 14px; background: var(--white); color: var(--dark); border: 1px solid #F0C9AE; }
+.board-btn.primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+.board-caption { font-size: 12.5px; color: var(--text-muted); text-align: center; margin: 12px 0 0; }
+
 /* WHO DOES WHAT */
 .fit { width: 100%; border-collapse: collapse; margin: 24px 0 8px; font-size: 14px; }
 .fit th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 10px 0; border-bottom: 2px solid var(--gray-2); }
@@ -169,6 +202,12 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
 
 @media (max-width: 640px) {
   .promises { grid-template-columns: 1fr; }
+  .board-row { grid-template-columns: 26px 1fr auto; gap: 4px 12px; padding: 14px 16px; }
+  .board-icon { grid-row: span 3; align-self: start; }
+  .board-job { grid-column: 2; }
+  .board-row .chip { grid-column: 3; grid-row: 1; }
+  .board-status, .board-detail { grid-column: 2 / 4; }
+  .board-bar, .board-you { padding: 14px 16px; }
   .stats-inner { flex-wrap: wrap; gap: 20px; }
   .stat { flex-basis: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; }
   .stat:last-child { border-bottom: none; }
@@ -264,6 +303,72 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
   <p>Each new placement adds a line to the schedule, a timesheet to chase, a credential to watch, and a line on an invoice. Most firms run all of it on one office manager, or on the principal's evenings. When that person is out, moves on, or the firm grows, it backs up: a late invoice, a consultant sent to a site on an expired card, a Friday schedule that goes out on Sunday.</p>
 
   <p>Software helps, but somebody still has to run it every week. That is the part we take on.</p>
+
+  <hr class="divider">
+
+  <div class="eyebrow">What you see</div>
+  <h2>Your week, on one page.</h2>
+
+  <p>Every Monday you get the week at a glance: what went out, what is still moving, and the short list that needs you. Everything else is already handled.</p>
+
+  <figure class="board" aria-label="Sample week for a safety consulting firm">
+    <div class="board-bar">
+      <div class="board-title">Week of November 2 <span>Harborline Safety Group</span></div>
+      <div class="board-meta"><span class="board-ok">On track</span> Updated Mon 11:52 am</div>
+    </div>
+
+    <div class="board-row is-done">
+      <span class="board-icon" aria-hidden="true">✓</span>
+      <span class="board-job">Schedule</span>
+      <span class="board-status">Sent Fri 2:41 pm</span>
+      <span class="board-detail">44 people on 19 sites, out to your team and 12 client contacts</span>
+      <span class="chip">Done</span>
+    </div>
+    <div class="board-row is-moving">
+      <span class="board-icon" aria-hidden="true">◔</span>
+      <span class="board-job">Timesheets</span>
+      <span class="board-status">41 of 44 in<span class="board-progress" aria-hidden="true"><i></i></span></span>
+      <span class="board-detail">3 reminded by text at 9:00 am. Due at noon.</span>
+      <span class="chip">In progress</span>
+    </div>
+    <div class="board-row is-you">
+      <span class="board-icon" aria-hidden="true">!</span>
+      <span class="board-job">Invoices</span>
+      <span class="board-status">12 drafted</span>
+      <span class="board-detail">Checked against 9 contracts. Ready for your approval before they go out on the 3rd.</span>
+      <span class="chip">Needs you</span>
+    </div>
+    <div class="board-row is-done">
+      <span class="board-icon" aria-hidden="true">✓</span>
+      <span class="board-job">Credentials</span>
+      <span class="board-status">1 lapsing in 18 days</span>
+      <span class="board-detail">OSHA 30 renewal booked for M. Ortiz on Nov 14, before the card runs out.</span>
+      <span class="chip">Done</span>
+    </div>
+    <div class="board-row is-you">
+      <span class="board-icon" aria-hidden="true">!</span>
+      <span class="board-job">Proposals</span>
+      <span class="board-status">1 draft ready</span>
+      <span class="board-detail">Riverside Medical Center, monthly site audits, built from your rate card.</span>
+      <span class="chip">Needs you</span>
+    </div>
+    <div class="board-row is-queued">
+      <span class="board-icon" aria-hidden="true">→</span>
+      <span class="board-job">Renewals</span>
+      <span class="board-status">2 due in 60 days</span>
+      <span class="board-detail">Northgate Logistics and Bay Street Terminal. On your list for pricing next week.</span>
+      <span class="chip">Raised</span>
+    </div>
+
+    <div class="board-you">
+      <p><strong>Needs you: 2 items.</strong> About ten minutes.</p>
+      <div class="board-actions" aria-hidden="true">
+        <span class="board-btn primary">Approve invoices</span>
+        <span class="board-btn">Review proposal</span>
+      </div>
+    </div>
+  </figure>
+  <p class="board-caption">A sample week. Firm, clients and people are made up.</p>
 
   <hr class="divider">
 
