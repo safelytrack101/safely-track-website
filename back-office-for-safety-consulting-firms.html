@@ -46,16 +46,6 @@
     },
     {
       "@type": "Question",
-      "name": "How big does a firm need to be?",
-      "acceptedAnswer": { "@type": "Answer", "text": "It is built for firms with roughly 10 to 100 people in the field. Below that, the software on its own is usually enough." }
-    },
-    {
-      "@type": "Question",
-      "name": "How is it priced?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Founding-firm pricing starts at $2,000 a month. The fee scales with the number of people you schedule in the field, not with logins, and it includes the software. A one-time onboarding fee covers loading and cleaning your data. The first 90 days are month to month." }
-    },
-    {
-      "@type": "Question",
       "name": "Can we leave?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. The first 90 days are month to month, and your data is yours to export at any time." }
     }
@@ -70,14 +60,9 @@
   "serviceType": "Back office operations for safety consulting firms",
   "url": "https://usesafelytrack.com/back-office-for-safety-consulting-firms.html",
   "description": "Safely Track runs the weekly office work of a safety consulting firm: the field schedule, timesheet collection, invoicing from approved hours, credential tracking, proposal drafts and contract renewals, each on a fixed deadline.",
-  "audience": { "@type": "BusinessAudience", "audienceType": "Safety and EHS consulting firms with 10 to 100 field staff" },
+  "audience": { "@type": "BusinessAudience", "audienceType": "Safety and EHS consulting firms" },
   "areaServed": "US",
-  "provider": { "@type": "Organization", "name": "Safely Track", "url": "https://usesafelytrack.com/" },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": 2000, "priceCurrency": "USD", "unitText": "month" }
-  }
+  "provider": { "@type": "Organization", "name": "Safely Track", "url": "https://usesafelytrack.com/" }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -161,15 +146,6 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
 .steps .week { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
 .steps p { margin: 2px 0 0; font-size: 14.5px; }
 
-/* PRICE */
-.price-card { border: 2px solid var(--orange); border-radius: var(--radius); padding: 32px; margin: 24px 0 8px; box-shadow: var(--shadow-sm); }
-.price-card .from { font-size: 13px; color: var(--text-muted); }
-.price-card .amount { font-family: var(--font-display); font-size: 44px; color: var(--dark); line-height: 1.1; }
-.price-card .amount span { font-family: var(--font-body); font-size: 16px; color: var(--text-muted); }
-.price-card .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-.price-card ul { list-style: none; margin: 20px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-.price-card li { font-size: 14px; color: var(--text); display: flex; gap: 8px; }
-.price-card li::before { content: "\2713"; color: var(--orange); font-weight: 700; }
 
 /* FAQ */
 .faq details { border-bottom: 1px solid var(--gray-2); padding: 16px 0; }
@@ -192,12 +168,11 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
 @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
 
 @media (max-width: 640px) {
-  .promises, .price-card ul { grid-template-columns: 1fr; }
+  .promises { grid-template-columns: 1fr; }
   .stats-inner { flex-wrap: wrap; gap: 20px; }
   .stat { flex-basis: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; }
   .stat:last-child { border-bottom: none; }
   .cta-block { padding: 36px 22px; }
-  .price-card { padding: 24px 20px; }
   .fit td { width: auto; }
 }
 </style>
@@ -256,7 +231,7 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
   <div class="hero-inner">
     <div class="hero-label">Back office for safety consulting firms</div>
     <h1>Your office, run for you.</h1>
-    <p class="hero-sub"><strong>Schedule out Friday. Timesheets in Monday. Invoices out by the 3rd.</strong> For safety consulting firms with 10 to 100 people in the field. We run the weekly office work; you approve the exceptions.</p>
+    <p class="hero-sub"><strong>Schedule out Friday. Timesheets in Monday. Invoices out by the 3rd.</strong> For safety consulting firms that place people in the field. We run the weekly office work; you approve the exceptions.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary">Book a 30-minute call</a>
     <p class="hero-note">We are taking on three founding firms. Bring last week's schedule or a timesheet, in whatever shape it is in.</p>
   </div>
@@ -353,7 +328,6 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
     <div class="eyebrow">How it works</div>
     <h3>Software you don't have to run, with a person behind it.</h3>
     <p>The work runs on Safely Track, the same system consulting firms use for field reports, staffing, timesheets and billing. A named coordinator on our side runs your calendar each week and is the person you call.</p>
-    <p>As more of the work runs on its own, your price does not go up for it. You are paying for the deadlines, not for the hours behind them.</p>
   </div>
 
   <hr class="divider">
@@ -367,27 +341,6 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
     <li><span class="week">Weeks 3 and 4</span><p>We run each week alongside whoever does it today, so nothing is dropped while you check our work.</p></li>
     <li><span class="week">Week 5 on</span><p>We run it. You get the exceptions, and the deadlines above apply.</p></li>
   </ol>
-
-  <!-- PRICE: one block, easy to remove. Also update the pricing FAQ, the
-       FAQPage "How is it priced?" answer and the Service "offers" in the head. -->
-  <hr class="divider">
-
-  <div class="eyebrow">Pricing</div>
-  <h2>One monthly fee, priced on the work.</h2>
-
-  <div class="price-card" data-reveal>
-    <span class="tag">Founding-firm pricing</span>
-    <div class="from">From</div>
-    <div class="amount">$2,000 <span>a month</span></div>
-    <p style="margin: 12px 0 0;">The fee scales with the number of people you schedule in the field, not with logins. A one-time onboarding fee covers loading and cleaning your data.</p>
-    <ul>
-      <li>Software included</li>
-      <li>No per-user fees</li>
-      <li>10% credit on any missed deadline</li>
-      <li>Month to month for the first 90 days</li>
-    </ul>
-  </div>
-  <!-- /PRICE -->
 
   <hr class="divider">
 
@@ -414,14 +367,6 @@ hr.divider { border: none; border-top: 1px solid var(--gray-2); margin: 48px 0; 
     <details>
       <summary>Do we have to use Safely Track for field reports too?</summary>
       <p>No. The back office runs on its own. If you want field reports, proof of fix or client portals later, it is the same system: see <a href="safety-consultant-software.html">software for safety consulting firms</a>.</p>
-    </details>
-    <details>
-      <summary>How big does a firm need to be?</summary>
-      <p>It is built for firms with roughly 10 to 100 people in the field. Below that, the <a href="safety-consultant-software.html">software on its own</a> is usually enough.</p>
-    </details>
-    <details>
-      <summary>How is it priced?</summary>
-      <p>Founding-firm pricing starts at $2,000 a month. The fee scales with the number of people you schedule in the field, not with logins, and it includes the software. A one-time onboarding fee covers loading and cleaning your data. The first 90 days are month to month.</p>
     </details>
     <details>
       <summary>Can we leave?</summary>
