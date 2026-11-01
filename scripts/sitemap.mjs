@@ -20,6 +20,7 @@ const PAGES = [
   ['spotrisk-alternative.html', 'monthly', '0.8'],
   ['safety-training-software.html', 'monthly', '0.8'],
   ['safety-bench.html', 'monthly', '0.8'],
+  ['back-office-for-safety-consulting-firms.html', 'monthly', '0.8'],
   ['get-started.html', 'monthly', '0.6'],
   ['quiz.html', 'monthly', '0.6'],
   ['whitepaper.html', 'monthly', '0.6'],
