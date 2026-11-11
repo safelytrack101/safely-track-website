@@ -1486,23 +1486,31 @@ footer {
 
     <div class="pilot-form-wrap">
       <div id="pilot-form-container">
-        <form id="pilot-form" onsubmit="handlePilotSubmit(event)">
+        <!-- action/method let the form work without JavaScript (AI agents that
+             fetch pages, text browsers). With JavaScript, handlePilotSubmit
+             posts the same fields over fetch and the hidden _next is ignored. -->
+        <form id="pilot-form" action="https://formsubmit.co/thomas@usesafelytrack.com" method="POST" onsubmit="handlePilotSubmit(event)">
+          <input type="hidden" name="_subject" value="New Lead, Safely Track Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://usesafelytrack.com/get-started.html?sent=1#pilot">
+          <input type="hidden" name="ai_source" class="st-ai-source" value="">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <div class="pilot-form-grid">
             <div class="form-field-light">
               <label for="pf-name">Name</label>
-              <input type="text" id="pf-name" name="name" placeholder="Your name" required>
+              <input type="text" id="pf-name" name="name" autocomplete="name" placeholder="Your name" required>
             </div>
             <div class="form-field-light">
               <label for="pf-company">Company</label>
-              <input type="text" id="pf-company" name="company" placeholder="Company name" required>
+              <input type="text" id="pf-company" name="company" autocomplete="organization" placeholder="Company name" required>
             </div>
             <div class="form-field-light">
               <label for="pf-email">Work Email</label>
-              <input type="email" id="pf-email" name="email" placeholder="you@company.com" required>
+              <input type="email" id="pf-email" name="email" autocomplete="email" placeholder="you@company.com" required>
             </div>
             <div class="form-field-light">
               <label for="pf-phone">Phone</label>
-              <input type="tel" id="pf-phone" name="phone" placeholder="(555) 000-0000">
+              <input type="tel" id="pf-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000">
             </div>
           </div>
           <div class="pilot-intent">
@@ -1605,6 +1613,13 @@ footer {
   set('pilot-success-note', 'The Safely Track team will be in touch within one business day to scope your pilot.');
 })();
 
+/* Back from a no-JavaScript submit (formsubmit.co redirects to ?sent=1). */
+(function () {
+  if (!/[?&]sent=1(&|$)/.test(window.location.search)) return;
+  document.getElementById('pilot-form-container').style.display = 'none';
+  document.getElementById('pilot-form-success').style.display = 'block';
+})();
+
 async function handlePilotSubmit(e) {
   e.preventDefault();
   const form = e.target;
@@ -1613,7 +1628,7 @@ async function handlePilotSubmit(e) {
   btn.textContent = 'Sending…';
   btn.disabled = true;
   const data = new FormData(form);
-  data.append('_subject', 'New Lead, Safely Track Website');
+  data.delete('_next');
   try {
     const res = await fetch('https://formsubmit.co/ajax/thomas@usesafelytrack.com', {
       method: 'POST',

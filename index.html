@@ -42,7 +42,31 @@
   "url": "https://usesafelytrack.com",
   "description": "Operating system for EHS consulting firms, covering pipeline and proposals, client credentialing and COI tracking, staffing and certifications, field observations and client-ready reports, corrective-action closeout, timesheets and invoicing, a white-label client portal, and firm-level utilization and margin reporting.",
   "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "EHS and safety consulting software",
   "operatingSystem": "Web",
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Safety and EHS consulting firms, loss control teams, in-house safety teams"
+  },
+  "featureList": [
+    "Pipeline scoring from public safety signals such as OSHA inspections",
+    "Proposals built from the firm's own services and rates",
+    "Client credentialing and COI tracking",
+    "Consultant credentials, expiries and staffing",
+    "Photos and a voice memo from the site walk drafted into a report in under 60 seconds",
+    "Reports in each client's own template",
+    "Corrective actions closed by text or email link with photo proof, no login for the fix owner",
+    "Toolbox talks, courses and quizzes in English, Spanish and Portuguese",
+    "Timesheets filled in from the schedule, with signatures",
+    "Invoicing against each contract",
+    "White-label client portal",
+    "Firm-level utilization and margin reporting"
+  ],
+  "potentialAction": {
+    "@type": "ScheduleAction",
+    "name": "Book a demo on your own reports",
+    "target": "https://calendly.com/thomas-usesafelytrack/30min"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Safely Track",
@@ -118,6 +142,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Pricing is not published. It is quoted per firm after a demo on your own reports. There is no free plan, but you can start with a pilot on a live client."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Book a 30-minute demo at https://calendly.com/thomas-usesafelytrack/30min, or leave your name, company and work email at https://usesafelytrack.com/get-started.html and the Safely Track team replies within one business day. Bring a recent report or inspection template; it is used for the demo only and not saved. From there you can start a pilot on a live client."
       }
     }
   ]
@@ -2680,6 +2712,10 @@ footer {
         <summary>How is it priced?</summary>
         <p>Pricing is not published. It is quoted per firm after a demo on your own reports. There is no free plan, but you can start with a pilot on a live client.</p>
       </details>
+      <details>
+        <summary>How do we get started?</summary>
+        <p><a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener">Book a 30-minute demo</a>, or <a href="get-started.html">leave your name, company and work email</a> and the Safely Track team replies within one business day. Bring a recent report or inspection template; it is used for the demo only and not saved. From there you can start a pilot on a live client.</p>
+      </details>
     </div>
     <p class="faq-more">Comparing tools? Start with <a href="software-for-safety-consulting-firms.html">SafetyCulture + monday.com vs one system for safety consulting firms</a>, or see how Safely Track works as a <a href="safetyculture-alternative.html">SafetyCulture alternative for safety consulting firms</a>, a <a href="sitedocs-alternative.html">SiteDocs alternative</a> or a <a href="safety-reports-alternative.html">Safety Reports alternative</a>.</p>
   </div>
@@ -2693,7 +2729,15 @@ footer {
     <p class="cta-band-sub">Bring a recent report, an inspection template, or whatever spreadsheet your admin is holding the firm together with. In thirty minutes we'll walk the ten steps against how your firm actually runs them, find the one leaking the most time, and tell you what it would take to fix that one first. We work from your documents, not a deck, and we use them for the demo only: we don't save a copy, and they stay confidential.</p>
     <a href="https://calendly.com/thomas-usesafelytrack/30min" target="_blank" rel="noopener" class="btn-primary cta-band-btn">Book a demo to see your own reports at work</a>
     <p class="cta-band-or">Rather we reach out? Leave your work email.</p>
-    <form class="hero-capture" id="hero-capture" novalidate>
+    <!-- action/method are the no-JavaScript path (AI agents that fetch pages):
+         the lead is emailed, then the visitor lands on the booking page. The
+         script below sends its own fields, so these hidden ones only serve that path. -->
+    <form class="hero-capture" id="hero-capture" action="https://formsubmit.co/thomas@usesafelytrack.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="New demo request, Safely Track website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://calendly.com/thomas-usesafelytrack/30min">
+      <input type="hidden" name="source" value="Homepage hero (no JavaScript)">
       <label for="hero-email" class="sr-only">Work email</label>
       <input id="hero-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="What's your work email?" required>
       <input type="text" name="_honey" class="hero-capture-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -3442,6 +3486,7 @@ footer {
     data.append('email', email);
     data.append('source', 'Homepage hero');
     data.append('page', location.href);
+    if (window.stAiSource) data.append('ai_source', window.stAiSource);
     data.append('_subject', 'New demo request, Safely Track website: ' + email);
     data.append('_template', 'table');
     data.append('_captcha', 'false');
