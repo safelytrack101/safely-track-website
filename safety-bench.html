@@ -490,6 +490,7 @@ footer { background: var(--dark); padding: 32px 24px; }
 
     <div id="wl-form-container">
       <form id="wl-form" onsubmit="handleWaitlistSubmit(event)">
+        <input type="hidden" name="ai_source" class="st-ai-source" value="">
         <div class="side-pick" role="radiogroup" aria-label="I am">
           <label><input type="radio" name="side" value="Safety professional" checked> I'm a safety professional</label>
           <label><input type="radio" name="side" value="Hiring firm" id="wl-side-hiring"> I'm hiring</label>

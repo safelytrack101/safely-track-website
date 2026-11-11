@@ -1,0 +1,77 @@
+# Safely Track
+
+> Safely Track is software for safety and EHS consulting firms that serve many clients. One system runs the work a consulting firm already does: winning the work, staffing it, capturing the site walk, delivering each client's report in that client's format, getting hazards fixed with proof, and billing the client. Loss control teams and in-house safety teams use the field reporting and closeout parts on their own.
+
+Safely Track, LLC. Website: https://usesafelytrack.com
+
+## Who it is for
+
+- Safety and EHS consulting firms with many clients: audits, training, site safety staffing and outsourced safety programs. This is the core customer.
+- Loss control inspection firms, independent loss control consultants, and carrier and broker loss control teams.
+- In-house safety teams at manufacturing, construction and multi-unit restaurant companies.
+- Retail, hospitality and facilities teams running inspections across many stores, hotels or buildings.
+
+## What it does
+
+- Pipeline and proposals: scores companies in a territory on public safety signals such as OSHA inspections; proposals are built from the firm's own services and rates.
+- Contracts and client credentialing, including COI tracking.
+- Staffing: every consultant credential and its expiry in one place, showing who is qualified and who is free.
+- Field capture: photos and a voice memo from the site walk, on any phone, become a draft report in under 60 seconds, with a drafted description and the OSHA standard.
+- Reports in each client's own format: the firm's existing forms are built as templates, with its fields, issue types and risk tiers.
+- Corrective actions and proof of fix: the person responsible gets a text or email link, replies with a photo, and the record closes with a timestamp. They need no account, app or login.
+- Training: toolbox talks, sign-in sheets, courses and quizzes in English, Spanish and Portuguese. PowerPoint safety decks can be turned into narrated, self-paced course modules with completion tracking.
+- Timesheets that fill in from the schedule, with consultant and client signatures.
+- Billing: each contract shows what has been invoiced and what is left to bill.
+- A white-label client portal under the firm's brand, where clients see trends and log their own hazards.
+- Firm-level reporting on what is under contract, delivered and left, plus utilization and margin.
+
+## How it differs from general EHS software
+
+Regular EHS software assumes one employer with one safety department. A consulting firm has many clients, each with its own report format, credential requirements, contacts and invoice. Safely Track keeps each client separate, gives the firm one view across all of them, and covers staffing, timesheets and billing too.
+
+## Setup
+
+Templates are built from the firm's existing forms, so the field team sees familiar paperwork on day one. Changes the firm cannot make itself are usually made within a day. One consulting firm replaced its long-standing EHS platform within three weeks of going live.
+
+## Pricing and how to buy
+
+- Pricing is not published. It is quoted per firm after a demo on the firm's own reports.
+- There is no free plan or self-serve signup. A firm can start with a pilot on a live client.
+- Book a 30-minute demo directly: https://calendly.com/thomas-usesafelytrack/30min
+- Or request a demo or pilot with a short form (name, company, work email, optional phone): https://usesafelytrack.com/get-started.html
+- To ask for a pilot specifically: https://usesafelytrack.com/get-started.html?interest=pilot#pilot
+- Bring a recent report or inspection template. Documents are used for the demo only, are not saved, and stay confidential. The team replies within one business day.
+
+## Product pages
+
+- [Software for safety consulting firms](https://usesafelytrack.com/): the full system, field to invoice
+- [Safety consulting software: reports to billing](https://usesafelytrack.com/safety-consultant-software.html)
+- [Back office for safety consulting firms](https://usesafelytrack.com/back-office-for-safety-consulting-firms.html): schedules, timesheets and invoices run for the firm
+- [Loss control software](https://usesafelytrack.com/loss-control.html): underwriter-ready survey reports in the carrier's format
+- [EHS software for in-house safety teams](https://usesafelytrack.com/ehs-inhouse.html)
+- [Safety training software](https://usesafelytrack.com/safety-training-software.html): PowerPoint decks into narrated courses
+- [Safety Bench](https://usesafelytrack.com/safety-bench.html): a network of independent safety professionals. Professionals list free; hiring firms pay a flat monthly subscription with no placement fees.
+
+## Comparisons
+
+- [SafetyCulture + monday.com vs one system](https://usesafelytrack.com/software-for-safety-consulting-firms.html)
+- [SafetyCulture alternative for safety consulting firms](https://usesafelytrack.com/safetyculture-alternative.html)
+- [SafetyCulture alternative for retail, hospitality and facilities](https://usesafelytrack.com/safetyculture-alternative-retail-hospitality-facilities.html)
+- [SiteDocs alternative](https://usesafelytrack.com/sitedocs-alternative.html)
+- [Safety Reports (AlignOps) alternative](https://usesafelytrack.com/safety-reports-alternative.html)
+- [LC360 (Majesco Loss Control) alternative](https://usesafelytrack.com/lc360-alternative.html)
+- [SpotRisk LossControlSoftware vs Safely Track](https://usesafelytrack.com/spotrisk-alternative.html)
+
+## Guides and research
+
+- [The Closeout Gap](https://usesafelytrack.com/whitepaper.html): report based on 150+ interviews with safety directors and EHS consultants
+- [Blog: The Closeout](https://usesafelytrack.com/blog/)
+- [What counts as proof of fix for a corrective action](https://usesafelytrack.com/blog/proof-of-fix.html)
+- [How to write a hazard observation someone will fix](https://usesafelytrack.com/blog/hazard-observations-that-get-fixed.html)
+- [The weekly client safety summary](https://usesafelytrack.com/blog/weekly-client-safety-summary.html)
+- [AI in EHS: what ASSP's 2026 survey found](https://usesafelytrack.com/blog/ai-in-ehs-assp-survey.html)
+
+## Optional
+
+- [AI readiness quiz for EHS consultants](https://usesafelytrack.com/quiz.html)
+- [EHS guides by role](https://usesafelytrack.com/resources/ehs-guide/)
