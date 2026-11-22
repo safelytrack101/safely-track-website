@@ -24,6 +24,7 @@ const PAGES = [
   ['get-started.html', 'monthly', '0.6'],
   ['quiz.html', 'monthly', '0.6'],
   ['whitepaper.html', 'monthly', '0.6'],
+  ['privacy', 'yearly', '0.3'],
   ['resources/ehs-guide/', 'monthly', '0.5'],
   ['resources/ehs-guide/consultant/', 'monthly', '0.5'],
   ['resources/ehs-guide/loss-control/', 'monthly', '0.5'],
@@ -39,7 +40,8 @@ const PAGES = [
   ['blog/safety-as-a-performance-driver.html', 'monthly', '0.7'],
 ];
 
-const fileFor = p => (p === '' || p.endsWith('/')) ? p + 'index.html' : p;
+// Extensionless paths (e.g. 'privacy') are served by GitHub Pages from <path>.html.
+const fileFor = p => (p === '' || p.endsWith('/')) ? p + 'index.html' : /\.[a-z]+$/.test(p) ? p : p + '.html';
 const lastmod = p => {
   const d = execFileSync('git', ['log', '-1', '--format=%cs', '--', fileFor(p)], { encoding: 'utf8' }).trim();
   if (!d) throw new Error('no git history for ' + fileFor(p) + ' (commit it first)');
